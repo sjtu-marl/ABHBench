@@ -1,0 +1,4 @@
+rpyc==6.0.0
+psutil==5.9.8
+pymem==1.14.0
+pywin32==305

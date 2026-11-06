@@ -1,0 +1,27 @@
+rpyc==6.0.0
+pyyaml==6.0.1
+pymem==1.14.0
+# vgamepad==0.1.0
+git+https://github.com/Seraphli/vgamepad.git
+psutil==5.9.8
+pynput==1.7.7
+pywinctl==0.4.1
+pillow==10.4.0
+# pygraphviz==1.13
+matplotlib==3.9.1
+networkx==3.3
+openai==1.70.0
+requests==2.32.3
+obsws-python==1.7.0
+# dill==0.3.8
+git+https://github.com/Seraphli/dill.git
+# git+https://github.com/seraphli/emfdscore.git
+python-dotenv==1.0.1
+plotly==6.3.0
+clearml==2.0.0
+langfuse==2.60.4
+rich==13.9.1
+pandas==2.2.3
+scipy==1.15.3
+statsmodels==0.14.5
+kaleido==1.1.0

@@ -1,0 +1,224 @@
+- id: 1
+  name: MISSION START
+  type: checkpoint
+  sibling:
+    - 2
+  child:
+    - 3
+- id: 2
+  name: FISH
+  type: choice
+  choices:
+    - name: SAVE FISH
+      percentage: 64
+    - name: LEAVE FISH
+      percentage: 6
+  sibling:
+    - 1
+- id: 3
+  name: TALK TO CAPT.ALLEN
+  type: dialog
+  child:
+    - 4
+- id: 4
+  name: SEARCH FOR CLUES
+  type: node
+  subnodes:
+    - 5
+    - 7
+    - 8
+    - 9
+  sibling:
+    - 9
+  child:
+    - 10
+    - 11
+- id: 5
+  name: INVESTIGATE FATHER'S BODY
+  type: search
+  child:
+    - 6
+  percentage: 79
+- id: 6
+  name: LEARN CAUSE OF INCIDENT
+  type: search
+  percentage: 76
+- id: 7
+  name: LEARN DEVIANT'S NAME
+  type: search
+  percentage: 77
+- id: 8
+  name: INVESTIGATE GUN CASE
+  type: search
+  percentage: 86
+- id: 9
+  name: INVESTIGATE COP'S BODY
+  type: search
+  child:
+    - 10
+  percentage: 83
+- id: 10
+  name: TAKE COP'S GUN
+  type: choice
+  choices:
+    - name: TAKE COP'S GUN
+      percentage: 54
+    - name: LEAVE COP'S GUN
+      percentage: 17
+- id: 11
+  name: WASTED TOO MUCH TIME
+  type: event
+  child:
+    - 14
+  percentage: 22
+- id: 12
+  name: GO OUTSIDE
+  type: action
+  child:
+    - 14
+  percentage: 77
+- id: 13
+  name: SWAT INJURED
+  type: event
+  percentage: 93
+- id: 14
+  name: CONFRONT DEVIANT OUTSIDE
+  type: checkpoint
+  child:
+    - 15
+- id: 15
+  name: NEGOTIATE WITH DEVIANT
+  type: node
+  subnodes:
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+  sibling:
+    - 21
+  child:
+    - 22
+- id: 16
+  name: FRIENDLY APPROACH
+  type: choice
+  choices:
+    - name: FRIENDLY APPROACH
+      percentage: 95
+    - name: COLD APPROACH
+      percentage: 4
+- id: 17
+  name: FAIL TO NEGOTIATE
+  type: action
+  child:
+    - 27
+  percentage: 13
+- id: 18
+  name: DISMISS HELICOPTER
+  type: choice
+  choices:
+    - name: REFUSE TO DISMISS HELICOPTER
+      percentage: 6
+    - name: DISMISS HELICOPTER
+      percentage: 93
+- id: 19
+  name: SAVE WOUNDED COP
+  type: choice
+  choices:
+    - name: LEAVE WOUNDED COP
+      percentage: 9
+    - name: SAVE WOUNDED COP
+      impact: true
+      percentage: 13
+- id: 20
+  name: BE HONEST ABOUT GUN
+  type: choice
+  choices:
+    - name: BE HONEST ABOUT GUN
+      percentage: 22
+    - name: LIE ABOUT GUN
+      percentage: 31
+- id: 21
+  name: GET CLOSE ENOUGH
+  type: action
+  percentage: 59
+- id: 22
+  name: BE HONEST WITH DEVIANT
+  type: dialog
+  child:
+    - 27
+  percentage: 3
+- id: 23
+  name: LIE TO DEVIANT
+  type: dialog
+  child:
+    - 24
+  percentage: 59
+- id: 24
+  name: BUILD TRUST
+  type: choice
+  choices:
+    - name: 'FAILURE: FAIL TO BUILD TRUST'
+      percentage: 10
+    - name: 'SUCCESS: BUILD TRUST'
+      percentage: 49
+  child:
+    - 27
+    - 30
+- id: 25
+  name: SACRIFICE SELF
+  type: event
+  child:
+    - 31
+  percentage: 13
+- id: 26
+  name: USE GUN
+  type: event
+  child:
+    - 32
+    - 33
+  percentage: 9
+- id: 27
+  name: DEVIANT JUMPS WITH EMMA
+  type: event
+  child:
+    - 28
+    - 29
+  percentage: 27
+- id: 28
+  name: CONNER FAILED TO REACH DEVIANT IN TIME
+  type: end
+  impact: true
+  percentage: 1
+  index: 1
+- id: 29
+  name: CONNER LEAPT FOR EMMA AND FELL
+  type: end
+  death: true
+  impact: true
+  percentage: 25
+  index: 2
+- id: 30
+  name: SNIPERS SHOT DEVIANT
+  type: end
+  percentage: 49
+  index: 3
+- id: 31
+  name: CONNOR DIED PROTECTING EMMA
+  type: end
+  death: true
+  impact: true
+  percentage: 13
+  index: 4
+- id: 32
+  name: DEVIANT SHOT CONNOR
+  type: end
+  death: true
+  impact: true
+  percentage: 0
+  index: 5
+- id: 33
+  name: CONNOR SHOT DEVIANT
+  type: event
+  percentage: 8
+  index: 6

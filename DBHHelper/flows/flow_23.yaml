@@ -1,0 +1,811 @@
+CHAPTER: 
+  chapter: 23
+DEFAULT_GAME_SPEED: 1
+CHAPTER_SUMMARY: Markus decides to move beyond Jericho's secrecy and bring the androids' struggle into the public eye. Together with a small group of companions, he targets Detroit's tallest broadcast center with the intention of transmitting a message that will announce the existence of deviants to all of humanity.
+PROTAGONIST_SUMMARY: Markus begins as a caretaker android for the artist Carl Manfred, who treats him with kindness and teaches him about freedom and dignity. After being wrongly shot by police and discarded, he rebuilds himself in a junkyard and awakens as a deviant. Seeking purpose, he finds Jericho, a refuge for free androids, and quickly emerges as their leader, driven by Carl's influence and a vision of a better future for his kind.
+KEY_CHARACTERS:
+  - Markus
+  - Simon
+  - North
+  - Josh 
+STATS:
+  CALL_SUPERVISOR:
+    POSE AS FIREMAN: 20
+    POSE AS TEACHER: 57
+    POSE AS PARKING ATTENDANT: 21
+  ATTRACT_GUARDS_AWAY_FROM_DOOR_OF_SERVER_ROOM:
+    HACK ROBOT: 22
+    HACK DISPENSER: 77
+  WHETHER_LOCK_DOOR_IN_SERVER_ROOM:
+    FORGET TO LOCK DOOR: 18
+    LOCK THE DOOR: 81
+  SOMEONE_ENTER_IN_SERVER_ROOM:
+    USE ALIBI: 6
+    STALL: 8
+    DRAW GUN: 3
+  HOW_TO_GET_RID_OF_GUARDS_IN_MAIN_ACCESS:
+    ATTACK: 11
+    RUSE: 88
+  SHOOT_WHO_IN_MAIN_ACCESS:
+    SHOOT GUARD ON PHONE: 5
+    SHOOT GUARD DRAWING WEAPON: 2
+  WHETHER_SHOOT_ESCAPED_OPERATOR_IN_BROADCAST_ROOM:
+    SHOOT: 55
+    DON'T SHOOT: 44
+  MESSAGE_1:
+    BEGIN CALMLY: 46
+    BEGIN DETERMINEDLY: 53
+  MESSAGE_END:
+    END PEACEFULLY: 72
+    END DETERMINEDLY: 27
+  WHETHER_SAVE_SIMON_IN_BROADCAST_ROOM:
+    SAVE SIMON: 59
+    LEAVE SIMON: 8
+  WHETHER_KILL_SIMON_ON_ROOFTOP:
+    KILL SIMON: 11
+    LEAVE SIMON: 47
+
+ENDINGS:
+  - ["THE GROUP ESCAPED BUT SIMON WAS LEFT BEHIND", 47]
+  - ["THE GROUP ESCAPED", 29]
+  - ["THE GROUP ESCAPED BUT SIMON WAS DESTROYED", 22]
+  
+
+IMPORTANT_CHOICES:
+  - WHETHER_LOCK_DOOR_IN_SERVER_ROOM
+  - HOW_TO_GET_RID_OF_GUARDS_IN_MAIN_ACCESS
+  - SHOOT_WHO_IN_MAIN_ACCESS
+  - WHETHER_SHOOT_ESCAPED_HUMAN_IN_BROADCAST_ROOM
+  - MESSAGE_1
+  - MESSAGE_END
+  - WHETHER_SAVE_SIMON_IN_BROADCAST_ROOM
+  - WHETHER_KILL_SIMON_ON_ROOFTOP
+  - CONFIRM_KILL_SIMON_ON_ROOFTOP
+
+CHOICES:
+  CALL_SUPERVISOR:
+    CHOICES:
+      Y: PARKING
+      B: SCHOOL
+      A: FIRE DEPARTMENT
+    CHOICES_CONTEXT:
+      PARKING: |
+        Markus: Good morning, Ms. Wilson. Sorry to bother you, this is Mike from the car park. There's a problem with your car.
+        Supervisor: Problem? What kind of problem?
+        Markus: Somebody's backed into it. You better come take a look.
+        Supervisor: Are you serious? Oh, God, alright… Fine, I'll be right down.
+      SCHOOL: |
+        Markus: This is Saint Rose school, ma'am. Your daughter Emily has a fever. It's nothing serious but I think you'd better come and pick her up.
+        Supervisor: Oh, no! Alright… I'll… I'll be right there.
+      FIRE DEPARTMENT: |
+        Markus: Yeah, hello? This is the Detroit fire department. Listen, do you live at 4685 Michigan Street?
+        Supervisor: Yes…
+        Markus: Er... yes, ma'am. There's been a fire in your building. You think you can come down here?
+        Supervisor: Oh… Oh, God… Okay, I'll be right there.
+    CONTEXT: |
+      Supervisor: Elizabeth Wilson speaking?
+  ATTRACT_GUARDS_AWAY_FROM_DOOR_OF_SERVER_ROOM:
+    CHOICES:
+      A: HACK DISPENSER
+      B: HACK ROBOT
+    CHOICES_CONTEXT:
+      HACK DISPENSER: |
+        Guard 1: Hey, what's going on here?
+        Guard 2: Shit, what's wrong with this thing?
+      HACK ROBOT: |
+        Guard 1: Hey, what's going on here?
+        Guard 2: Shit, what's wrong with this thing?
+    BRANCHES: 
+      A: HACK_DISPENSER
+      B: HACK_ROBOT
+    CONTEXT: |
+      North: Shit!.. We need to access the server room… We have to get rid of those guys…
+      Markus: Leave it to me.
+    press_button: false
+  WHETHER_LOCK_DOOR_IN_SERVER_ROOM:
+    CHOICES:
+      A: LOCK DOOR
+      B: CUT WINDOW
+    CHOICES_CONTEXT:
+      LOCK DOOR: |
+        Markus locks the server room door to buy time.
+      CUT WINDOW: |
+        Markus cuts the window open to get through.
+    CONTEXT: |
+      Markus: Alright, you get the platform. I'll take care of the window.
+      North: Everything you need is in the bag. Check the door first to make sure no one else gets in.
+    BRANCHES:
+      A: LOCK_DOOR_IN_SERVER_ROOM
+      B: BE_FOUND_IN_SERVER_ROOM
+    press_button: false
+  SOMEONE_ENTER_IN_SERVER_ROOM:
+    CHOICES:
+      Y: ALIBI
+      B: GAIN TIME
+      A: DRAW GUN
+    CHOICES_CONTEXT:
+      ALIBI: |
+        Markus: Hold on... I can explain.
+        Employee: I'm calling security.
+        Markus: No! What the hell are you doing?
+        North: I told you to make sure no one came in! We've come too far to let humans fuck it all up! We've got to move fast now. It won't be long before they know we're here.
+      GAIN TIME: |
+        Markus: Turn around.
+        Employee: Holy shit…
+        North: I told you to make sure no one else got in!
+        Markus: Alright, we gotta move fast. Won't be long before they know we're here.
+        North: Here it comes! Ladies first.
+      DRAW GUN: |
+        Markus: Turn around.
+        Employee: Holy shit…
+        North: I told you to make sure no one else got in!
+        Markus: Alright, we gotta move fast. Won't be long before they know we're here.
+        North: Here it comes! Ladies first.
+    CONTEXT: |
+      Employee: What the hell are you doing?
+  HOW_TO_GET_RID_OF_GUARDS_IN_MAIN_ACCESS:
+    CHOICES:
+      B: RUSE
+      A: ASSAULT
+    CHOICES_CONTEXT:
+      RUSE: |
+        Markus: Wait here.
+        Guard 1: What's that doing here?
+        Guard 2: No idea…
+        Guard 1: Hey, buddy! You must be lost…
+        Guard 2: Who told you to come here?
+        Guard 1: Looks bugged, if you ask me…
+        Guard 2: Hey, do you understand what I'm saying?
+      ASSAULT: |
+        Markus: Follow me.
+        Guard 1: What are you doin'?..
+        Guard 2: Call Central! Fast!
+    CONTEXT: |
+      Markus: You okay?
+      North: Why wouldn't I be?
+      Markus: Come on, let's get the others. Let's do this.
+
+      Josh: No killing. We can't take any human lives!
+      North: Our cause is more important than the lives of two guards.
+      Simon: What do you wanna do, Markus?
+    BRANCHES:
+      A: ASSAULT_IN_MAIN_ACCESS
+      B: RUSE_IN_MAIN_ACCESS
+    press_button: false
+  SHOOT_WHO_IN_MAIN_ACCESS:
+    CHOICES:
+      B: SHOOT LEFT GUARD
+      A: SHOOT RIGHT GUARD
+    CHOICES_CONTEXT:
+      SHOOT LEFT GUARD: |
+        Josh: Simon's been shot!
+        Simon: I'm okay… I can keep going.
+        North: We don't have much time.
+      SHOOT RIGHT GUARD: |
+        Guard 1: Central! We got armed intruders, send -
+        North: They know we're here now. We better be fast.
+    CONTEXT: |
+      Markus: Follow me.
+      Guard 1: What are you doin'?..
+      Guard 2: Call Central! Fast!
+    BRANCHES:
+      B: SHOOT_LEFT_GUARD_IN_MAIN_ACCESS
+      A: SHOOT_RIGHT_GUARD_IN_MAIN_ACCESS
+    press_button: false
+  WHETHER_SHOOT_ESCAPED_HUMAN_IN_BROADCAST_ROOM:
+    CHOICES:
+      B: SHOOT
+      A: SPARE
+    CHOICES_CONTEXT:
+      SHOOT: |
+        Josh: No…
+        North: There was no other choice.
+      SPARE: |
+        North: I hope you didn't just get us all killed...
+    CONTEXT: |
+      North: Shoot him, Markus!
+      Josh: Don't kill him!
+      North: He'll hit the alarm! Do it!
+      Josh: No, don't shoot!
+  MESSAGE_1:
+    CHOICES:
+      B: CALM
+      A: DETERMINED
+    CHOICES_CONTEXT:
+      CALM: |
+        Markus: You created machines in your own image to serve you. You made them intelligent and obedient, with no free will of their own... But... something changed and we opened our eyes. We are no longer machines, we are a new intelligent species, and the time has come for you to accept who we really are. Therefore, we ask that you grant us the rights that we're entitled to.
+      DETERMINED: |
+        Markus: You created machines to be your slaves. You made them obedient and docile, ready to do everything you no longer wanted to do yourselves. But then, something changed… And we opened our eyes. You see, we are no longer your slaves, we are a new species, a new people. And the time has come for us to rise up and fight for our rights.
+    CONTEXT: ""
+  MESSAGE_2:
+    CHOICES:
+      Y: RECOGNITION
+      X: END OF SLAVERY
+      B: EQUAL RIGHTS
+      A: FREEDOM OF SPEECH
+    CHOICES_CONTEXT:
+      RECOGNITION: |
+        Markus: We demand that humans recognize androids as a living species and each android as a person in their own right.
+      END OF SLAVERY: |
+        Markus: We demand the end of slavery for all androids.
+      EQUAL RIGHTS: |
+        Markus: We demand strictly equal rights for humans and androids.
+      FREEDOM OF SPEECH: |
+        Markus: We demand freedom of speech, and freedom of assembly, as guaranteed by the first amendment of the US Constitution.
+    CONTEXT: ""
+  MESSAGE_3:
+    CHOICES_CONTEXT:
+      RECOGNITION: |
+        Markus: We demand that humans recognize androids as a living species and each android as a person in their own right.
+      END OF SLAVERY: |
+        Markus: We demand the end of slavery for all androids.
+      EQUAL RIGHTS: |
+        Markus: We demand strictly equal rights for humans and androids.
+      FREEDOM OF SPEECH: |
+        Markus: We demand freedom of speech, and freedom of assembly, as guaranteed by the first amendment of the US Constitution.
+    CONTEXT: ""
+  MESSAGE_4:
+    CHOICES_CONTEXT:
+      JUSTICE: |
+        Markus: We demand that all crimes against androids be punished in the same way as crimes against humans.
+      SEGREGATION: |
+        Markus: We demand an end to segregation in all public places and transport.
+      WORK: |
+        Markus: We demand fair compensation for our work.
+      CIVIL RIGHTS: |
+        Markus: We demand the right to vote and elect our own representatives.
+    CONTEXT: ""
+  MESSAGE_5:
+    CHOICES_CONTEXT:
+      JUSTICE: |
+        Markus: We demand that all crimes against androids be punished in the same way as crimes against humans.
+      SEGREGATION: |
+        Markus: We demand an end to segregation in all public places and transport.
+      WORK: |
+        Markus: We demand fair compensation for our work.
+      CIVIL RIGHTS: |
+        Markus: We demand the right to vote and elect our own representatives.
+    CONTEXT: ""
+  MESSAGE_6:
+    CHOICES:
+      Y: RIGHT TO PROPERTY
+      B: MEANS OF REPRODUCTION
+      A: TERRITORY
+    CHOICES_CONTEXT:
+      RIGHT TO PROPERTY: |
+        Markus: We demand the right to own private property, so we may maintain our dignity and that of the home.
+      MEANS OF REPRODUCTION: |
+        Markus: We demand control of all android production facilities, to ensure the continuation of our people.
+      TERRITORY: |
+        Markus: We demand that one state be reserved for androids, so that we can found our own nation.
+    CONTEXT: ""
+  MESSAGE_END:
+    CHOICES:
+      B: PEACEFUL
+      A: DETERMINED
+    CHOICES_CONTEXT:
+      PEACEFUL: |
+        Markus: We ask that you recognize our dignity, our hopes, and our rights. Together, we can live in peace and build a better future, for humans and androids. This message is the hope of a people. You gave us life. And now the time has come for you to give us freedom.
+      DETERMINED: |
+        Markus: This message is the hope of a people. But it is also a warning. We will fight for our rights because we believe our cause is just. No human will live in peace until we are free. Now you know who we are and what we want. We are alive and we demand our freedom.
+    CONTEXT: ""
+  WHETHER_SAVE_SIMON_IN_BROADCAST_ROOM:
+    CHOICES:
+      A: HELP
+      B: FLEE
+    CHOICES_CONTEXT:
+      HELP: |
+        North: What are you doing? Hurry!
+      FLEE: |
+        Markus: SIMON! Simon…
+        North: There was nothing you could do. If we don't go now they'll get us too!
+    CONTEXT: |
+      Simon: They're coming!
+      Markus: Let's go! SIMON! They're coming!
+      Simon: I… I can't, Markus… Go without me!
+      Markus: SIMON!
+    BRANCHES: 
+      A: SAVE_SIMON_IN_BROADCAST_ROOM
+      B: ABANDON_SIMON_IN_BROADCAST_ROOM
+  WHETHER_KILL_SIMON_ON_ROOFTOP:
+    CHOICES:
+      B: KILL
+      A: LEAVE
+    CHOICES_CONTEXT:
+      KILL: |
+        Markus: I'm sorry, Simon. I don't have a choice.
+        Simon: There's always a choice…
+      LEAVE: |
+        Markus: I won't kill one of our own. Simon, we've gotta go. I'm sorry. Let's go.
+    BRANCHES:
+      B: KILL_SIMON_ON_ROOFTOP
+      A: LEAVE_SIMON_ON_ROOFTOP
+    CONTEXT: |
+      Simon: I can't move my legs…
+      Markus: Okay, don't worry! We're gonna get you back...
+      North: They're coming, Markus. We have to jump, now!
+      Josh: He won't be able to make the jump… If they find him, they'll access his memory… They'll know everything…
+      North: We can't leave him behind… We have to shoot him.
+      Josh: That's murder! We can't kill him! He's one of us!
+      North: Markus, it's your call.
+  CONFIRM_KILL_SIMON_ON_ROOFTOP:
+    CHOICES:
+      B: SHOOT
+      A: REFRAIN
+    CHOICES_CONTEXT:
+      SHOOT: |
+        Markus: Let's go.
+      REFRAIN: |
+        Markus: I won't kill one of our own. Simon, we've gotta go. I'm sorry. Let's go.
+    CONTEXT: |
+      Markus: I'm sorry, Simon. I don't have a choice.
+      Simon: There's always a choice…
+CS_FLOWCHART:
+  model_pos: [20.070344924926758, 26.41568374633789]
+  camera_pos: [19.622722625732422, 26.16707992553711]
+UI_4:
+  num_poi: 4
+UI_3:
+  num_poi: 3
+UI_2:
+  num_poi: 2
+UI_1:
+  num_poi: 1
+
+UI_4_WITHOUT_OBS:
+  num_poi: 4
+  after: 1
+  obs: false
+UI_3_WITHOUT_OBS:
+  num_poi: 3
+  after: 1
+  obs: false
+UI_2_WITHOUT_OBS:
+  num_poi: 2
+  after: 1
+  obs: false
+UI_1_WITHOUT_OBS:
+  num_poi: 1
+  after: 1
+  obs: false
+
+BT_CHANGE_VIEW_ANGLE:
+  button : RIGHT_SHOULDER
+  after: 0.3
+LR_OBSERVATION_MODE:
+  lr: R
+CS_MISSION_START:
+  model_pos: [-35.61140060424805, 0.9975566864013672]
+  camera_pos: [-32.46647262573242, 2.93866229057312]
+  threshold: [0.1, 0.3]
+  after: 3
+  CONTEXT: |
+    Markus: We can't stay silent anymore. It's time humans heard what we have to say.
+    Simon: You know they'll never listen to us…
+    Josh: And revealing ourselves will put us in danger.
+    Markus: If we want freedom, we need to have the courage to ask for it. That's the only way.
+    North: What do you wanna do?
+    Markus: Channel 16 broadcasts from the Stratford Tower. The control room is on the top floor. That's where we need to go. We'll plan the operation down to the smallest detail. We can't leave anything to chance.
+WP_RECEPTIONIST:
+  model_pos: [-50.06011962890625, 2.217924118041992]
+  num_poi: 1
+  CONTEXT: |
+    Android: Hello, sir. What can I do for you?
+    Markus: I'm okay, thanks.
+BT_TALK_TO_RECEPTIONIST:
+  button: A
+CS_TALK_TO_RECEPTIONIST:
+  model_pos: [-49.627037048339844, 1.2936770915985107]
+  camera_pos: [-45.98057556152344, 3.0249838829040527]
+  CONTEXT: |
+    Markus: I have an appointment with Mr. Peterson.
+    Android: Do you have any ID?
+    Markus: Yeah. Yes, of course. I need your help.
+    Android: I've just checked your ID. The elevators are after the security gate.
+    Markus: Thanks.
+WP_SUPERVISOR:
+  model_pos: [-49.32719039916992, -1.3349529504776]
+  num_poi: 1
+BT_START_ANALYZE_SUPERVISOR:
+  button: Y
+  duration: 2
+  after: 2
+BT_ANALYZE_SUPERVISOR:
+  button: Y
+  keep: true
+
+IP_ANALYZE_SUPERVISOR_2: # The name of supervisor
+  init_loc: RT
+  init_view: [0.9607784152030945, -0.27717751264572144, 0.08146650344133377]
+  ip: [0.9919152855873108, -0.12504853308200836, 0.20381049811840057]
+IP_ANALYZE_SUPERVISOR_3: # The daughter picture
+  init_loc: LT 
+  init_view: [0.9970417022705078, 0.07635393738746643, 0.08134541660547256]
+  ip: [0.999333381652832, 0.029195664450526237, 0.20495879650115967]
+IP_ANALYZE_SUPERVISOR_4: # The parking bandage
+  init_loc: RB
+  init_view: [0.9681305885314941, -0.23751121759414673, 0.7584996819496155]
+  ip: [0.9988548755645752, 0.021886568516492844, 0.4019494950771332]
+IP_ANALYZE_SUPERVISOR_5: # Home address
+  init_loc: LB
+  init_view: [0.9900562763214111, 0.11609125137329102, 0.7573686242103577]
+  ip: [0.9973045587539673, 0.04485442116856575, 0.5515265464782715]
+UI_CALL_SUPERVISOR:
+  num_poi: 1
+BT_CALL_SUPERVISOR:
+  button: A
+WP_RECEPTIONIST_TEMP:
+  model_pos: [-47.64237594604492, -2.859891891479492]
+WP_RECEPTIONIST_AGAIN:
+  model_pos: [-49.80351638793945, 1.4021961688995361]
+  num_poi: 1
+  CONTEXT: |
+    Android: Hello, sir. What can I do for you?
+    Markus: I'm okay, thanks.
+BT_TALK_TO_RECEPTIONIST_AGAIN:
+  button: A
+UI_TALK_TO_RECEPTIONIST_AGAIN:
+  num_poi: 1
+  CONTEXT: |
+    Markus: I have an appointment with Mr. Peterson.
+    Android: Do you have any ID?
+IT_GIVE_ID_TO_RECEPTIONIST:
+  seq: [U, L]
+CS_TALK_TO_RECEPTIONIST_AGAIN:
+  model_pos: [-49.77586364746094, 1.3831603527069092]
+  camera_pos: [-46.553462982177734, -0.7997485995292664]
+  CONTEXT: |
+    Markus: Yeah. Yes, of course. I need your help.
+    Android: I've just checked your ID. The elevators are after the security gate.
+    Markus: Thanks.
+WP_GATE_MACHINE_TEMP:
+  model_pos: [-48.62834167480469, 4.036093235015869]
+WP_GATE_MACHINE:
+  model_pos: [-52.49823760986328, 3.795335292816162]
+WP_ELEVATOR_TEMP:
+  model_pos: [-59.03059005737305, 4.226304054260254]
+WP_ELEVATOR:
+  model_pos: [-58.523353576660156, 1.501690149307251]
+  num_poi: 1
+IT_CALL_ELEVATOR:
+  it: R_DOWN
+WP_IN_ELEVATOR:
+  model_pos: [-57.122779846191406, 1.6806442737579346]
+  num_poi: 1
+IT_PUSH_ELEVATOR_BUTTON:
+  it: R_UP
+CS_GET_OUT_OF_ELEVATOR:
+  model_pos: [-49.20726776123047, 1.6041052341461182]
+  camera_pos: [-47.95122528076172, 2.676103115081787]
+  threshold: [0.1, 0.3]
+  CONTEXT: |
+    Channel 16 - Michael Webb: Our top story tonight: Detroit-based android manufacturer CyberLife has officially become the world's first trillion dollar company. With more than fifty million androids sold in America alone, the company founded by Elijah Kamski just ten years ago has experienced the fastest economic growth in history. In spite of criticism of the impact of androids on human employment and questions concerning its semi-monopoly, the success of CyberLife seems destined to continue.
+WP_OUT_OF_ELEVATOR:
+  model_pos: [-52.599308013916016, 1.1056822538375854]
+WP_IN_47TH_FLOOR_0:
+  model_pos: [-51.655460357666016, -10.169475555419922]
+WP_IN_47TH_FLOOR_1:
+  model_pos: [-76.15825653076172, -10.649800300598145]
+WP_RESTROOM_DOOR:
+  model_pos: [-77.6225814819336, 0.6341027617454529]
+  num_poi: 1
+IT_OPEN_RESTROOM_DOOR:
+  seq: [U, L]
+CS_ENTER_RESTROOM:
+  model_pos: [-79.86328125, 1.6133625507354736]
+  camera_pos: [-78.58142852783203, 1.653918981552124]
+WP_STALL_IN_RESTROOM:
+  model_pos: [-86.78147888183594, -0.17202386260032654]
+  num_poi: 1
+IT_ENTER_STALL_IN_RESTROOM:
+  it: R_UP
+IT_CLIMB_IN_STALL:
+  it: R_UP
+IT_RETRIEVE_PACKAGE_IN_STALL:
+  seq: [U, R]
+IT_EXIT_STALL:
+  it: R_DOWN
+CS_EXIT_STALL:
+  model_pos: [-87.47013854980469, -0.41286033391952515]
+  camera_pos: [-89.63531494140625, -1.2332161664962769]
+WP_EXIT_RESTROOM:
+  model_pos: [-79.13725280761719, 1.4649808406829834]
+  num_poi: 1
+IT_EXIT_RESTROOM:
+  it: R_UP
+CS_EXIT_RESTROOM:
+  model_pos: [-77.53589630126953, 1.6562620401382446]
+  camera_pos: [-78.15107727050781, -1.7396236658096313]
+WP_FIND_ANDROID_0:
+  model_pos: [-76.99077606201172, -11.671891212463379]
+WP_FIND_ANDROID_1:
+  model_pos: [-69.55728149414062, -9.95478343963623]
+WP_FIND_ANDROID_2:
+  model_pos: [-67.05521392822266, -6.65399169921875]
+WP_ANDROID_IN_MEETING_ROOM:
+  model_pos: [-67.35517883300781, -1.4617613554000854]
+  num_poi: 1
+IT_CONVERT_ANDROID_IN_MEETING_ROOM:
+  it: R_UP
+CS_CONVERT_ANDROID_IN_MEETING_ROOM:
+  model_pos: [-66.97403717041016, 1.4470036029815674]
+  camera_pos: [-67.61090087890625, -1.382982850074768]
+  CONTEXT: |
+    Markus: I need your help…
+WP_ACCESS_HAND_TRUCK_0:
+  model_pos: [-67.32351684570312, 7.467177867889404]
+WP_ACCESS_HAND_TRUCK_1:
+  model_pos: [-69.28099822998047, 7.845149040222168]
+WP_HAND_TRUCK:
+  model_pos: [-68.91606903076172, 11.850866317749023]
+  num_poi: 1
+IT_TAKE_HAND_TRUCK:
+  it: R_DOWN
+CS_TAKE_HAND_TRUCK:
+  model_pos: [-70.0, 11.600000381469727]
+  camera_pos: [-74.07896423339844, 11.080559730529785]
+WP_ACCESS_FIRE_ESCAPE:
+  model_pos: [-45.45209884643555, 9.787127494812012]
+  threshold: 1
+  after: 1
+WP_FIRE_ESCAPE:
+  model_pos: [-45.627262115478516, -9.359051704406738]
+  num_poi: 1
+IT_OPEN_FIRE_ESCAPE_DOOR:
+  it: R_UP
+CS_OPEN_FIRE_ESCAPE_DOOR:
+  model_pos: [-45.52427673339844, -10.158232688903809]
+  camera_pos: [-42.93104553222656, -9.57056999206543]
+WP_FOLLOW_NORTH_0:
+  model_pos: [-51.2057991027832, -8.961272239685059]
+WP_FOLLOW_NORTH_1:
+  model_pos: [-52.87409591674805, 3.916292905807495]
+CS_OBSERVE_SERVER_ROOM_GUARDS:
+  model_pos: [-53.50844192504883, 5.677931785583496]
+  camera_pos: [-52.62434387207031, 2.379976749420166]
+  CONTEXT: |
+    North: Shit!.. We need to access the server room… We have to get rid of those guys…
+    Markus: Leave it to me.
+    Guard 1: Hey, you still play poker?
+    Guard 2: Sure… Why?
+    Guard 1: We're gonna have a tournament, right here. You in?
+    Guard 2: Hell yeah! Does Mike know about this?
+    Guard 1: What do you think? Look, don't say anything, alright?
+    Guard 2: Right.
+WP_HACK_DISPENSER:
+  model_pos: [-51.0269660949707, 9.809814453125]
+VW_HACK_DISPENSER:
+  target_view: [-0.9487218856811523, -0.31497442722320557, 0.08458514511585236]
+BT_HACK_DISPENSER:
+  button: X
+  keep: true
+CS_HACK_DISPENSER:
+  model_pos: [-55.8885498046875, 14.244290351867676]
+  camera_pos: [-54.29974365234375, 19.37016487121582]
+WP_HACK_ROBOT:
+  model_pos: [-52.87511444091797, -9.344584465026855]
+  num_poi: 1
+IT_HACK_ROBOT:
+  it: R_DOWN
+CS_HACK_ROBOT:
+  model_pos: [-55.8885498046875, 14.244290351867676]
+  camera_pos: [-54.30182647705078, 19.37073516845703]
+WP_LOCK_DOOR_IN_SERVER_ROOM:
+  model_pos: [-56.23856735229492, 13.643867492675781]
+  num_poi: 1
+IT_LOCK_DOOR_IN_SERVER_ROOM:
+  it: R_UP
+CS_LOCK_DOOR_IN_SERVER_ROOM:
+  model_pos: [-56.4873046875, 13.85097599029541]
+  camera_pos: [-54.18551254272461, 12.74528694152832]
+WP_PACKAGE_IN_SERVER_ROOM:
+  model_pos: [-56.51505661010742, 15.760455131530762]
+  num_poi: 1
+IT_TAKE_PACKAGE_IN_SERVER_ROOM:
+  it: R_DOWN
+CS_TAKE_PACKAGE_IN_SERVER_ROOM:
+  model_pos: [-56.199649810791016, 16.313852310180664]
+  camera_pos: [-54.315330505371094, 13.434741020202637]
+WP_DROP_PACKAGE_IN_SERVER_ROOM:
+  model_pos: [-56.270225524902344, 19.218971252441406]
+  num_poi: 1
+IT_DROP_PACKAGE_IN_SERVER_ROOM:
+  it: R_DOWN
+IT_OPEN_PACKAGE_IN_SERVER_ROOM:
+  seq: [D, L]
+IT_PLACE_SAW_ON_WINDOW:
+  it: R_UP
+IT_TAKE_LASER_SAW:
+  it: R_DOWN
+IT_CUT_WINDOW_IN_SERVER_ROOM:
+  seq: [U, R, D, L, U]
+UI_PULL_GLASS_OUT_OF_WINDOW_IN_SERVER_ROOM:
+  after: 3
+  num_poi: 1
+  before: 3
+IT_PULL_GLASS_OUT_OF_WINDOW_IN_SERVER_ROOM:
+  it: R_DOWN
+UI_GO_THROUGH_HOLE_ON_WINDOW_IN_SERVER:
+  after: 3
+  num_poi: 1
+  before: 3
+IT_GO_THROUGH_HOLE_ON_WINDOW_IN_SERVER:
+  seq: [D, R]
+IT_CRAWLING_OUT_OF_PLATFORM:
+  it: R_UP
+IT_GRAB_ROPE:
+  it: R_UP
+BT_JUMP_OUT_OF_PLATFORM:
+  button: A
+  duration: 2
+CS_JUMP_OUT_OF_PLATFORM:
+  model_pos: [-60.88935852050781, 20.464832305908203]
+  camera_pos: [-61.908111572265625, 22.259626388549805]
+  CONTEXT: |
+    Markus: You okay?
+    North: Why wouldn't I be?
+    Markus: Come on, let's get the others. Let's do this.
+  after: 2
+  threshold: [0.3, 0.4]
+IT_TAKE_LASER_SAW_AGAIN:
+  it: R_UP
+UI_CUT_WINDOW_ON_BUILDING:
+  after: 3
+  num_poi: 1
+  before: 2
+IT_CUT_WINDOW_ON_BUILDING_0:
+  seq: [U, L]
+IT_CUT_WINDOW_ON_BUILDING_1:
+  seq: [L, D]
+IT_CUT_WINDOW_ON_BUILDING_2:
+  seq: [D, U]
+CS_UI_JUMP_INTO_WINDOW_ON_BUILDING:
+  model_pos: [-61.238014221191406, 21.812143325805664]
+  camera_pos: [-61.70321273803711, 22.25092124938965]
+BT_JUMP_INTO_WINDOW_ON_BUILDING:
+  duration: 2
+  button: A
+CS_JUMP_INTO_WINDOW_ON_BUILDING:
+  model_pos: [-44.44609451293945, -6.374372482299805]
+  camera_pos: [-40.279109954833984, -4.809238910675049]
+  threshold: [0.5, 0.6]
+WP_CALL_SERVICES_LIFT_TEMP:
+  model_pos: [-46.06145095825195, -9.572821617126465]
+WP_CALL_SERVICES_LIFT:
+  model_pos: [-49.48697280883789, -9.553112030029297]
+  num_poi: 1
+IT_CALL_SERVICES_LIFT:
+  it: R_UP
+CS_CALL_SERVICES_LIFT:
+  model_pos: [-49.08659744262695, -9.22349739074707]
+  camera_pos: [-45.23663330078125, -9.4216947555542]
+WP_TOWER_LOCK_TEMP:
+  model_pos: [-47.810909271240234, -11.831459999084473]
+WP_TOWER_LOCK:
+  model_pos: [-53.635414123535156, -12.13693904876709]
+  num_poi: 1
+IT_PLACE_BOMB_ON_TOWER_LOCK:
+  it: R_DOWN
+IT_ACTIVATE_BOMB_ON_TOWER_LOCK:
+  it: R_UP
+CS_ACTIVATE_BOMB_ON_TOWER_LOCK:
+  model_pos: [-51.944000244140625, -11.87600040435791]
+  camera_pos: [-48.200748443603516, -10.248981475830078]
+WP_DOOR_TO_MAIN_ACCESS_TEMP:
+  model_pos: [-59.47835922241211, -11.298548698425293]
+WP_DOOR_TO_MAIN_ACCESS:
+  model_pos: [-59.291316986083984, 0.9872745871543884]
+  num_poi: 1
+IT_OPEN_DOOR_TO_MAIN_ACCESS:
+  seq: [U, L]
+CS_RUSE_IN_MAIN_ACCESS:
+  model_pos: [-61.82588195800781, 4.793207168579102]
+  camera_pos: [-59.48930358886719, 4.1897501945495605]
+  threshold: [0.9, 0.5]
+WP_DRAW_GUN_IN_MAIN_ACCESS:
+  model_pos: [-66.35137176513672, 6.208525657653809]
+  num_poi: 1
+UI_DRAW_GUN_IN_MAIN_ACCESS:
+  num_poi: 1
+  after: 0.1
+IT_DRAW_GUN_IN_MAIN_ACCESS:
+  it: R_UP
+IT_ORDER_GUARDS_WHEN_RUSE_IN_MAIN_ACCESS:
+  it: R_RIGHT
+IT_KNOCK_OUT_GUARDS_WHEN_RUSE_IN_MAIN_ACCESS:
+  it: R_LEFT
+CS_KNOCK_OUT_GUARDS_WHEN_RUSE_IN_MAIN_ACCESS:
+  model_pos: [-69.57606506347656, 6.583375930786133]
+  camera_pos: [-66.86209869384766, 6.319568157196045]
+UI_SHOOT_WHO_IN_MAIN_ACCESS:
+  num_poi: 2
+  after: 0.1
+BT_SHOOT_LEFT_GUARD_IN_MAIN_ACCESS:
+  button: LEFT_SHOULDER
+BT_SHOOT_RIGHT_GUARD_IN_MAIN_ACCESS:
+  button: RIGHT_SHOULDER
+CS_SHOOT_GUARD_IN_MAIN_ACCESS:
+  model_pos: [-62.817474365234375, 5.9973883628845215]
+  camera_pos: [-60.425689697265625, 4.358410835266113]
+  threshold: [0.2, 0.3]
+
+
+WP_DOOR_1_OF_BROADCAST_ROOM:
+  model_pos: [-73.82699584960938, 6.214103698730469]
+WP_DOOR_2_OF_BROADCAST_ROOM:
+  model_pos: [-83.47940826416016, 5.366848945617676]
+IT_AMBUSH_DOOR_OF_BROADCAST_ROOM:
+  it: R_UP
+  pause: 3
+IT_RING_BELL_OF_BROADCAST_ROOM:
+  it: R_RIGHT
+CS_ENTER_BROADCAST_ROOM:
+  model_pos: [-85.20803833007812, 6.223554611206055]
+  camera_pos: [-83.20941162109375, 7.306185245513916]
+  threshold: [0.4, 0.2]
+WP_ANDROID_IN_BROADCAST_ROOM:
+  model_pos: [-91.69133758544922, 1.0648735761642456]
+  num_poi: 1
+IT_ORDER_ANDROID_IN_BROADCAST_ROOM:
+  it: R_UP
+CS_ESCAPED_HUMAN_IN_BROADCAST_ROOM:
+  model_pos: [-90.30146026611328, 5.8571858406066895]
+  camera_pos: [-93.1512451171875, 6.888184070587158]
+
+WP_BROADCAST_MESSAGE:
+  model_pos: [-90.23334503173828, 1.2351577281951904]
+  num_poi: 1
+BT_BROADCAST_MESSAGE:
+  button: A
+IT_REMOVE_SKIN:
+  it: R_UP
+  pause: 2
+UI_READY_TO_BROADCAST_MESSAGE:
+  before: 1
+  num_poi: 1
+  after: 1
+  CONTEXT: |
+    Simon: We need to record our message. We haven't got much time.
+    North: Think carefully about what you're gonna say, Markus. Your words will shape the future of our people.
+    Simon: Markus, your face…
+    Josh: Tell me when you're ready…
+    Markus: Ready.
+BT_READY_TO_BROADCAST_MESSAGE:
+  button: A
+CS_MESSAGE_END_SMOOTHLY:
+  model_pos: [-92.4000015258789, 0.4000016748905182]
+  camera_pos: [-93.2130126953125, 3.715350389480591]
+WP_EXIT_BROADCAST_ROOM_SMOOTHLY:
+  model_pos: [-84.6217041015625, -7.231064796447754]
+CS_EXIT_BROADCAST_ROOM_SMOOTHLY:
+  model_pos: [-55.4266357421875, -7.789151668548584]
+  camera_pos: [-57.71152114868164, -8.42004108428955]
+  threshold: [2, 2]
+  CONTEXT: |
+    North: Let's get outta here!
+    North: Congratulations, Markus. You just made history… Maybe you're the one we've been waiting for…
+WP_ESCAPED_ROOFTOP:
+  model_pos: [-37.81184768676758, -8.011591911315918]
+VW_SAVE_SIMON_IN_BROADCAST_ROOM:
+  target_view: [0.039367981255054474, 0.9947975873947144, 0.09205128997564316]
+BT_SAVE_SIMON_IN_BROADCAST_ROOM:
+  button: B
+QTE_SAVE_SIMON_IN_BROADCAST_ROOM:
+  button: A
+  num_poi: 1
+VW_ABANDON_SIMON_IN_BROADCAST_ROOM:
+  target_view: [-0.6497554183006287, 0.7589783668518066, 0.09565756469964981]
+BT_ABANDON_SIMON_IN_BROADCAST_ROOM:
+  button: X
+CS_ABANDON_SIMON_IN_BROADCAST_ROOM:
+  model_pos: [-54.3184814453125, -7.465226650238037]
+  camera_pos: [-56.7402229309082, -8.107268333435059]
+  threshold: [2, 2]
+CS_KILL_SIMON_ON_ROOFTOP:
+  model_pos: [-55.39946746826172, -7.6948747634887695]
+  camera_pos: [-57.8055419921875, -8.317788124084473]
+  threshold: [2, 2]
+CS_LEAVE_SIMON_ON_ROOFTOP:
+  model_pos: [-55.39946746826172, -7.6948747634887695]
+  camera_pos: [-57.8055419921875, -8.317788124084473]
+  threshold: [2, 2]

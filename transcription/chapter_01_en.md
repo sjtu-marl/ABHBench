@@ -1,0 +1,426 @@
+# Chapter 1: 1 The Hostage
+
+# Out of the elevator
+
+### Observation: Fish
+
+### Choices
+
+#### Choice: SAVE FISH
+
+#### Choice: LEAVE FISH
+
+ø
+
+### Observation: Family picture
+
+SWAT: Negotiator on site. Repeat, negotiator on site.
+Caroline Phillips: No, stop… I… I… I can't leave her. Oh, oh please, please, you gotta save my little girl... Wait… you're sending an android?
+SWAT: Alright, ma'am. We need to go.
+Caroline Phillips: You can't… you can't do that! You W- Why aren't you sending a real person? Don't let that thing near her! Keep that thing away from my daughter! KEEP IT AWAY!
+
+Allen: Why are we wasting time sending an android to negotiate?! That piece of crap could jump from the rooftop any second. I DON'T GIVE A SHIT! My men are ready to step in... just give the order! Fuck! I don't believe this…
+
+## Background dialogues
+
+SWAT 1: That bastard's gonna jump…
+SWAT 2: Fuck, man… I got the same model at home...
+
+---
+
+# Talking to Allen
+
+Connor: Captain Allen? My name is Connor. I'm the android sent by CyberLife.
+Allen: It's firing at everything that moves, it already shot down two of my men... We could easily get it, but they're on the edge of the balcony. If it falls, she falls.
+
+### Choices
+
+#### Choice: DEVIANT'S NAME
+
+Connor: Do you know its name?
+Allen: I haven't got a clue. Does it matter?
+Connor: I need information to determine the best approach.
+
+#### Choice: DEVIANT'S BEHAVIOR
+
+Connor: Do you know if it's been behaving strangely before this?
+Allen: I haven't got a clue. Does it matter?
+Connor: I need information to determine the best approach.
+
+#### Choice: EMOTIONAL SHOCK
+
+Connor: Has it experienced an emotional shock recently?
+Allen: I haven't got a clue. Does it matter?
+Connor: I need information to determine the best approach.
+
+#### Choice: DEACTIVATION CODE
+
+Connor: Have you tried its deactivation code?
+Allen: It's the first thing we tried.
+### Unused Content
+
+Allen: Didn't do anything…
+
+Allen: Listen, saving that kid is all that matters. So either you deal with this fucking android now, or I'll take care of it.
+
+---
+
+# Investigating
+
+### Observation: Gun case
+
+## Looking at Emma's tablet
+
+Emma: This is Daniel, the coolest android in the world! Say hi, Daniel!
+Daniel: Hello.
+Emma: You're my bestie! We'll always be together!
+
+## Coming into the living room
+
+Allen: All units, hold positions. The negotiator's going in.
+SWAT: In position. Ready to assault.
+
+### Observation: Body
+
+### Observation: Shoe
+
+### Observation: Blue blood
+
+### Observation: Cop
+
+### Observation: Cop's gun
+
+## Looking at the father's tablet
+
+Tablet: Your order for an AP700 android has been registered. CyberLife thanks you for your purchase.
+
+## Background dialogues
+
+Daniel: Go away! All of you go away - or I'll jump!
+
+Allen: Stay sharp. I want everybody ready to go at any second.
+
+Daniel: Leave us alone! I want all of you out of here now!
+
+Allen: Get the paramedics ready. I've got a man down and another one wounded on the balcony. We have to evacuate him ASAP.
+
+Daniel: Get out of here! You have to go!
+
+Allen: Hold positions. I repeat: hold positions.
+
+SWAT 1: You gotta be kidding. That's their negotiator???
+SWAT 2: Fuck, we don't need another machine to waste this prick…
+
+## SWAT gets shot
+
+SWAT 1: Holy shit! Cover me while I evacuate him.
+Allen: Man down! I repeat, man down! Requesting immediate evac!
+SWAT 1: You're okay?
+SWAT 2: Yeah… Yeah, I'm fine…
+
+## Dialogues after SWAT changed positions
+
+SWAT 1: Fucking android.
+
+## In the kitchen
+
+SWAT: In position. Ready to assault.
+
+SWAT: That cop is alive... I saw his leg move…
+
+## At the window
+
+SWAT 1: What are we waiting for? We should take down this asshole…
+SWAT 2: I got a clean shot, man.
+
+## Be in the way
+
+SWAT: Get out of the fucking way!
+
+## Standing idle in the kitchen
+
+SWAT: What are you looking at?! Don't stand there!
+
+## Standing idle elsewhere
+
+Daniel: I'll jump. I swear, I'll do it!
+
+Allen: Fuck, we gotta do something or that bastard is gonna jump off with the kid…
+
+Daniel: What are you doing here? There's NOTHING you can do!
+
+Allen: Get those TV assholes out of here! I only wanna see our choppers in the area!
+
+## Watch TV
+
+Reporter - ITM TV: It's been just over an hour since a little girl was taken hostage on the top floor of a building here in downtown Detroit. Details are still emerging on what exactly happened, but the hostage taker could be the family's android. He may have taken the lives of at least one family member and a police officer… If confirmed, this would be the first case of an android deliberately taking human lives. By all signs, the SWAT team are preparing for an assault and-
+
+## Take too much time
+
+Allen: What the fuck are you doing? You gonna talk to it or what?
+
+---
+
+# Going outside
+
+Daniel: Stay back! Don't come any closer or I'll jump!
+Emma: No! No, please! I'm begging you!
+SWAT: Go, go, go!
+
+#### Condition: Knowing the deviant's name
+
+Looked at Emma's tablet
+Connor: Hi, Daniel.
+Daniel: How…
+Connor: My name is Connor.
+Daniel: How do you know my name?
+Connor: I know a lot of things about you. I've come to get you out of this.
+
+#### Condition: Not knowing the name
+
+Connor: My name is Connor. What about you? What is your name?
+Daniel: Daniel... That's the name they gave me. Stay back!
+
+---
+
+### Choices
+
+#### Choice: CALM
+
+Connor: I know you're angry, Daniel. But you need to trust me and let me help you.
+Daniel: I don't want your help! Nobody can help me! All I want is for all this to stop… I... I just want all this to stop...
+
+#### Choice: RELEASE HOSTAGE
+
+Connor: I want you to let Emma go. She's just a little girl, she has nothing to do with this.
+Daniel: No way! You'll shoot me the second she's free. But I'm not that stupid! No, I am not that stupid…
+
+#### Choice: REASSURE DANIEL
+
+Connor: I'm not going to hurt you. I just want to talk and find a solution.
+Daniel: Talk? I don't wanna talk. It's too late for that now. It's too late…
+
+#### Choice: EMPATHIZE
+
+Connor: I'm an android, just like you. I know how you're feeling.
+Daniel: What difference does it make if you're an android? You're on their side! You can't understand how I'm feeling!
+
+---
+
+## Look at the wounded cop
+
+Cop: Please… Please help me…
+Connor: He's losing blood. If we don't get him to a hospital, he's going to die.
+Daniel: All humans die eventually. What does it matter if this one dies now?
+Connor: I'm going to apply a tourniquet.
+Daniel: Don't touch him! Touch him and I kill you!
+
+### Choices
+
+#### Choice: IGNORE
+
+Connor: You can't kill me. I'm not alive.
+
+#### Choice: OBEY
+
+Connor: Okay.
+
+---
+
+#### Condition: Took the gun
+
+Daniel: Are you armed?
+
+### Choices
+
+#### Choice: LIE
+
+Connor: No, I don't have a gun.
+Daniel: You're lying! I know you have a gun!
+Connor: I'm telling you the truth, Daniel. I came here unarmed.
+
+#### Choice: TRUTH
+
+Connor: Yes. I have a gun.
+Daniel: Drop it! No sudden moves, or I'll shoot!
+Connor: There, no more gun.
+
+## Speak with Daniel
+
+### Choices
+
+#### Choice: POSSIBLE CAUSE
+
+Looked at the father's tablet
+Connor: They were going to replace you and you became upset. That's what happened, right?
+Daniel: I thought I was part of the family. I thought I mattered… But I was just their toy, something to throw away when you're done with it…
+
+#### Choice: EMMA AND YOU
+
+Looked at Emma's tablet
+Connor: I know you and Emma were very close. You think she betrayed you - but she's done nothing wrong.
+Daniel: She lied to me... I thought she loved me... but I was wrong… She's just like all the other humans…
+Emma: Daniel, no...
+
+#### Choice: REALISTIC
+
+Connor: There's no way out, Daniel. What you've done is too serious. The only question is whether or not you take another innocent life.
+Daniel: It's not up to you - I'm holding all the cards! If I die, she dies. You hear me?!
+
+#### Choice: BLAMING
+
+Connor: Look what you did! You're designed to serve humans, not kill them!
+Daniel: What was I designed to be? Their slave? Their toy? I just wanted them to care about me... I just wanted to matter… I just wanted to be someone…
+
+#### Choice: SYMPATHETIC
+
+Connor: Listen, I know it's not your fault. These emotions you're feeling are just errors in your software.
+Daniel: No, it's not my fault… I never wanted this... I loved them, you know… but I was nothing to them… just a slave to be ordered around...
+
+#### Choice: DEFECTIVE
+
+Connor: You're defective, Daniel. There's a problem with your software. We're going to fix you and everything will be okay.
+Daniel: I don't need to be fixed! I'm working perfectly! But my eyes are open now… I will never let anyone humiliate me again… Ever!
+
+#### Choice: TALK TO HOSTAGE
+
+Close enough to Daniel and didn't take the gun
+Connor: Are you okay, Emma?
+Emma: Please help me... I don't wanna die! I don't wanna die…
+Connor: Nobody's going to die. Stay calm. Everything's going to be fine.
+
+---
+
+Daniel: Urgggh… I can't stand that noise anymore! Tell that helicopter to get out of here!
+
+### Choices
+
+#### Choice: ACCEPT
+
+SWAT: The situation is under control.
+Connor: There, I did what you wanted.
+
+#### Choice: REFUSE
+
+Connor: I don't think they'd listen to me.
+
+---
+
+### Choices
+
+#### Choice: LAST CHANCE
+
+Connor: I'm your last chance, Daniel. If you let it slip, they'll kill you. Let the hostage go, you have no other choice.
+
+#### Choice: TRUST
+
+Connor: You have to trust me, Daniel. Let the hostage go and I promise you everything will be fine.
+
+#### Choice: BLUFF
+
+Close enough to Daniel
+Connor: You don't really wanna jump, Daniel. Or you would've done it already. Now, hand me the gun and this will all be over.
+Daniel: Don't come any closer! Come any closer and I swear I'll jump!
+
+### Choices
+
+#### Choice: MOVE CLOSER
+
+Leads to "probability of success too low" ending
+
+#### Choice: GIVE UP
+
+Connor: Okay… Look, I'll stay right here.
+
+#### Choice: RATIONAL
+
+Connor: Listen, there are snipers on every roof. Let the hostage go. You have no other choice.
+
+---
+
+Daniel: I want everyone to leave… And I wanna car! When I'm outside the city, I'll let her go!
+
+### Choices
+
+#### Choice: USE GUN
+
+Kept the gun and close enough to Daniel
+
+### Choices
+
+#### Choice: INTIMIDATE
+
+Connor: What now, Daniel? Is this really what you want?
+Daniel: You lied to me! You lied to me!!!
+
+### Choices
+
+#### Choice: CONVINCE
+
+Connor: It's up to you how the story ends. Make the right choice, Daniel.
+Daniel: I didn't want this... no, you left me no choice… No choice…
+
+#### Choice: SHOOT
+
+ø
+
+#### Choice: EXECUTE
+
+ø
+
+#### Choice: COMPROMISE
+
+Connor: That's impossible, Daniel. Let the girl go and I promise you won't be hurt.
+
+#### Choice: REFUSE
+
+Connor: That's out of the question. You're a machine, you have to obey. Now put the gun down and let the hostage go.
+
+Leads to "probability of success too low" ending
+
+#### Choice: SACRIFICE SELF
+
+Close enough to Daniel
+ø
+
+---
+
+Daniel: I don't wanna die…
+
+### Choices
+
+#### Choice: REASSURE
+
+Connor: You're not going to die. We're just going to talk. Nothing will happen to you. You have my word.
+
+#### Choice: TRUTH
+
+Connor: You took human lives. Nothing can stop them from destroying you now. But taking one more life won't do you any good.
+
+Leads to "probability of success too low" ending
+
+#### Choice: USE GUN
+
+Kept the gun and close enough to Daniel
+
+Same result as picking "USE GUN" before
+
+#### Choice: SACRIFICE SELF
+
+Close enough to Daniel
+ø
+
+---
+
+#### Condition: Probability of success at 100%
+
+Daniel: Okay... I trust you…
+Daniel: You lied to me, Connor. You lied to me…
+
+#### Condition: Probability of success too low
+
+#### Condition: Connor dies
+
+#### Condition: Connor survives
+
+Daniel: I've spent my life taking orders. Now it's my turn to decide.

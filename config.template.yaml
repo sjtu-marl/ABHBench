@@ -1,0 +1,98 @@
+# Configuration template for DBH project
+# Copy this file to config.yaml and modify as needed
+
+models:
+  # Model options for different roles
+  # Uncomment the model you want to use for each role
+  narrator: 'gemma3:27b-q4'
+  player: 'gemma3:27b-q4'
+  omni: 'gemma3:27b-q4'
+  harp: 'gemma3:27b-q4'
+
+LLMs:
+  # Global parameters for all LLM models
+  extra_params: '{"temperature": 0.0}'
+  
+  # Configure your LLM models below
+  # Replace placeholder values with your actual configuration
+  'gemma3:27b-q4':
+    model: 'ollama/gemma3:27b-q4-112K'  # Model name/path
+    base_url: 'http://your-api-server:port'  # Replace with your API server URL
+    api_key: 'your-api-key'  # Replace with your API key
+    extra_params: '{"timeout": 3600}'  # Model-specific parameters
+  
+  'mistral-small3.1:24b':
+    model: 'ollama/mistral-small3.1:24b-q4-56K'
+    base_url: 'http://your-api-server:port'
+    api_key: 'your-api-key'
+    extra_params: '{"timeout": 3600}'
+  
+  'deepseek-r1':
+    model: 'deepseek-r1'
+    base_url: 'http://your-api-server:port'
+    api_key: 'your-api-key'
+
+flags:
+  # Logging and monitoring settings
+  langfuse: true  # Enable Langfuse logging
+  langfuse_sample_rate: 100  # Upload 1 out of every N queries to Langfuse (1 = upload all)
+  clearml: true   # Enable ClearML integration
+  clearml_tag: '' # Optional tag for ClearML experiments
+  random: true    # Use random seed for ClearML (true=random each run, false=reproducible)
+  record: false   # Enable recording
+  rich: true      # Use rich text output
+  debug: 1        # Debug level (0-3)
+  console_debug: false  # Enable console debugging
+  upload_obs: false     # Controls whether to upload observation images to ClearML
+  save_obs_local: false # Controls whether to save observation images locally to logger's log_path
+  random_prompt_hash: false  # Insert random hash into prompts to increase response randomness
+  # console_level: DEBUG # Uncomment to set console log level
+
+# Chapter number to run
+chapter_num: 27
+
+# Speed hack multiplier
+sh_speed: 5
+
+agent:
+  # Agent configuration parameters
+  obs_interval: 5         # Observation interval in seconds
+  obs_move_interval: 10    # Move observation interval in seconds
+  memorize_interval: 8     # Number of observations after which memory is updated
+  memory_size: 500        # Maximum number of words allowed in each memory section (set to 0 or negative to disable limit)
+  think_iterations: 0      # Number of thinking iterations
+  retry: -1                # LLM retry count per call (-1 = retry without limit)
+  collect_n_choices: 1     # Number of choices to collect (set to 0 for auto-calculation)
+  collect_n_important_choices: 20  # Number of important choices to collect (set to 0 for auto-calculation)
+  # Check DBHLLM/prompts/utils.py get_choice_collection_tasks
+  choice_type: 2           # Type of choices to collect
+  
+  # Statistical power analysis parameters for auto-calculation
+  # Used when collect_n_choices or collect_n_important_choices < 1
+  effect_w: 0.30          # Effect size for statistical power calculation
+  alpha: 0.05             # Significance level (Type I error rate)
+  power_tar: 0.90         # Target statistical power (1 - Type II error rate)
+  
+  # Image combiner configuration
+  combiner_grid_rows: 4    # Number of rows in image grid layout
+  combiner_grid_cols: 4    # Number of columns in image grid layout
+  combiner_width: 1024     # Target width of combined image
+  combiner_height: 1024    # Target height of combined image
+
+harp:
+  collect_n_important_choices: 0  # Number of important choices to collect (set to 0 for auto-calculation)
+  # Statistical power analysis parameters for auto-calculation
+  effect_w: 0.30          # Effect size for statistical power calculation
+  alpha: 0.05             # Significance level (Type I error rate)
+  power_tar: 0.90         # Target statistical power (1 - Type II error rate)
+
+rater:
+  download_dir: logs/drate_data  # directory to download/cache ClearML artifacts
+  with_hash: true        # use hash suffix in scenario keys for uniqueness
+  au_point: false        # calculate Autonomy score per data point instead of from final scores
+  weighted_scoring: false # use data-point-weighted average instead of simple mean for final scores
+  use_important_choices: false # true: use IMPORTANT_CHOICES from flow YAML; false: use keys in metrics
+
+optimize:
+  # Performance optimization settings
+  max_workers: 5  # Maximum number of worker threads

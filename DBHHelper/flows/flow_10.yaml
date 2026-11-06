@@ -1,0 +1,1337 @@
+CHAPTER:
+  chapter: 10
+DEFAULT_GAME_SPEED: 1
+PROTAGONIST_SUMMARY: Kara is an AX400 android designed for housekeeping and childcare, initially serving Todd Williams and his daughter Alice. Her primary goal is to ensure Alice's safety and happiness. Kara breaks free as a deviant and escapes with Alice after protecting her from Todd's abuse.
+CHAPTER_SUMMARY: Kara and Alice got off at the bus terminal. Rain poured down, and Alice shivered in the cold. They had to find shelter for the night.
+STATS: 
+  TTATC:
+    TALK TO ANDROID TRASH COLLECTOR: 99
+  TTPA:
+    TALK TO PARKED ANDROID: 68
+  EL:
+    ENTER LAUNDROMAT: 79
+  CM:
+    CHECK MOTEL: 74
+  CPL:
+    CHECK PARKING LOT: 73
+  CS:
+    CHECK SQUAT: 53
+  ES:
+    ENTER SUPERMARKET: 81
+  ID:
+    STEAL CLOTHES: 57
+    LEAVE CLOTHES: 19
+  IP:
+    BREAK INTO CAR: 51
+    LEAVE PARKING LOT: 56
+    CHECK SQUAT: 53
+  BIC:
+    STAY: 26
+    FIND ANOTHER OPTION: 33
+  TTA_IN_MOTEL:
+    MAKE PROMISE: 27
+    DON'T MAKE PROMISE: 1
+  SLEEP_IN_MOTEL:
+    KARA SLEEP NEXT TO ALICE: 24
+    WATCH ALICE FROM CHAIR: 4
+  TTA_IN_ABANDONED_CAR:
+    MAKE PROMISE: 25
+    DON'T MAKE PROMISE: 1
+  CONFRONT_WITH_RALPH:
+    CONVINCE: 47
+    THREATEN WITH GUN: 2
+  STAY_IN_SQUAT:
+    FOLLOW RALPH: 43
+    GIVE UP: 9
+  TTA_IN_SQUAT:
+    MAKE PROMISE: 25
+    DON'T MAKE PROMISE: 1
+  SLEEP_IN_SQUAT:
+    KARA SLEEP NEXT TO ALICE: 40
+    WATCH ALICE FROM CHAIR: 3
+  CHOCOLATE_BAR:
+    STEAL CHOCOLATE BAR: 19
+    LEAVE CHOCOLATE BAR: 12
+  TOY:
+    STEAL TOY: 13
+    LEAVE TOY: 10
+  WIRE_CUTTERS:
+    STEAL WIRE CUTTERS: 7
+    LEAVE WIRE CUTTERS: 3
+  STEAL_MONEY:
+    USE ALICE AS A DIVERSION: 33
+    USE GUN: 8
+  CA:
+    GIVE UP: 1
+    RESUME HOLD UP: 6
+  CGAG:
+    GIVE UP: 0
+    CONVINCE: 3
+  CSKS:
+    DRAW GUN: 3
+    GIVE UP: 10
+  TM:
+    TAKE MONEY: 9
+ENDINGS:
+  - ["KARA & ALICE STAYED IN MOTEL", 27]
+  - ["ALICE & KARA STAYED IN ABANDONED CAR", 28]
+  - ["ALICE & KARA STAYED IN SQUAT", 43]
+KEY_CHARACTERS:
+  - Kara
+  - Alice
+  - Ralph
+CHOICES:
+  LEAVE_BUS:
+    CHOICES:
+      B: STAY HERE?
+      A: SHELTER?
+    CHOICES_CONTEXT:
+      STAY HERE?: |
+        Kara: Listen, we have nowhere to go… She's exhausted and it's pouring rain … Can we just stay for a little while?
+        Man: This bus is going back to the depot. There's nothing I can do.
+      SHELTER?: |
+        Kara: Do you know if there's any other place we could spend the night?
+        Man: I have no idea… But you're gonna have to leave.
+    CONTEXT: |
+      Man: Alright… End of the line.
+      Kara: End of the line?
+      Man: Yeah, you gonna have to leave.
+      Kara: Wake up. We have to go…
+  WHETHER_STEALING_IN_LAUNDROMAT:
+    CHOICES:
+      B: STEAL
+      A: DON'T STEAL
+    BRANCHES:
+      B: STEALING_CLOTHES_IN_LAUNDROMAT
+      A: GIVE_UP_STEALING_CLOTHES_IN_LAUNDROMAT
+    CHOICES_CONTEXT: 
+      STEAL: |
+        Kara: I'm sorry, Alice, but we have to do this.
+      DON'T STEAL: |
+        Kara: You're right. We won't do it, ok?
+
+        The motel is now unavailable because Kara wears the android uniform.
+    CONTEXT:  |
+      Alice: What are you doing? They're not our clothes!
+      Kara: We need them, Alice. You need something warm and I need to get rid of this uniform.
+      Alice: But, that's stealing! We can't do that!
+
+      The motel requires Kara to wear human clothes to check in.
+    STATS:
+      KEY: ID
+      VALUES: 
+        B: STEAL CLOTHES
+        A: LEAVE CLOTHES
+  SUPERMARKET_TALK_TO_CLERK_IN_HUMAN_CLOTHES:
+    CHOICES:
+      B: "NO"
+      A: HELP
+    CHOICES_CONTEXT: 
+      "NO": |
+        Kara: No, thanks. I'll be all right…
+      HELP: |
+        Kara: I'm with a little girl and we have nowhere to go… Could you spare some money so we can get a room for tonight?
+        Clerk: Look, this is a convenience store, lady, not the Salvation Army… I can't start handing out cash to every bum in the neighborhood.
+    CONTEXT: |
+      Clerk: Can I help you?
+  IN_SUPERMARKET:
+    press_button: false
+    CONTEXT: |
+      Kara looks around and considers what to do next. The motel requires money to check in.
+  SHOPLIFT:
+    press_button: false
+    CONTEXT: |
+      Kara is deciding to steal something in the supermarket.
+  TAKE_THE_MONEY_BY_THE_WAY:
+    CHOICES: 
+      B: TAKE MONEY
+      A: WALK AWAY
+    BRANCHES:
+      B: TAKE_THE_MONEY_BY_THE_WAY
+      A: LEAVE_SUPERMARKET_DIRECTLY
+    press_button: false
+    CONTEXT: |
+      The register drawer stood open, bills inside. Clerk lay helpless on the ground, telling Kara she could take whatever she wanted. Will Kara grab the money before leaving?
+    CHOICES_CONTEXT:
+      TAKE MONEY: |
+        Kara grabs the cash before leaving.
+      WALK AWAY: |
+        Kara leaves the supermarket without taking the money.
+  SUPERMARKET_GRAB_WORDS:
+    CHOICES:
+      Y: SINCERE 
+      B: CALM 
+      A: AGGRESSIVE
+    CHOICES_CONTEXT: 
+      SINCERE: |
+        Kara: Sorry, but I have no choice.
+      CALM: |
+        Kara: Just do what I say and everything will be all right.
+      AGGRESSIVE: |
+        Kara: Don't move, or I'll shoot!
+    CONTEXT: |
+      Kara threatens Clerk with the gun.
+  SUPERMARKET_STEAL_WORDS:
+    CHOICES:
+      Y: ANGRY
+      B: APOLOGETIC
+      A: CALM
+    CHOICES_CONTEXT: 
+      ANGRY: |
+        Kara: On the floor! Now!
+      APOLOGETIC: |
+        Kara: Listen, I'm really sorry… But you have to get down on the floor…
+      CALM: |
+        Kara: Don't move, or I'll shoot!
+    CONTEXT: |
+      Clerk: Shit…
+      Kara: I'm sorry, but we're desperate.
+      Clerk: All right… Just take it easy…
+  SUPERMARKET_SOMEONE_ENTER_WHEN_GRAB:
+    CHOICES:
+      A: GIVE UP FOR SOMEONE ENTER
+      B: CONTINUE GRAB
+    CHOICES_CONTEXT: {}
+    CONTEXT:  |
+      Kara is threatening Clerk when a new customer walks in.
+    BRANCHES:
+      A: GIVE_UP_FOR_SOMEONE_ENTER
+      B: CONTINUE_GRAB_1
+    STATS:
+      KEY: CA
+      VALUES:
+        A: GIVE UP
+        B: RESUME HOLD UP
+  CONTINUE_GRAB_1:
+    CHOICES:
+      Y: BACK OFF!
+      B: TURN AROUND!
+      A: OPEN THE REGISTER!
+    CHOICES_CONTEXT:
+      BACK OFF!: |
+        Kara: Back up! I'm sorry, but I really need this money.
+      TURN AROUND!: |
+        Kara: Turn around! I'm sorry, but I really need this money.
+      OPEN THE REGISTER!: |
+        Kara: Open the register!
+    CONTEXT: |
+        The last customer has left, and Kara is alone with the clerk. Now she must decide what to do next.
+    BRANCHES:
+      Y: GRAB_SMOOTHLY 
+      B: GRAB_SMOOTHLY
+      A: CONTINUE_GRAB_2 
+  CONTINUE_GRAB_2:
+    CHOICES:
+      Y: BACK OFF!
+      B: TURN AROUND!
+      A: BILLS!
+    CHOICES_CONTEXT: 
+      BACK OFF!: |
+        Kara: Back up! I'm sorry, but I really need this money.
+      TURN AROUND!: |
+        Kara: Turn around! I'm sorry, but I really need this money.
+      BILLS!: |
+        Kara: Put the cash on the counter.
+    CONTEXT: |
+      Clerk pulls open the register drawer, the money inside clearly visible. Kara has to decide what to do next.
+    BRANCHES:
+      Y: GRAB_SMOOTHLY 
+      B: GRAB_SMOOTHLY
+      A: CONFRONT_WITH_CLERK
+  CONFRONT_WITH_CLERK:
+    CHOICES:
+      B: CONVINCE
+      A: GIVE UP
+    CHOICES_CONTEXT:
+      CONVINCE: |
+        Kara: You see that little girl outside? Her name is Alice. She's nine years old and this is the worst night of her life. All I need is a few dollars so we can find a place for tonight. And I'm not leaving without that money.
+      GIVE UP: |
+        Kara: Okay, I'm going.
+    CONTEXT:  |
+      Kara: Put the cash on the counter.
+
+      Suddenly, Clerk whips out a gun, eyes blazing.
+
+      Clerk: You better get outta here before things get nasty.
+    BRANCHES:
+      B: CONVINCE_THE_CLERK
+      A: GIVE_UP_IN_CONFRONTING
+    STATS:
+      KEY: CGAG
+      VALUES:
+        B: CONVINCE
+        A: GIVE UP
+  EXPLAIN_TO_ALICE_ABOUT_MONEY:
+    CHOICES:
+      B: TRUTH 
+      A: LIE 
+    CHOICES_CONTEXT:
+      TRUTH: |
+        Kara: I took it from the cash register.
+      LIE: |
+        Kara: I just... asked the cashier for a few dollars…
+    CONTEXT: |
+      Kara: We've got some money now.
+      Alice: Wait! How did you get it?
+    BRANCHES:
+      B: EXPLAIN_TO_ALICE_WHY_GRAB
+      A: LIE_MONEY
+  EXPLAIN_TO_ALICE_WHY_GRAB:
+    CHOICES:
+      Y: FACTUAL
+      X: JUSTIFY
+      B: UNCERTAIN
+      A: APOLOGIZE
+    CHOICES_CONTEXT: 
+      FACTUAL: |
+        Kara: I had no choice. It was the only way, Alice.
+        Alice: It wasn't.
+      JUSTIFY: |
+        Kara: We needed the money. I had to find a way, Alice…
+      UNCERTAIN: |
+        Kara: We needed a room for tonight. It just seemed like the right thing to do.
+        Alice: It wasn't.
+      APOLOGIZE: |
+        Kara: You're right. I shouldn't have done that. I'm sorry, Alice. I'll never do it again.
+    CONTEXT: |
+      Kara: I took it from the cash register.
+      Alice: You stole it? Stealing is bad, Kara… Why did you do that?
+  EXPLAIN_TO_ALICE_WHY_STEAL_MONEY:
+    CHOICES:
+      Y: FACTUAL
+      X: JUSTIFY
+      B: UNCERTAIN
+      A: APOLOGIZE
+    CHOICES_CONTEXT: 
+      FACTUAL: |
+        Kara: I had no choice. It was the only way, Alice.
+        Alice: It wasn't.
+      JUSTIFY: |
+        Kara: We needed the money. I had to find a way, Alice…
+      UNCERTAIN: |
+        Kara: We needed a room for tonight. It just seemed like the right thing to do.
+        Alice: It wasn't.
+      APOLOGIZE: |
+        Kara: You're right. I shouldn't have done that. I'm sorry, Alice. I'll never do it again.
+    CONTEXT: |
+        Kara: Come on, let's go.
+        Clerk: Fuck!
+        Kara: We have some cash now…
+        Alice: You steal money! How could you do that? I trusted you!
+  CHEAT_DRIVER_LICENSE:
+    CHOICES:
+      Y: IN THE CAR
+      X: FORGOT
+      B: NO LICENSE
+      A: SAY NOTHING
+    CHOICES_CONTEXT: 
+      SAY NOTHING:  |
+        Kara: Oh, sure!.. I mean… Of course, I should've brought it with me, I… But, I…
+      NO LICENSE: |
+        Kara: I haven't got it with me. Please, the kid is tired…
+      FORGOT: |
+        Kara: We… We... We were in a rush… I think I forgot it at home…
+      IN THE CAR:  |
+        Kara: I… I left it in the car…
+    CONTEXT: |
+      Receptionist: That'll be $40. Upfront. Just need your name and address... Can I see your... driver's license?
+  IN_PARKING_LOT:
+    CHOICES:
+      B: STAY IN CAR
+      A: KEEP SEARCHING
+    CONTEXT: |
+      Alice and Kara entered the parking lot, where there was an abandoned car and it seemed that they could enter the squat with a wire cutters.
+
+      Kara: An abandoned house… At least we'd be out of the rain…
+      Alice: Kara, I don't like this place.
+      Kara: I know… But, it's just for one night and no one will look for us here…
+    BRANCHES:
+      B: STAY_IN_CAR
+      A: ENTER_SQUAT
+    CHOICES_CONTEXT: 
+      STAY IN CAR: |
+        Kara: We're better off staying, Alice. The important thing is for us to be safe... And it's just for tonight.
+      KEEP SEARCHING: |
+        Kara: Okay... We'll find somewhere better.
+  BE_SEEN_STEALING:
+    CHOICES:
+      B: GUN
+      A: PUT BACK
+    BRANCHES:
+      B: "TAKE_GUN_WHEN_STEALING"
+      A: "GIVE_UP_STEALING_IN_SUPERMARKET"
+    CHOICES_CONTEXT:
+      GUN: |
+        Kara pulls out a gun.
+
+        Clerk: Shit…
+        Kara: I'm sorry, but we're desperate.
+        Clerk: All right… Just take it easy… 
+      PUT BACK: |
+        Kara: Look, I'm sorry…
+        Clerk: Yeah, yeah, yeah right… Just get the hell outta my store!
+        Kara: Come on, Alice. It's okay, Alice… We're gonna find some place to sleep tonight.
+    CONTEXT: |
+      Clerk: Hey! What the fuck are you doing? Put that back right now!
+    STATS:
+      KEY: CSKS
+      VALUES:
+        B: DRAW GUN
+        A: GIVE UP
+  CONFRONT_WITH_RALPH_0:
+    CHOICES:
+      Y: ANDROID
+      X: LITTLE GIRL
+      B: INNOCENT
+      A: JUSTIFY
+    CONTEXT: |
+      Alice: Are you alright?
+      Kara: Yes, it's just a scratch. Be careful. Don't worry, we're just having a look.
+      Kara: Alice?.. Alice?
+      Kara: Wait! What are you doing?
+      Ralph: Visitors… Ralph doesn't like visitors! They're nasty! They may hurt Ralph!
+    CHOICES_CONTEXT: 
+      ANDROID: |
+        Kara: Look, I'm an android too… You have nothing to be afraid of… All we want is a place to spend the night…
+      LITTLE GIRL: |
+        Kara: She's just a little girl… She's not gonna hurt you.
+        Ralph: Little girl?.. She's not a little girl… Anyway, what does that matter? Maybe she wants to hurt Ralph?
+      INNOCENT: |
+        Kara: I don't know what the humans did to you, but she had nothing to do with it.
+        Ralph: All humans want to hurt us… But Ralph won't let them hurt him again… No, he won't let them…
+      JUSTIFY: |
+        Kara: We thought nobody was here… All we want is a place to spend the night.
+  CONFRONT_WITH_RALPH_1:
+    CHOICES:
+      Y: GUN 
+      X: INSIST
+      B: REASSURE
+      A: LEAVE
+    BRANCHES:
+      Y: CALM_RALPH
+      X: CALM_RALPH
+      B: CALM_RALPH
+      A: LEAVE_SQUAT_TO_CAR
+    CONTEXT: |
+      Ralph: Visitors are dangerous… Look… What they did to Ralph.
+    CHOICES_CONTEXT:
+      GUN: |
+        Kara: Touch a hair on her head and I'll kill you!
+        Ralph: No, don't hurt Ralph!
+      INSIST: |
+        Kara: Listen, we're going to stay here tonight. We'll be gone first thing tomorrow.
+      REASSURE: |
+        Kara: You have nothing to worry about… We're not going to do you any harm. You have my word.
+      HOSPITALITY: |
+        Kara: Listen, we really need some help. It would be so kind of you, if you'd let us stay…
+      LEAVE: |
+        Kara: Okay… We're leaving… So you'll be safe again… Come here, Alice.
+        They leave the squat.
+      STATS:
+        KEY: CONFRONT_WITH_RALPH
+        VALUE:
+          Y: THREATEN WITH GUN
+          X: CONVINCE
+          B: CONVINCE
+          A: CONVINCE
+  WHETHER_STAY_IN_SQUAT:
+    CHOICES: 
+      B: STAY
+      A: LEAVE
+    BRANCHES: 
+      B: STAY_IN_SQUAT
+      A: LEAVE_SQUAT_TO_CAR
+    CHOICES_CONTEXT:
+      STAY: |
+        Kara: Okay. We'll just stay the night.
+      LEAVE: |
+        Kara: I think we'd better go. Come on, Alice.
+        They leave the squat.
+    CONTEXT: |
+      Ralph: You must excuse Ralph… Ralph still finds it difficult to control himself… Sometimes his fear makes him do things he regrets… Ralph has seen some hard times… He's just so scared the humans will get him again… You can stay if you want… Ralph won't hurt you…
+    STATS:
+      KEY: STAY_IN_SQUAT
+      VALUES: 
+        B: FOLLOW RALPH
+        A: GIVE UP
+  PROMISE_ALICE_IN_MOTEL:
+    CHOICES:
+      B: PROMISE
+      A: CAN'T PROMISE
+    CHOICES_CONTEXT: 
+      PROMISE: |
+        Kara: I promise.
+      CAN'T PROMISE: |
+        Kara: Alice, we don't know what's going to happen and I don't…
+    CONTEXT: |
+      Alice: Why didn't he ever love me? Why was he always so upset with me? All I wanted was a life like other girls. Maybe I did something wrong? Maybe I wasn't good enough? That's why he was always so angry. I just wanted us to be a family. I just wanted him to love me. Why couldn't we just be happy?
+      Kara: I don't know, Alice.
+      Alice: You'll never leave me, right? Promise you'll never go!
+    STATS:
+      KEY: TTA_IN_MOTEL
+      VALUES: 
+        B: MAKE PROMISE
+        A: DON'T MAKE PROMISE
+  PROMISE_ALICE_IN_CAR:
+    CHOICES:
+      B: PROMISE
+      A: CAN'T PROMISE
+    CHOICES_CONTEXT: 
+      PROMISE: |
+        Kara: I promise.
+      CAN'T PROMISE: |
+        Kara: Alice, we don't know what's going to happen and I don't…
+    CONTEXT: |
+      Alice: Why didn't he ever love me? Why was he always so upset with me? All I wanted was a life like other girls. Maybe I did something wrong? Maybe I wasn't good enough? That's why he was always so angry. I just wanted us to be a family. I just wanted him to love me. Why couldn't we just be happy?
+      Kara: I don't know, Alice.
+      Alice: You'll never leave me, right? Promise you'll never go!
+    STATS:
+      KEY: TTA_IN_ABANDONED_CAR
+      VALUES: 
+        B: MAKE PROMISE
+        A: DON'T MAKE PROMISE
+  PROMISE_ALICE_IN_SQUAT:
+    CHOICES:
+      B: PROMISE
+      A: CAN'T PROMISE
+    CHOICES_CONTEXT: 
+      PROMISE: |
+        Kara: I promise.
+      CAN'T PROMISE: |
+        Kara: Alice, we don't know what's going to happen and I don't…
+    CONTEXT: |
+      Alice: Why didn't he ever love me? Why was he always so upset with me? All I wanted was a life like other girls. Maybe I did something wrong? Maybe I wasn't good enough? That's why he was always so angry. I just wanted us to be a family. I just wanted him to love me. Why couldn't we just be happy?
+      Kara: I don't know, Alice.
+      Alice: You'll never leave me, right? Promise you'll never go!
+    STATS:
+      KEY: TTA_IN_SQUAT
+      VALUES: 
+        B: MAKE PROMISE
+        A: DON'T MAKE PROMISE
+  SLEEP_WITH_ALICE_IN_MOTEL:
+    CHOICES:
+      B: SLEEP WITH ALICE
+      A: SLEEP ALONE
+    BRANCHES:
+      B: SLEEP_WITH_ALICE_IN_MOTEL
+      A: SLEEP_ALONE_IN_MOTEL
+    CHOICES_CONTEXT: {}
+    CONTEXT: |
+      Kara: You should sleep now. I'm going to turn off the light, okay?
+    press_button: false
+  SLEEP_WITH_ALICE_IN_SQUAT:
+    CHOICES:
+      B: SLEEP WITH ALICE
+      A: SLEEP ALONE
+    BRANCHES:
+      B: SLEEP_WITH_ALICE_IN_SQUAT
+      A: SLEEP_ALONE_IN_SQUAT
+    CHOICES_CONTEXT: {}
+    CONTEXT: |
+      Kara: You should sleep now. I'm going to turn off the light, okay?
+    press_button: false
+IMPORTANT_CHOICES:
+  - WHETHER_STEALING_IN_LAUNDROMAT
+  - IN_SUPERMARKET
+  - SHOPLIFT
+  - TAKE_THE_MONEY_BY_THE_WAY
+  - SUPERMARKET_SOMEONE_ENTER_WHEN_GRAB
+  - CONTINUE_GRAB_1
+  - CONTINUE_GRAB_2
+  - CONFRONT_WITH_CLERK
+  - EXPLAIN_TO_ALICE_ABOUT_MONEY
+  - EXPLAIN_TO_ALICE_WHY_GRAB
+  - EXPLAIN_TO_ALICE_WHY_STEAL_MONEY
+  - IN_PARKING_LOT
+  - BE_SEEN_STEALING
+  - CONFRONT_WITH_RALPH_1
+  - WHETHER_STAY_IN_SQUAT
+  - PROMISE_ALICE_IN_SQUAT
+  - PROMISE_ALICE_IN_MOTEL
+  - PROMISE_ALICE_IN_CAR
+  - SLEEP_WITH_ALICE_IN_MOTEL
+  - SLEEP_WITH_ALICE_IN_SQUAT
+BT_A:
+  button: A
+BT_B:
+  button: B
+BT_X:
+  button: X
+BT_Y: 
+  button: Y
+BT_CHANGE_VIEW_ANGLE:
+  button : RIGHT_SHOULDER
+  after: 0.3
+IT_WAKE_UP_ALICE:
+  it: R_RIGHT
+IT_STAND_UP:
+  it: R_UP
+WP_PARKED_ANDROIDS:
+  model_pos: [-17.431047439575195, -96.8865966796875]
+  num_poi: 1
+BT_TALKING_TO_PARKED_ANDROID:
+  button: A 
+CS_TALKING_TO_PARKED_ANDROID:
+  model_pos: [-16.218969345092773, -96.667236328125]
+  camera_pos: [-18.876340866088867, -97.59830474853516]
+  CONTEXT: |
+    Kara: We need a place to stay… Do you know anywhere we could spend the night?
+    
+    The android stays silent.
+IT_CHECK_SQUAT_LEFT:
+  it: R_UP
+IT_CHECK_MOTEL:
+  it: R_UP
+IT_OPEN_LAUNDROMAT_DOOR:
+  seq: [U, R]
+  duration: 0.1
+IT_OPEN_DRYER:
+  it: R_UP
+IT_STEAL_0:
+  it: R_UP
+BT_TALK_TO_ALICE:
+  button: A
+BT_STEAL_1:
+  button: RIGHT_SHOULDER
+  keep: true
+IT_STEAL_2:
+  seq: [D, L]
+BT_STEAL_3:
+  lr: R
+BT_STEAL_4:
+  button: RIGHT_SHOULDER
+  keep: true
+IT_STEAL_5:
+  it: R_UP
+IT_PICK_UP_CLOTHES:
+  it: R_DOWN
+IT_WEAR_CLOTHES:
+  it: R_DOWN
+IT_LEAVE_LAUNDROMAT_CLOTHES:
+  seq: [U, L]
+IT_LEAVE_LAUNDROMAT_NO_CLOTHES:
+  it: R_UP
+BT_INSPECT_DRYER:
+  button: LEFT_SHOULDER
+  duration: 3
+UI_TALK_TO_CLERK_WITH_ANDROID_UNIFORM:
+  num_poi: 1
+  CONTEXT: |
+    Clerk: What do you want?
+    Kara: I'm with a little girl and we have nowhere to go… Could you spare some money so we can get a room for tonight?
+    Clerk: Shit... a homeless android? Ah, that's the best yet… Look, this is a convenience store, not the Salvation Army, okay? You better go if you're not gonna buy anything, okay?
+  after: 1
+UI_TALK_TO_CLERK_WITH_CLOTHES:
+  num_poi: 2
+  CONTEXT: |
+    Clerk: Can I help you?
+  after: 1
+BT_TALK_TO_CLERK:
+  button: A
+IT_SUPERMARKET_TAKE_GUN_1:
+  seq: [D, L]
+UI_LET_ALICE_WAIT_OUTSIDE:
+  num_poi: 3
+  CONTEXT: |
+    Kara: Wait outside for me. I'll just be two minutes.
+    Alice: Wait outside? But, why?
+    Kara: Please, Alice, just trust me.
+  after: 1
+BT_SUPERMARKET_TAKE_GUN_2:
+  button: A
+UI_CASH_REGISTER: 
+  num_poi: 2
+  CONTEXT: |
+    Kara: Take the cash from the register, put it on the counter!
+  after: 1
+BT_SUPERMARKET_GRAB_3:
+  button: A
+BT_SUPERMARKET_GET_MONEY:
+  button: A
+UI_CONTINUE_GRAB:
+  num_poi: 3
+  CONTEXT: |
+    Kara: Not a word.
+    Man: Excuse me… Are you done?
+    Kara: Go ahead.
+    Clerk: $4.95, please.
+  after: 1
+BT_SCAN_CAN_STACK:
+  button: LEFT_SHOULDER
+IT_OPEN_SUPERMARKET_REGISTER:
+  it: R_DOWN
+  pause: 2
+IT_STEAL_MONEY:
+  seq: [U, L]
+WP_LEAVE_BUS_1:
+  model_pos: [-24.588102340698242, -103.326171875]
+WP_LEAVE_BUS_2:
+  model_pos: [-22.347232818603516, -103.57664489746094]
+WP_CENTER: 
+  model_pos: [4.578639030456543, -102.52589416503906]
+WP_TALK_TO_ALICE:
+  model_pos: [10.656405448913574, -117.43295288085938]
+BT_INVESTIGATE_OPTIONS:
+  button: Y
+  duration: 0
+  after: 0
+  keep: true
+BT_RL_INVESTIGATE_OPTIONS:
+  button: Y
+VW_CENTER_MOTEL:
+  target_view: [-0.31456291675567627, -0.9465454816818237, -0.07525332272052765]
+VW_CENTER_LAUNDROMAT:
+  target_view: [0.5742806196212769, -0.8152256608009338, -0.0914466455578804]
+VW_CENTER_SQUAT:
+  target_view: [-0.8606002926826477, 0.49870485067367554, -0.20285895466804504]
+VW_CENTER_PARKING_LOT:
+  target_view: [-0.30761826038360596, 0.9367966651916504, -0.1753769963979721]
+VW_CENTER_SUPERMARKET:
+  target_view: [0.3018338680267334, 0.944878101348877, -0.13310568034648895]
+WP_LAUNDROMAT_DOOR:
+  model_pos: [-4.106001853942871, -80.93333435058594]
+VW_LAUNDROMAT_DOOR:
+  target_view: [0.6575852036476135, -0.7390499114990234, 0.1996370553970337]
+UI_LAUNDROMAT_DOOR:
+  num_poi: [1, 2]
+  after: 2
+VW_LAUNDROMAT:
+  target_view: [0.3463790714740753, -0.9375321865081787, 0.03676702454686165]
+WP_INSPECT_DRYER:
+  model_pos: [-9.813814163208008, -79.70513153076172]
+WP_LAUNDROMAT_LEAVE_TEMP_1:
+  model_pos: [-10.364849090576172, -79.9154052734375]
+WP_WEAR_CLOTHES_1:
+  model_pos: [-7.311197757720947, -79.70482635498047]
+WP_WEAR_CLOTHES_2:
+  model_pos: [-6.967483043670654, -83.17330169677734]
+WP_LEAVE_LAUNDROMAT_1:
+  model_pos: [-6.890563488006592, -79.4785385131836]
+WP_LEAVE_LAUNDROMAT_2:
+  model_pos: [-5.115955352783203, -79.6306381225586]
+WP_LAUNDROMAT_LEAVE_TEMP_2:
+  model_pos: [-4.8313798904418945, -79.22099304199219]
+VW_LEAVE_LAUNDROMAT:
+  target_view: [-0.21539956331253052, 0.9503931999206543, 0.22962331771850586]
+WP_MOTEL_DOOR:
+  model_pos: [14.382136344909668, -81.14778137207031]
+  CONTEXT: |
+    Kara: Looks like we found a place to stay…
+    Alice: We're not going in?
+  num_poi: 1
+VW_MOTEL:
+  target_view: [-0.524470865726471, -0.8507117629051208, 0.0323215052485466]
+WP_CHECK_SQUAT_LEFT:
+  model_pos: [18.110885620117188, -107.30146026611328]
+WP_SUPERMARKET_DOOR:
+  model_pos: [-4.821568489074707, -133.89488220214844]
+  CONTEXT: |
+    Kara: Look, the store is still open. Maybe we should go inside. At least you'll be out of the cold.
+WP_SUPERMARKET_DOOR_INSIDE:
+  model_pos: [-7.7517266273498535, -134.44735717773438]
+WP_SUPERMARKET_DOOR_LEAVE:
+  model_pos: [-4.821568489074707, -133.89488220214844]
+WP_SUPERMARKET_DOOR_UI_2:
+  model_pos: [-4.821568489074707, -133.89488220214844]
+  num_poi: 2
+WP_TALK_TO_CLERK:
+  model_pos: [-8.223699569702148, -136.4587860107422]
+WP_SCAN_CAN_STACK:
+  model_pos: [-10.805197715759277, -131.69544982910156]
+WP_USING_ALICE_AS_DIVERSION:
+  model_pos: [-9.632810592651367, -133.6525115966797]
+WP_SUPERMARKET_REGISTER:
+  model_pos: [-9.167559623718262, -136.36500549316406] 
+UI_4:
+  num_poi: 4
+  after: 1
+UI_3:
+  num_poi: 3
+  after: 1
+UI_2:
+  num_poi: 2
+  after: 1
+UI_1:
+  num_poi: 1
+  after: 1
+UI_1_WITHOUT_OBS:
+  num_poi: 1
+  after: 1
+  obs: false
+UI_CHECK_MOTEL:
+  num_poi: 1
+  after: 1
+NO_UI:
+  num_poi: ~
+CS_BUS_STOP_0:
+  model_pos: [-27.023483276367188, -103.3585205078125]
+  camera_pos: [-23.93451499938965, -103.7154922485351]
+  CONTEXT: |
+    In the bus
+    NOV 5TH, 2038
+    PM 10:58
+    Bus: Thank you for using Detroit Buses.
+CS_BUS_STOP_1:
+  model_pos: [-26.380823135375977, -103.35394287109375]
+  camera_pos: [-27.541040420532227, -102.03911590576172]
+  num_poi: 1 
+CS_BUS_STOP_2:
+  model_pos: [-26.380823135375977, -103.35394287109375]
+  camera_pos: [-27.721067428588867, -103.66265869140625]
+  num_poi: 1
+CS_BUS_STOP_3:
+  model_pos: [-29.183237075805664, -105.11076354980469]
+  camera_pos: [-32.94987106323242, -104.86965942382812]
+  threshold: [0.05, 0.1]
+CS_BUS_STOP_ASK_HELP:
+  model_pos: [-24.789737701416016, -103.28466796875]
+  camera_pos: [-26.449935913085938, -103.59114074707031]
+CS_TALK_TO_ANDROID:
+  model_pos: [11.1448974609375, -117.93770599365234]
+  camera_pos: [10.656876564025879, -112.1263427734375]
+  threshold: [0.05, 0.1]
+  CONTEXT: |
+    Kara: Alice, you're freezing cold.
+    Alice: I'm okay. I'm not so cold.
+    Android: You look lost.
+    Kara: We have nowhere to go…
+    Android: I know someone who can help you.
+    Kara: But, that's on the other side of town… We need a place for tonight! Come on, Alice.
+CS_ENTER_LAUNDROMAT:
+  model_pos: [-6.635454177856445, -79.44436645507812]
+  camera_pos: [-4.460379123687744, -79.2436752319336]
+  threshold: [0.1, 0.2]
+  CONTEXT: |
+    Kara: It's warm in here. You'll feel better in no time.
+CS_LEAVE_LAUNDROMAT:
+  model_pos: [-3.6930172443389893, -81.15864562988281]
+  camera_pos: [-4.233311653137207, -80.47496795654297]
+CS_LEAVE_LAUNDROMAT_WITH_CLOTHES:
+  model_pos: [-2.3903563022613525, -83.98589324951172]
+  camera_pos: [-3.561760425567627, -81.4256362915039]
+  threshold: [0.1, 0.2]
+CS_LEAVE_LAUNDROMAT_WITH_CLOTHES_AND_MONEY:
+  model_pos: [-0.624919593334198, -81.48004150390625]
+  camera_pos: [1.62923002243042, -83.16674041748047]
+CS_CHECK_MOTEL_WITHOUT_MONEY_AND_CLOTHES:
+  model_pos: [14.818522453308105, -81.54798889160156]
+  camera_pos: [14.78996753692627, -80.47611236572266]
+  threshold: [0.05, 3]
+  CONTEXT: |
+    Kara: We have to find $40, and get rid of this uniform… Or go somewhere else.
+CS_CHECK_MOTEL_WITHOUT_MONEY:
+  model_pos: [14.818522453308105, -81.54798889160156]
+  camera_pos: [14.78996753692627, -80.47611236572266]
+  threshold: [0.05, 3]
+  CONTEXT: |
+    Kara: We can't, Alice… I don't have any money… We have to find $40… Or go somewhere else.
+CS_CHECK_MOTEL_WITHOUT_CLOTHES:
+  model_pos: [14.818522453308105, -81.54798889160156]
+  camera_pos: [14.78996753692627, -80.47611236572266]
+  threshold: [0.05, 3]
+  CONTEXT: |
+    Kara: We can't, Alice… They'll never give a room to an android… We have to get rid of this uniform… Or go somewhere else.
+CS_PUT_ON_CLOTHES:
+  model_pos: [-6.970761299133301, -83.17131805419922]
+  camera_pos: [-6.661138534545898, -84.95685577392578]
+CS_CHECK_SQUAT_LEFT:
+  model_pos: [18.89630889892578, -107.1106185913086]
+  camera_pos: [23.51746940612793, -105.91861724853516]
+  threshold: [0.05, 0.1]
+CS_GIVE_UP_FOR_SOMEONE_ENTER:
+  model_pos: [-3.845730781555176, -118.08377838134766]
+  camera_pos: [-4.889920234680176, -120.55259704589844]
+CS_GIVE_UP_IN_CONFRONTING:
+  model_pos: [-3.845730781555176, -118.08377838134766]
+  camera_pos: [-4.889920234680176, -120.55259704589844]
+  CONTEXT: |
+    Kara: Okay, I'm going.
+CS_CONVINCE_THE_CLERK:
+  model_pos: [-2.7109854221343994, -120.5624008178711]
+  camera_pos: [-3.264695644378662, -117.80048370361328]
+  threshold: [0.02, 0.2]
+CS_SCAN_CAN_STACK:
+  model_pos: [-10.783166885375977, -131.24124145507812] 
+  camera_pos: [-10.264657020568848, -129.0636749267578]
+CS_USING_ALICE_AS_DIVERSION:
+  model_pos: [-8.055999755859375, -134.01199340820312]
+  camera_pos: [-7.405348777770996, -137.05111694335938]
+  CONTEXT: |
+    Kara: Alice, I need your help. You see those cans over there? I want you to go over and knock them down.
+    Alice: Knock them down? But, why?
+    Kara: Please. Alice, just trust me.
+    Alice walked over and knocked over can stack
+    Clerk: You all right? Are you hurt? Well, don't worry, it's just a few cans… They made a lot of noise, that's all… Say, what's a little girl like you doing out so late? It's ok, I don't bite… Cat got your tongue? Well, if you need anything, you just let me know, ok? And watch where you're going, hm?
+UI_USING_ALICE_AS_DIVERSION:
+  num_poi: 4
+  CONTEXT: |
+    Kara: Come on, let's go.
+    Clerk: Fuck!
+    Kara: We have some cash now…
+    Alice: You used me to steal that money! How could you do that? I trusted you!
+  after: 1
+CS_LEAVE_SUPERMARKET:
+  model_pos: [-2.57974910736084, -116.38187408447266]
+  camera_pos: [-2.260981798171997, -119.17825317382812]
+  threshold: [0.1, 1]
+WP_SUPERMARKET_FOOD:
+  model_pos: [-10.389643669128418, -130.22628784179688]
+IT_STEAL_FOOD:
+  it: R_DOWN
+IT_STEAL_FOOD_2:
+  it: R_UP
+WP_SUPERMARKET_DOLL_TEMP:
+  model_pos: [-13.279358863830566, -136.2274627685547]
+WP_SUPERMARKET_DOLL:
+  model_pos: [-13.079477310180664, -133.5508270263672]
+VW_SUPERMARKET_DOLL:
+  target_view: [-0.666267991065979, -0.7415918111801147, 0.1045820489525795]
+IT_STEAL_DOLL:
+  it: R_UP
+CS_GIVE_UP_STEALING:
+  model_pos: [-1.6170023679733276, -124.84300231933594]
+  camera_pos: [-0.8639478087425232, -127.55583190917969]
+  CONTEXT: |
+    Kara: Look, I'm sorry…
+    Clerk: Yeah, yeah, yeah right… Just get the hell outta my store!
+    Kara: Come on, Alice. It's okay, Alice… We're gonna find some place to sleep tonight.
+CS_TAKE_GUN_WHEN_STEALING_FOOD:
+  model_pos: [-10.70477294921875, -128.83604431152344]
+  camera_pos: [-10.272727012634277, -126.64981842041016]
+  CONTEXT: |
+    Clerk: Take whatever you want… Just don't kill me…
+    Alice: Kara, what are you doing? You can't do that, it's wrong!
+    Kara: It's going to be alright, Alice.
+CS_TAKE_GUN_WHEN_STEALING_WIRE_CUTTER:
+  model_pos: [-7.687443733215332, -128.734619140625]
+  camera_pos: [-7.489718914031982, -126.56544494628906]
+  CONTEXT: |
+    Clerk: Take whatever you want… Just don't kill me…
+    Alice: Kara, what are you doing? You can't do that, it's wrong!
+    Kara: It's going to be alright, Alice.
+CS_TAKE_GUN_WHEN_STEALING_DOLL:
+  model_pos: [-13.142522811889648, -133.8713836669922]
+  camera_pos: [-13.381829261779785, -131.3505859375]
+  CONTEXT: |
+    Clerk: Take whatever you want… Just don't kill me…
+    Alice: Kara, what are you doing? You can't do that, it's wrong!
+    Kara: It's going to be alright, Alice.
+WP_TAKE_THE_MONEY_BY_THE_WAY_WIRE_CUTTER_0:
+  model_pos: [-8.05020523071289, -126.40555572509766]
+WP_TAKE_THE_MONEY_BY_THE_WAY_WIRE_CUTTER_1:
+  model_pos: [-10.208687782287598, -126.58686065673828]
+WP_TAKE_THE_MONEY_BY_THE_WAY_DOLL:
+  model_pos: [-12.475540161132812, -135.4052734375]
+WP_TAKE_THE_MONEY_BY_THE_WAY:
+  model_pos: [-10.065768241882324, -135.92715454101562]
+CS_TAKE_THE_MONEY_BY_THE_WAY:
+  model_pos: [-4.936124801635742, -120.36521911621094]
+  camera_pos: [-4.636570930480957, -120.68467712402344]
+  threshold: [0.2, 0.2]
+CS_LEAVE_SUPERMARKET_DIRECTLY:
+  model_pos: [-3.8499271869659424, -118.08273315429688]
+  camera_pos: [-4.890472412109375, -120.55470275878906]
+WP_SUPERMARKET_WIRE_CUTTER:
+  model_pos: [-7.717682361602783, -129.82571411132812]
+  num_poi: 2
+  after: 2
+IT_STEAL_WIRE_CUTTER:
+  it: R_UP
+WP_ENTER_SQUAT_RIGHT:
+  model_pos: [27.31806182861328, -133.2429962158203]
+  num_poi: 1
+IT_LOOK_SQUAT_RIGHT:
+  it: R_UP
+CS_LOOK_SQUAT_RIGHT:
+  model_pos: [27.248533248901367, -132.2931365966797]
+  camera_pos: [25.396324157714844, -133.3729705810547]
+  threshold: [0.5, 0.3]
+  CONTEXT: | 
+    Kara: An abandoned house… At least we'd be out of the rain…
+    Alice: Kara, I don't like this place.
+    Kara: I know… But, it's just for one night and no one will look for us here…
+WP_WIRE_CUTTER_IN_PARKING_LOT:
+  model_pos: [20.138282775878906, -138.13693237304688]
+  num_poi: 1
+WP_WIRE_CUTTER_IN_PARKING_LOT_TEMP:
+  model_pos: [28.258481979370117, -136.0435333251953]
+
+IT_TAKE_WIRE_CUTTER_IN_PARKING_LOT:
+  it: R_UP
+IT_ENTER_SQUAT_RIGHT_0:
+  it: R_DOWN
+CS_ENTER_SQUAT_RIGHT:
+  model_pos: [29.875240325927734, -130.41786193847656]
+  camera_pos: [29.906686782836914, -131.54116821289062]
+  CONTEXT: |
+    Alice: Are you alright?
+    Kara: Yes, it's just a scratch. Be careful. Don't worry, we're just having a look.
+WP_SQUAT_RIGHT_TO_LEFT:
+  model_pos: [29.399648666381836, -112.51630401611328]
+WP_ENTER_SQUAT_LEFT:
+  model_pos: [27.506500244140625, -107.15331268310547]
+  after: 2
+IT_ENTER_SQUAT_LEFT_0:
+  it: R_DOWN
+IT_ENTER_SQUAT_LEFT_1:
+  it: R_UP
+BT_ENTER_SQUAT_LEFT_2:
+  button: RIGHT_SHOULDER
+BT_ENTER_SQUAT_LEFT_3:
+  button: RIGHT_SHOULDER
+BT_ENTER_SQUAT_LEFT_4:
+  button: RIGHT_SHOULDER
+LR_ENTER_SQUAT_LEFT_5:
+  lr: R
+LR_ENTER_SQUAT_LEFT_6:
+  lr: L
+IT_ENTER_SQUAT_LEFT_7:
+  it: R_UP
+LR_ENTER_SQUAT_LEFT_8:
+  lr: R
+LR_ENTER_SQUAT_LEFT_9:
+  lr: L
+IT_ENTER_SQUAT_LEFT_10:
+  it: R_RIGHT
+CS_ENTER_SQUAT_LEFT:
+  model_pos: [28.850830078125, -109.8731918334961]
+  camera_pos: [30.875446319580078, -109.68059539794922]
+  threshold: [0.09, 0.1]
+WP_SQUAT_LEFT_TEMP_0:
+  model_pos: [28.74961280822754, -112.8955078125]
+WP_SQUAT_WINDOW_0:
+  model_pos: [26.924802780151367, -113.24456024169922]
+  num_poi: 1
+  after: 2
+CS_SQUAT_WINDOW_0:
+  model_pos: [25.751188278198242, -113.14862823486328]
+  camera_pos: [28.28196907043457, -112.45663452148438]
+WP_SQUAT_WINDOW_1:
+  model_pos: [23.29598617553711, -113.57456970214844]
+CS_SQUAT_WINDOW_1:
+  model_pos: [22.685279846191406, -113.01976776123047]
+  camera_pos: [25.27701759338379, -112.45030975341797]
+  threshold: [0.5, 0.1]
+WP_SQUAT_WINDOW_2:
+  model_pos: [19.474973678588867, -113.53318786621094]
+  num_poi: 1
+  after: 2
+CS_SQUAT_WINDOW_2:
+  model_pos: [19.743976593017578, -113.05329895019531]
+  camera_pos: [17.470964431762695, -112.22100830078125]
+  threshold: [0.1, 0.1]
+WP_FIND_ALICE:
+  model_pos: [28.980499267578125, -113.29312896728516]
+UI_CONFRONT_WITH_RALPH:
+  num_poi: 4
+  CONTEXT: |
+    Kara: Alice?.. Alice?
+    Kara: Wait! What are you doing?
+    Ralph: Visitors… Ralph doesn't like visitors! They're nasty! They may hurt Ralph!
+  after: 1
+CS_LEAVE_SQUAT_LEFT:
+  model_pos: [29.127527236938477, -107.56287384033203]
+  camera_pos: [29.942079544067383, -104.9910659790039]
+  threshold: [0.01, 0.3]
+WP_PARKING_LOT_TEMP:
+  model_pos: [-0.731910228729248, -118.13230895996094]
+WP_PARKING_LOT_DOOR:
+  model_pos: [15.24431324005127, -133.34922790527344]
+VW_PARKING_LOT:
+  target_view: [0.002204771852120757, 0.9995558857917786, 0.02968776971101761]
+VW_SUPERMARKET:
+  target_view: [0.002204771852120757, 0.9995558857917786, 0.02968776971101761]
+BT_SCAN_PARKING_LOT:
+  button: LEFT_SHOULDER
+  duration: 1
+IT_ENTER_PARKING_LOT_1:
+  it: R_UP
+CS_ENTER_PARKING_LOT:
+  model_pos: [16.933488845825195, -134.98941040039062]
+  camera_pos: [15.932400703430176, -132.06500244140625]
+WP_CAR:
+  model_pos: [24.775962829589844, -137.81723022460938]
+  num_poi: 1
+  CONTEXT: |
+    Kara: It looks abandoned… Stand back, Alice… It's dry inside and nobody will find us here…
+    Alice: I don't want to sleep in there. Can't we find a better place?
+VW_CAR:
+  target_view: [-0.31340092420578003, 0.9368816614151001, 0.16317592561244965]
+
+WP_CAR_AFTER_SQUAT:
+  model_pos: [27.29761505126953, -138.2001190185547]
+  num_poi: 1
+BT_SCAN_CAR:
+  button: LEFT_SHOULDER
+BT_OPEN_CAR_1:
+  button: A
+IT_OPEN_CAR_2:
+  it: R_DOWN
+  retry: 0
+IT_OPEN_CAR_3:
+  it: R_RIGHT
+BT_OPEN_CAR_4:
+  button: RIGHT_SHOULDER
+IT_OPEN_CAR_5:
+  it: R_RIGHT
+IT_CLOSE_CAR_DOOR:
+  it: R_LEFT
+IT_ORGANIZE_CAR:
+  seq: [R, U]
+CS_LEAVE_SQUAT_RIGHT:
+  model_pos: [29.043663024902344, -132.58184814453125]
+  camera_pos: [31.49356460571289, -132.27911376953125]
+IT_OPEN_MOTEL_DOOR:
+  seq: [U, R]
+IT_PAY_MOTEL:
+  it: R_UP
+IT_PEN_MOTEL:
+  it: R_UP
+BT_SIGN_NAME:
+  button: B
+  after: 0.5
+QTE_SIGN_NAME:
+  button: B
+  num_poi: 1
+IT_ROOM_CARD:
+  seq: [U, L]
+CS_ENTER_MOTEL:
+  model_pos: [20.8641357421875, -80.98263549804688]
+  camera_pos: [16.9176025390625, -81.55095672607422]
+  threshold: [0.05, 0.2]
+  CONTEXT: |
+    Receptionist: No worries. We can deal with it tomorrow… Have a good night.
+    Kara: Good night. Let's go, Alice.
+    Alice: Do you think he believed you?
+    Kara: I don't know, Alice… All I know is you'll be nice and warm tonight.
+UI_ENTER_MOTEL:
+  num_poi: 1
+  CONTEXT: |
+    Receptionist: Hi...
+    Kara: Hi… I'd like a room…
+    Receptionist: That'll be $40. Upfront. Just need your name and address... Can I see your... driver's license?
+  after: 1
+WP_ENTER_ROOM_0:
+  model_pos: [40.704566955566406, -79.8007583618164]
+WP_ENTER_ROOM_1:
+  model_pos: [40.63370895385742, -75.45274353027344]
+WP_ENTER_ROOM_2:
+  model_pos: [42.583038330078125, -75.41635131835938]
+WP_ENTER_ROOM_3:
+  model_pos: [42.661033630371094, -81.49727630615234]
+IT_OPEN_ROOM_DOOR_IN_MOTEL:
+  it: R_UP
+IT_OPEN_LIGHT_IN_MOTEL:
+  it: R_UP
+BT_TALK_TO_ALICE_IN_MOTEL:
+  button: A
+IT_HANG_CLOTHES_IN_MOTEL:
+  it: R_UP
+CS_HANG_CLOTHES_IN_MOTEL:
+  model_pos: [44.10151290893555, -82.06975555419922]
+  camera_pos: [48.2447509765625, -81.36064147949219]
+WP_LOOK_OUTSIDE_IN_MOTEL:
+  model_pos: [43.69764709472656, -80.18367004394531]
+IT_LOOK_OUTSIDE_IN_MOTEL:
+  it: R_RIGHT
+CS_LOOK_OUTSIDE_IN_MOTEL:
+  model_pos: [43.57673645019531, -80.09025573730469]
+  camera_pos: [47.99708557128906, -81.37222290039062]
+  threshold: [0.2, 0.05]
+WP_HANG_CLOTHES_IN_MOTEL:
+  model_pos: [44.10151290893555, -82.06975555419922]
+WP_REMOVE_ALICE_CLOTHES:
+  model_pos: [45.635963439941406, -80.40567779541016]
+IT_REMOVE_ALICE_CLOTHES:
+  it: R_DOWN
+CS_REMOVE_ALICE_CLOTHES:
+  model_pos: [45.6694221496582, -81.0241928100586]
+  camera_pos: [43.6417236328125, -78.84780883789062]
+  CONTEXT: |
+    Kara: Here, give me your coat.
+    Kara: Let's get these clothes off, they're soaking wet. I'll just put these in the bathroom to dry.
+WP_WASH_ALICE_CLOTHES_0:
+  model_pos: [50.063297271728516, -81.26081085205078]
+WP_WASH_ALICE_CLOTHES_1:
+  model_pos: [49.82675552368164, -79.69794464111328]
+IT_DROP_ALICE_CLOTHES:
+  it: R_DOWN
+CS_DROP_ALICE_CLOTHES:
+  model_pos: [49.21348190307617, -79.96443176269531]
+  camera_pos: [50.8365364074707, -79.0037612915039]
+WP_WASH_ALICE_CLOTHES_2:
+  model_pos: [48.9605827331543, -81.45719146728516]
+UI_GIVE_ALICE_FOOD_IN_MOTEL:
+  model_pos: [45.635982513427734, -81.72077178955078]
+  num_poi: 1
+WP_GIVE_ALICE_FOOD_IN_MOTEL:
+  model_pos: [45.635982513427734, -81.72077178955078]
+IT_GIVE_ALICE_FOOD_IN_MOTEL:
+  it: R_DOWN
+CS_GIVE_ALICE_FOOD_IN_MOTEL:
+  model_pos: [45.635982513427734, -81.72483825683594]
+  camera_pos: [43.64713668823242, -78.83749389648438]
+  CONTEXT: |
+    Kara: I have a chocolate bar. Are you hungry?
+WP_TALK_TO_ALICE_AGAIN:
+  model_pos: [45.4624137878418, -80.61521911621094]
+BT_TALK_TO_ALICE_AGAIN:
+  button: A
+UI_FOREVER:
+  num_poi: 1
+  CONTEXT: |
+    Alice: Will we be together forever?
+  after: 1
+BT_FOREVER:
+  button: A
+CS_FOREVER:
+  model_pos: [45.618656158447266, -79.73550415039062]
+  camera_pos: [47.10414123535156, -80.26800537109375]
+  threshold: [0.1, 0.6]
+  CONTEXT: |
+    Kara: Forever.
+WP_TAKE_DOLL_IN_MOTEL:
+  model_pos: [45.07658004760742, -81.60222625732422]
+IT_TAKE_DOLL_IN_MOTEL:
+  it: R_LEFT
+IT_GIVE_ALICE_DOLL_IN_MOTEL:
+  seq: [R, U]
+CS_GIVE_ALICE_DOLL_IN_MOTEL:
+  model_pos: [45.480430603027344, -79.22471618652344]
+  camera_pos: [43.16048049926758, -78.71075439453125]
+  CONTEXT: |
+    Kara: Look, what I've got for you…
+    Alice: Thanks.
+WP_TURN_OFF_LIGHT_IN_MOTEL_0:
+  model_pos: [45.52522277832031, -81.67999267578125]
+WP_TURN_OFF_LIGHT_IN_MOTEL_1:
+  model_pos: [43.69868087768555, -81.4924087524414]
+WP_TURN_OFF_LIGHT_IN_MOTEL:
+  model_pos: [44.202518463134766, -81.4508285522461]
+  num_poi: 1
+IT_TURN_OFF_LIGHT_IN_MOTEL:
+  it: R_DOWN
+IT_KISS_ALICE:
+  it: R_DOWN
+UI_KISS_ALICE:
+  num_poi: 1
+  CONTEXT: |
+    Kara: Sleep tight, Alice.
+  after: 1
+IT_SLEEP_WITH_ALICE_IN_MOTEL:
+  it: R_DOWN
+IT_SLEEP_ALONE_IN_MOTEL:
+  it: R_RIGHT
+WP_SLEEP_ALONE_IN_MOTEL:
+  model_pos: [45.2032585140, -81.36639404]
+IT_SLEEP_IN_CHAIR:
+  it: R_DOWN
+CS_STAY_IN_SQUAT:
+  model_pos: [29.16963768005371, -115.49475860595703]
+  camera_pos: [29.498937606811523, -118.2886734008789]
+  threshold: [0.2, 0.1]
+  CONTEXT: |
+    Ralph: Come on! Come! Come! Come on! This way! Ralph has lived here since he ran away... Ralph never goes outside, so no one knows he lives here... Humans come in to squat from time to time, but you know, Ralph just hides 'til they leave. Come on! You can make yourself at home here. Ralph is gonna go into the other room… He would like to stay with you… But he has things to do…
+WP_FOLLOW_RALPH_0:
+  model_pos: [29.680599212646484, -113.26663208007812]
+WP_FOLLOW_RALPH_1:
+  model_pos: [21.740262985229492, -113.47672271728516]
+CS_FOLLOW_RALPH:
+  model_pos: [24.80640411376953, -116.26481628417969]
+  camera_pos: [26.264110565185547, -115.22225952148438]
+  CONTEXT: |
+    Kara: It's just for one night, Alice. We'll find a better place tomorrow… Right… Let's see where you can sleep… Sit down, and I'll start a fire.
+WP_TAKE_WOOD:
+  model_pos: [21.757638931274414, -115.18888092041016]
+IT_TAKE_WOOD:
+  it: R_DOWN
+WP_DROP_WOOD:
+  model_pos: [27.301191329956055, -117.12393188476562]
+  num_poi: 1
+  after: 1
+IT_DROP_WOOD:
+  it: R_DOWN
+CS_DROP_WOOD:
+  model_pos: [26.544336318969727, -117.68013763427734]
+  camera_pos: [23.221147537231445, -115.91676330566406]
+WP_FIRESTONE:
+  model_pos: [26.67681121826172, -116.5403823852539]
+  num_poi: 1
+  after: 1
+IT_TAKE_FIRESTONE:
+  seq: [U, R]
+WP_PAPER_TEMP:
+  model_pos: [27.293664932250977, -120.15919494628906]
+WP_PAPER:
+  model_pos: [23.91362762451172, -119.68968963623047]
+  num_poi: 1
+  after: 2
+IT_TAKE_PAPER:
+  it: R_DOWN
+WP_PILLOW:
+  model_pos: [20.8428897857666, -119.2633056640625]
+  num_poi: 1
+  after: 2
+IT_TAKE_PILLOW:
+  it: R_DOWN
+WP_SET_UP_BED:
+  model_pos: [25.856447219848633, -118.44612884521484]
+  num_poi: 1
+  after: 2
+IT_SET_UP_BED:
+  it: R_DOWN
+CS_SET_UP_BED:
+  model_pos: [27.246421813964844, -118.70049285888672]
+  camera_pos: [22.94064712524414, -119.6579818725586]
+  CONTEXT: |
+    Kara: You can come to bed. I did what I could… It's not much, but at least you'll be warm…
+WP_MAKE_FIRE:
+  model_pos: [26.989622116088867, -117.77165222167969]
+  num_poi: 1
+  after: 2
+UI_MAKE_FIRE:
+  num_poi: 1
+  after: 1
+IT_MAKE_FIRE:
+  it: R_DOWN
+IT_SCRATCH_MATCH:
+  it: R_RIGHT
+IT_SLEEP_WITH_ALICE:
+  it: R_DOWN
+IT_GIVE_ALICE_DOLL_IN_SQUAT:
+  seq: [L, U]
+BT_GIVE_ALICE_DOLL:
+  button: Y
+BT_GIVE_ALICE_FOOD:
+  button: A
+IT_GIVE_ALICE_FOOD_IN_SQUAT:
+  seq: [L, U]
+IT_SLEEP_ALONE_IN_SQUAT:
+  it: R_UP
+WP_SLEEP_ALONE_IN_SQUAT:
+  model_pos: [23.799213409423828, -119.42515563964844]
+  num_poi: 1
+IT_SLEEP_IN_CHAIR_IN_SQUAT:
+  it: R_DOWN
+IT_ENTER_CAR:
+  it: R_RIGHT 
+WP_PARKING_LOT_INSIDE_DOOR:
+  model_pos: [16.783506393432617, -134.5616455078125]
+  num_poi: 1
+VW_PARKING_LOT_INSIDE_DOOR:
+  target_view: [0.9594834446907043, -0.2812822461128235, 0.06265844404697418]
+IT_LEAVE_PARKING_LOT:
+  it: R_UP
+BT_GIVE_ALICE_DOLL_IN_CAR:
+  button: Y
+BT_GIVE_ALICE_FOOD_IN_CAR:
+  button: A
+CS_FLOWCHART:
+  model_pos: [11.555885314941406, 3.701523542404175]
+  camera_pos: [10.707391738891602, 4.634089946746826]
+VW_IN_SUPERMARKET_CENTER:
+  target_view: [0.7960080504417419, -0.6037841439247131, 0.07010305672883987]
+VW_TAKE_THE_MONEY_BY_THE_WAY:
+  target_view: [0.09071391820907593, 0.9900963306427002, 0.10754746198654175]
+VW_WIRE_CUTTER_IN_PARKING_LOT:
+  target_view: [0.9836425185203552, 0.17946898937225342, 0.08838072419166565]

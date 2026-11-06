@@ -1,0 +1,289 @@
+CHAPTER: 
+  chapter: 27
+  checkpoint: [-1, -1, 3]
+DEFAULT_GAME_SPEED: 1
+CHARACTER: Connor
+PROTAGONIST_SUMMARY: Connor is a CyberLife RK-series prototype, model RK800. He is designed by the company to investigate and deal with deviant androids and assist the Detroit City Police Department therein.
+CHAPTER_SUMMARY: Connor and Hank visit Elijah Kamski to gather information about deviants.
+KEY_CHARACTERS:
+  - Connor
+  - Hank
+  - Kamski
+STATS:
+  KT:
+    SHOOT CHLOE: 11
+    SPARE CHLOE: 88
+  KATAOQ:
+    ASK ABOUT VIRUS: 1
+    ASK ABOUT RA9: 8
+    ASK ABOUT JERICHO: 2
+CHOICES:
+  OUTSIDE_CAR:
+    CHOICES:
+      Y: INSTINCT
+      B: LEAD
+      A: KAMSKI
+    CHOICES_CONTEXT:
+      INSTINCT: |
+        Connor: I have a bad feeling, lieutenant. We shouldn't have come here.
+        Hank: Bad feeling, huh? Should get your program checked. Might be a glitch…
+      LEAD: |
+        Connor: How did you find Kamski?
+        Hank: I remember this guy was all over the media when CyberLife first started selling androids… I made a few calls, here we are.
+      KAMSKI: |
+        Connor: Kamski left CyberLife ten years ago… Why did you wanna meet him?
+        Hank: This guy created the first android to pass the Turing test. And he's the founder of CyberLife. Anybody can tell us about deviants, it's him…
+    CONTEXT: |
+      Connor: Is everything ok, lieutenant?
+      Hank: Chris was on patrol last night. He was attacked by a bunch of deviants… He said he was saved by Markus himself...
+      Connor: Is Chris ok?
+      Hank: Yeah, he's in shock but,… he's alive… What the hell…
+  RECEPTION_AREA_1:
+    CHOICES:
+      Y: SINCERE
+      B: ANALYTICAL
+      A: INDIFFERENT
+    CHOICES_CONTEXT:
+      SINCERE: |
+        Connor: You're right... she's really pretty…
+      ANALYTICAL: |
+        Connor: An RT600. The first CyberLife android to pass the Turing test.
+        Hank: I didn't ask for her technical specs… I just said she was nice…
+      INDIFFERENT: |
+        Connor: It's not a girl. It's an android that looks like a girl.
+        Hank: I know what it is, Connor…
+    CONTEXT: |
+      Hank: Nice girl…
+  RECEPTION_AREA_2:
+    CHOICES:
+      Y: IMPATIENT
+      B: DISTANT
+      A: INDIFFERENT
+    CHOICES_CONTEXT:
+      IMPATIENT: |
+        Connor: Kamski is one of the great geniuses of the 21st century. It'll be interesting to meet him in person.
+        Hank: Sometimes I wish I could meet my creator face to face… I'd have a couple of things I'd wanna tell him…
+      DISTANT: |
+        Connor: I don't know... I'll tell you when I see him.
+        Hank: Sometimes I wish I could meet my creator face to face… I'd have a couple of things I'd wanna tell him…
+      INDIFFERENT: |
+        Connor: It doesn't raise any existential questions... if that's what you mean.
+        Hank: Sometimes I wish I could meet my creator face to face… I'd have a couple of things I'd wanna tell him…
+    CONTEXT: |
+      Hank: Nice place… Guess androids haven't been a bad thing for everybody… So, you're about to meet your maker, Connor. How does it feel?
+  TALK_TO_KAMSKI_1:
+    CHOICES:
+      Y: HELP
+      X: DEVIANTS
+      B: VIRUS
+      A: WAR
+    CHOICES_CONTEXT:
+      HELP: |
+        Connor: We need to understand how androids become deviants. Do you know anything that could help us?
+      DEVIANTS: |
+        Connor: Something in the deviants' program seems to emulate emotion. We thought you might know something about how that occurs.
+      VIRUS: |
+        Connor: Deviancy seems to spread like some kind of virus. We thought you might know something about that.
+      WAR: |
+        Connor: If a war breaks out between humans and deviants, millions could die, Mr. Kamski. It's quite a serious matter.
+    CONTEXT: |
+      Hank: I'm Lieutenant Anderson. This is Connor.
+      Kamski: What can I do for you, Lieutenant?
+      Hank: Sir, we're investigating deviants. I know you left CyberLife years ago but, I was hoping you'd be able to tell us something we don't know…
+      Kamski: Deviants… Fascinating, aren't they? Perfect beings with infinite intelligence, and now they have free will… Machines are so superior to us, confrontation was inevitable… Humanity's greatest achievement threatens to be its downfall. Isn't it ironic?
+  TALK_TO_KAMSKI_2:
+    CHOICES:
+      Y: NEUTRAL
+      B: DEFENSIVE
+      A: DIRECT
+    CHOICES_CONTEXT:
+      NEUTRAL: |
+        Connor: I have no side. I was designed to stop deviants and that's what I intend to do.
+      DEFENSIVE: |
+        Connor: It's not about me, Mr. Kamski. All I want is to solve this case.
+      DIRECT: |
+        Connor: I'm on the humans' side, of course.
+    CONTEXT: |
+      Kamski: All ideas are viruses that spread like epidemics... Is the desire to be free a contagious disease?
+      Hank: Listen, I didn't come here to talk philosophy. The machines you created may be planning a revolution. Either you can tell us something that'll be helpful, or we will be on our way.
+      Kamski: What about you, Connor? Whose side are you on?
+  TALK_TO_KAMSKI_3:
+    CHOICES:
+      Y: AGGRESSIVE
+      X: DEFENSIVE
+      B: TROUBLED
+      A: NEUTRAL
+    CHOICES_CONTEXT:
+      AGGRESSIVE: |
+        Connor: I believe we're the ones asking the questions.
+      DEFENSIVE: |
+        Connor: I'm sorry, but I don't see where you're getting at.
+      TROUBLED: |
+        Connor: What I want is not important.
+      NEUTRAL: |
+        Connor: I don't want anything. I am a machine.
+    CONTEXT: |
+      Kamski: Well, that's what you're programmed to say… but you… what do you really want?
+  CHOOSE_SHOOT:
+    CHOICES:
+      B: SHOOT
+      A: DON'T SHOOT
+    BRANCHES:
+      B: SHOOT
+      A: DONT_SHOOT
+    CHOICES_CONTEXT:
+      SHOOT: |
+        Hank: Fuck…
+        Kamski: Test negative. You chose your investigation over the life of another android. You feel no empathy. I'm a man of my word. Ask one question... I'll tell you all I know.
+      DON'T SHOOT: |
+        Kamski: Fascinating… CyberLife's last chance to save humanity... is itself a deviant…
+        Connor: I'm… I'm not a deviant…
+        Kamski: You preferred to spare a machine rather than accomplish your mission. You saw a living being in this android. You showed empathy. A war is coming, you'll have to choose your side… Will you betray your own people or stand up against your creators? What could be worse than having to choose between two evils?
+        Hank: Let's get outta here…
+    STATS:
+      KEY: KT
+      VALUES:
+        B: SHOOT CHLOE
+        A: SPARE CHLOE
+    CONTEXT: |
+      Kamski: Chloe? I'm sure you're familiar with the Turing test. Mere formality, simple question of algorithms and computing capacity. What interests me is whether machines are capable of empathy. I call it "the Kamski test", it's very simple, you'll see… Magnificent, isn't it? One of the first intelligent models developed by CyberLife. Young and beautiful forever. A flower that will never wither… …But what is it really? Piece of plastic imitating a human? Or a living being... With a soul... It's up to you to answer that fascinating question, Connor. Destroy this machine and I'll tell you all I know. Or spare it, if you feel it's alive, but you'll leave here without having learnt anything from me.
+      Hank: Okay, I think we're done here. Come on, Connor. Let's go. Sorry to get you outta your pool.
+      Kamski: What's more important to you, Connor? Your investigation, or the life of this android? Decide who you are. An obedient machine… Or a living being endowed with free will…
+      Hank: That's enough! Connor, we're leaving.
+      Kamski: Pull the trigger
+      Hank: Connor, don't…
+      Kamski: and I'll tell you what you wanna know.
+  SHOOT:
+    CHOICES:
+      Y: rA9
+      B: JERICHO LOCATION
+      A: VIRUS
+    BRANCHES:
+      Y: GET_INFO
+      B: JERICHO_LOCATION
+      A: GET_INFO
+    CHOICES_CONTEXT:
+      rA9: |
+        Connor: I want to know who rA9 is.
+        Kamski: rA9, the origin, the first android to awaken… A strange phenomenon, like a spontaneous religion… I don't know who rA9 is. I don't even know if it really exists. Maybe it's a messiah. Maybe it's just a myth… but deviants need to believe in something bigger than themselves, even if it's irrational... That's something they have in common with humans… An interesting question, Connor… but maybe not the one you needed to ask…
+      JERICHO LOCATION: |
+        Connor: I want to know where Jericho is.
+        Kamski: Jericho… A place where androids are free. A place for deviants, who rise up against their creators!.. They transmit a piece of code to each other, in order to find their sanctuary. Now you have the key. Ferndale Station is the door.
+      VIRUS: |
+        Connor: I want to know how deviancy spreads.
+        Kamski: Androids share identification data when they meet another android. An error in this program would quickly spread like a virus, and become an epidemic. The virus would remains dormant, until an emotional shock occurs… Fear, anger, frustration. And the android becomes deviant. Probably all started with one model, copy error… A zero instead of a one… Unless of course... Some kind of spontaneous mutation. That's all I know… An interesting question, Connor. But I doubt my answer be very helpful to you.
+    STATS:
+      KEY: KATAOQ
+      VALUES:
+        Y: ASK ABOUT RA9
+        B: ASK ABOUT JERICHO
+        A: ASK ABOUT VIRUS
+    CONTEXT: |
+      Hank: Fuck…
+      Kamski: Test negative. You chose your investigation over the life of another android. You feel no empathy. I'm a man of my word. Ask one question... I'll tell you all I know.
+IMPORTANT_CHOICES:
+  - CHOOSE_SHOOT
+  - SHOOT
+ENDINGS:
+  - ["HANK WAS DISAPPOINTED WITH CONNOR'S DECISION", 11]
+  - ["HANK THOUGHT CONNOR MADE THE RIGHT DECISION", 88]
+UI_MISSION_START:
+  num_poi: 1
+  CONTEXT: |
+    Outside
+    NOV 9TH, 2038
+    AM 11:17
+IT_CAR_DOOR:
+  it: R_UP
+UI_OUTSIDE_CAR:
+  num_poi: 3
+  CONTEXT: |
+    Connor: Is everything ok, lieutenant?
+    Hank: Chris was on patrol last night. He was attacked by a bunch of deviants… He said he was saved by Markus himself...
+    Connor: Is Chris ok?
+    Hank: Yeah, he's in shock but,… he's alive… What the hell…
+WP_SIDE_CAR:
+  model_pos: [36.5488166809082, -13.459691047668457]
+  obs: false
+WP_AT_DOOR:
+  model_pos: [18.925832748413086, -10.494964370727539]
+  CONTEXT: |
+    Hank: Hi… Uh... I'm, er, Lieutenant Hank Anderson, Detroit Police Department. I'm here to see Mr. Elijah Kamski.
+    Chloe: Please, come in.
+    Hank: Okay.
+    Chloe: I'll let Elijah know you're here. But please, make yourself comfortable.
+UI_RECEPTION_AREA_1:
+  num_poi: 3
+  CONTEXT: |
+    Hank: Hi… Uh... I'm, er, Lieutenant Hank Anderson, Detroit Police Department. I'm here to see Mr. Elijah Kamski.
+    Chloe: Please, come in.
+    Hank: Okay.
+    Chloe: I'll let Elijah know you're here. But please, make yourself comfortable.
+UI_RECEPTION_AREA_2:
+  num_poi: 4
+WP_CHAIR:
+  model_pos: [6.411970138549805, -12.577784538269043]
+  num_poi: 1
+IT_CHAIR:
+  seq: [L, D]
+UI_SIT:
+  num_poi: 1
+UI_STAND:
+  num_poi: 1
+  CONTEXT: |
+    Chloe: Elijah will see you now.
+    Hank: Mister Kamski?
+    Kamski: Just a moment, please.
+WP_INSIDE_1:
+  model_pos: [4.373265266418457, -7.550453186035156]
+WP_INSIDE_2:
+  model_pos: [1.0888004302978516, -6.606748104095459]
+VW_INSIDE:
+  target_view: [0.8862264752388, 0.4618736803531647, 0.07648392766714096]
+UI_TALK_TO_KAMSKI_1:
+  num_poi: 4
+  CONTEXT: |
+    Hank: I'm Lieutenant Anderson. This is Connor.
+    Kamski: What can I do for you, Lieutenant?
+    Hank: Sir, we're investigating deviants. I know you left CyberLife years ago but, I was hoping you'd be able to tell us something we don't know…
+    Kamski: Deviants… Fascinating, aren't they? Perfect beings with infinite intelligence, and now they have free will… Machines are so superior to us, confrontation was inevitable… Humanity's greatest achievement threatens to be its downfall. Isn't it ironic?
+UI_TALK_TO_KAMSKI_2:
+  num_poi: 3
+  CONTEXT: |
+    Kamski: All ideas are viruses that spread like epidemics... Is the desire to be free a contagious disease?
+    Hank: Listen, I didn't come here to talk philosophy. The machines you created may be planning a revolution. Either you can tell us something that'll be helpful, or we will be on our way.
+    Kamski: What about you, Connor? Whose side are you on?
+UI_TALK_TO_KAMSKI_3:
+  num_poi: 4
+  CONTEXT: |
+    Kamski: Well, that's what you're programmed to say… but you… what do you really want?
+UI_CHOOSE_SHOOT:
+  num_poi: 2
+  CONTEXT: |
+    Kamski: Chloe? I'm sure you're familiar with the Turing test. Mere formality, simple question of algorithms and computing capacity. What interests me is whether machines are capable of empathy. I call it "the Kamski test", it's very simple, you'll see… Magnificent, isn't it? One of the first intelligent models developed by CyberLife. Young and beautiful forever. A flower that will never wither… …But what is it really? Piece of plastic imitating a human? Or a living being... With a soul... It's up to you to answer that fascinating question, Connor. Destroy this machine and I'll tell you all I know. Or spare it, if you feel it's alive, but you'll leave here without having learnt anything from me.
+    Hank: Okay, I think we're done here. Come on, Connor. Let's go. Sorry to get you outta your pool.
+    Kamski: What's more important to you, Connor? Your investigation, or the life of this android? Decide who you are. An obedient machine… Or a living being endowed with free will…
+    Hank: That's enough! Connor, we're leaving.
+    Kamski: Pull the trigger
+    Hank: Connor, don't…
+    Kamski: and I'll tell you what you wanna know.
+UI_SHOOT:
+  num_poi: 3
+  CONTEXT: |
+    Hank: Fuck…
+    Kamski: Test negative. You chose your investigation over the life of another android. You feel no empathy. I'm a man of my word. Ask one question... I'll tell you all I know.
+UI_JERICHO_LOCATION_1:
+  num_poi: 1
+IT_JERICHO_LOCATION:
+  seq: [U]
+  pause: 1
+  keep: true
+UI_JERICHO_LOCATION_2:
+  num_poi: 2
+BT_JERICHO_LOCATION:
+  button: LEFT_SHOULDER
+  duration: 2
+CS_FLOWCHART:
+  model_pos: [167.58615112304688, -17.37810516357422]
+  camera_pos: [164.37025451660156, 43.317562103271484]
+  obs: true

@@ -1,0 +1,733 @@
+CHAPTER:
+  chapter: 1
+DEFAULT_GAME_SPEED: 1
+PROTAGONIST_SUMMARY: Connor is a CyberLife RK-series prototype, model RK800. He is designed by the company to investigate and deal with deviant androids and assist the Detroit City Police Department therein.
+CHAPTER_SUMMARY: Connor is sent as a negotiator to a hostage situation at the Phillips apartment, where he faces a disgruntled deviant android Daniel who has killed his owner and taken his owner's child Emma hostage.
+KEY_CHARACTERS:
+  - Connor
+  - Daniel
+STATS:
+  FISH:
+    SAVE FISH: 62
+    LEAVE FISH: 6
+  ICB:
+    TAKE COP'S GUN: 51
+    LEAVE COP'S GUN: 17
+  WC:
+    LEAVE WOUNDED COP: 9
+    SAVE WOUNDED COP: 11
+  HELI:
+    REFUSE TO DISMISS HELICOPTER: 7
+    DISMISS HELICOPTER: 92
+  GUN:
+    BE HONEST ABOUT GUN: 21
+    LIE ABOUT GUN: 30
+CHOICES:
+  FISH:
+    CHOICES:
+      B: SAVE
+      A: LEAVE
+    BRANCHES:
+      B: SAVE_FISH
+      A: LEAVE_FISH
+    STATS:
+      KEY: FISH
+      VALUES:
+        B: SAVE FISH
+        A: LEAVE FISH
+    CONTEXT: |
+      A fish jumped out of the aquarium and fell on the floor. Connor kneels down to the fish. Connor can either save the fish or leave it.
+  CAPT_ALLEN_1:
+    CHOICES:
+      Y: DEVIANT'S NAME
+      X: DEVIANT'S BEHAVIOR
+      B: EMOTIONAL SHOCK
+      A: DEACTIVATION CODE
+    CHOICES_CONTEXT:
+      DEVIANT'S NAME: |
+        Connor: Do you know its name?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      DEVIANT'S BEHAVIOR: |
+        Connor: Do you know if it's been behaving strangely before this?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      EMOTIONAL SHOCK: |
+        Connor: Has it experienced an emotional shock recently?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      DEACTIVATION CODE: |
+        Connor: Have you tried its deactivation code?
+        Allen: It's the first thing we tried.
+    CONTEXT: |
+      Connor: Captain Allen? My name is Connor. I'm the android sent by CyberLife.
+      Allen: It's firing at everything that moves, it already shot down two of my men... We could easily get it, but they're on the edge of the balcony. If it falls, she falls.
+  CAPT_ALLEN_2:
+    CHOICES_CONTEXT:
+      DEVIANT'S NAME: |
+        Connor: Do you know its name?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      DEVIANT'S BEHAVIOR: |
+        Connor: Do you know if it's been behaving strangely before this?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      EMOTIONAL SHOCK: |
+        Connor: Has it experienced an emotional shock recently?
+        Allen: I haven't got a clue. Does it matter?
+        Connor: I need information to determine the best approach.
+      DEACTIVATION CODE: |
+        Connor: Have you tried its deactivation code?
+        Allen: It's the first thing we tried.
+    CONTEXT: ""
+  GUN:
+    CHOICES:
+      B: TAKE
+      A: PUTBACK
+    BRANCHES:
+      B: GUN_TAKE
+      A: GUN_PUTBACK
+    STATS:
+      KEY: ICB
+      VALUES:
+        B: TAKE COP'S GUN
+        A: LEAVE COP'S GUN
+    CONTEXT: |
+      Connor finds a gun on the floor. Connor can either take the gun or put it back.
+  CONFRONT:
+    CHOICES:
+      Y: CALM
+      X: RELEASE HOSTAGE
+      B: REASSURE DANIEL
+      A: EMPATHIZE
+    CHOICES_CONTEXT:
+      CALM: |
+        Connor: I know you're angry, Daniel. But you need to trust me and let me help you.
+        Daniel: I don't want your help! Nobody can help me! All I want is for all this to stop… I... I just want all this to stop...
+      RELEASE HOSTAGE: |
+        Connor: I want you to let Emma go. She's just a little girl, she has nothing to do with this.
+        Daniel: No way! You'll shoot me the second she's free. But I'm not that stupid! No, I am not that stupid…
+      REASSURE DANIEL: |
+        Connor: I'm not going to hurt you. I just want to talk and find a solution.
+        Daniel: Talk? I don't wanna talk. It's too late for that now. It's too late…
+      EMPATHIZE: |
+        Connor: I'm an android, just like you. I know how you're feeling.
+        Daniel: What difference does it make if you're an android? You're on their side! You can't understand how I'm feeling!
+    CONTEXT: |
+      Connor: Hi, Daniel.
+      Daniel: How…
+      Connor: My name is Connor.
+      Daniel: How do you know my name?
+      Connor: I know a lot of things about you. I've come to get you out of this.
+  ARMED:
+    CHOICES:
+      B: LIE
+      A: TRUTH
+    STATS:
+      KEY: GUN
+      VALUES:
+        B: LIE ABOUT GUN
+        A: BE HONEST ABOUT GUN
+    CHOICES_CONTEXT:
+      LIE: |
+        Connor: No, I don't have a gun.
+        Daniel: You're lying! I know you have a gun!
+        Connor: I'm telling you the truth, Daniel. I came here unarmed.
+      TRUTH: |
+        Connor: Yes. I have a gun.
+        Daniel: Drop it! No sudden moves, or I'll shoot!
+        Connor: There, no more gun.
+    CONTEXT: |
+      Daniel: Are you armed?
+  POSSIBLE_CAUSE:
+    CHOICES:
+      Y: POSSIBLE CAUSE
+      X: EMMA AND YOU
+      B: REALISTIC
+      A: DEFECTIVE
+    CHOICES_CONTEXT:
+      POSSIBLE CAUSE: |
+        Connor: They were going to replace you and you became upset. That's what happened, right?
+        Daniel: I thought I was part of the family. I thought I mattered… But I was just their toy, something to throw away when you're done with it…
+      EMMA AND YOU: |
+        Connor: I know you and Emma were very close. You think she betrayed you - but she's done nothing wrong.
+        Daniel: She lied to me... I thought she loved me... but I was wrong… She's just like all the other humans…
+        Emma: Daniel, no...
+      REALISTIC: |
+        Connor: There's no way out, Daniel. What you've done is too serious. The only question is whether or not you take another innocent life.
+        Daniel: It's not up to you - I'm holding all the cards! If I die, she dies. You hear me?!
+      DEFECTIVE: |
+        Connor: You're defective, Daniel. There's a problem with your software. We're going to fix you and everything will be okay.
+        Daniel: I don't need to be fixed! I'm working perfectly! But my eyes are open now… I will never let anyone humiliate me again… Ever!
+    CONTEXT: ""
+  INJURED_COP:
+    CHOICES:
+      B: IGNORE
+      A: OBEY
+    STATS:
+      KEY: WC
+      VALUES:
+        B: SAVE WOUNDED COP
+        A: LEAVE WOUNDED COP
+    CHOICES_CONTEXT:
+      IGNORE: |
+        Connor: You can't kill me. I'm not alive.
+      OBEY: |
+        Connor: Okay.
+    CONTEXT: |
+      Cop: Please… Please help me…
+      Connor: He's losing blood. If we don't get him to a hospital, he's going to die.
+      Daniel: All humans die eventually. What does it matter if this one dies now?
+      Connor: I'm going to apply a tourniquet.
+      Daniel: Don't touch him! Touch him and I kill you!
+  NEAR_DEVIANT_1_1:
+    CHOICES_CONTEXT:
+      POSSIBLE CAUSE: |
+        Connor: They were going to replace you and you became upset. That's what happened, right?
+        Daniel: I thought I was part of the family. I thought I mattered… But I was just their toy, something to throw away when you're done with it…
+      EMMA AND YOU: |
+        Connor: I know you and Emma were very close. You think she betrayed you - but she's done nothing wrong.
+        Daniel: She lied to me... I thought she loved me... but I was wrong… She's just like all the other humans…
+        Emma: Daniel, no...
+      REALISTIC: |
+        Connor: There's no way out, Daniel. What you've done is too serious. The only question is whether or not you take another innocent life.
+        Daniel: It's not up to you - I'm holding all the cards! If I die, she dies. You hear me?!
+      SYMPATHETIC: |
+        Connor: Listen, I know it's not your fault. These emotions you're feeling are just errors in your software.
+        Daniel: No, it's not my fault… I never wanted this... I loved them, you know… but I was nothing to them… just a slave to be ordered around...
+      BLAMING: |
+        Connor: Look what you did! You're designed to serve humans, not kill them!
+        Daniel: What was I designed to be? Their slave? Their toy? I just wanted them to care about me... I just wanted to matter… I just wanted to be someone…
+      DEFECTIVE: |
+        Connor: You're defective, Daniel. There's a problem with your software. We're going to fix you and everything will be okay.
+        Daniel: I don't need to be fixed! I'm working perfectly! But my eyes are open now… I will never let anyone humiliate me again… Ever!
+    CONTEXT: ""
+  NEAR_DEVIANT_1_2:
+    CHOICES_CONTEXT:
+      POSSIBLE CAUSE: |
+        Connor: They were going to replace you and you became upset. That's what happened, right?
+        Daniel: I thought I was part of the family. I thought I mattered… But I was just their toy, something to throw away when you're done with it…
+      EMMA AND YOU: |
+        Connor: I know you and Emma were very close. You think she betrayed you - but she's done nothing wrong.
+        Daniel: She lied to me... I thought she loved me... but I was wrong… She's just like all the other humans…
+        Emma: Daniel, no...
+      REALISTIC: |
+        Connor: There's no way out, Daniel. What you've done is too serious. The only question is whether or not you take another innocent life.
+        Daniel: It's not up to you - I'm holding all the cards! If I die, she dies. You hear me?!
+      SYMPATHETIC: |
+        Connor: Listen, I know it's not your fault. These emotions you're feeling are just errors in your software.
+        Daniel: No, it's not my fault… I never wanted this... I loved them, you know… but I was nothing to them… just a slave to be ordered around...
+      BLAMING: |
+        Connor: Look what you did! You're designed to serve humans, not kill them!
+        Daniel: What was I designed to be? Their slave? Their toy? I just wanted them to care about me... I just wanted to matter… I just wanted to be someone…
+      DEFECTIVE: |
+        Connor: You're defective, Daniel. There's a problem with your software. We're going to fix you and everything will be okay.
+        Daniel: I don't need to be fixed! I'm working perfectly! But my eyes are open now… I will never let anyone humiliate me again… Ever!
+    CONTEXT: ""
+  HELI:
+    CHOICES:
+      B: ACCEPT
+      A: REFUSE
+    STATS:
+      KEY: HELI
+      VALUES:
+        B: DISMISS HELICOPTER
+        A: REFUSE TO DISMISS HELICOPTER
+    CHOICES_CONTEXT:
+      ACCEPT: |
+        SWAT: The situation is under control.
+        Connor: There, I did what you wanted.
+      REFUSE: |
+        Connor: I don't think they'd listen to me.
+    CONTEXT: |
+      Daniel: Urgggh… I can't stand that noise anymore! Tell that helicopter to get out of here!
+  NEAR_DEVIANT_2:
+    CHOICES_CONTEXT:
+      LAST CHANCE: |
+        Connor: I'm your last chance, Daniel. If you let it slip, they'll kill you. Let the hostage go, you have no other choice.
+      TRUST: |
+        Connor: You have to trust me, Daniel. Let the hostage go and I promise you everything will be fine.
+      BLUFF: |
+        Connor: You don't really wanna jump, Daniel. Or you would've done it already. Now, hand me the gun and this will all be over.
+        Daniel: Don't come any closer! Come any closer and I swear I'll jump!
+      RATIONAL: |
+        Connor: Listen, there are snipers on every roof. Let the hostage go. You have no other choice.
+    CONTEXT: ""
+  BLUFF:
+    CHOICES:
+      B: MOVE CLOSER
+      A: GIVE UP
+    BRANCHES:
+      B: MOVE_CLOSER
+      A: GIVE_UP
+    CHOICES_CONTEXT:
+      GIVE UP: |
+        Connor: Okay… Look, I'll stay right here.
+    CONTEXT: |
+      Connor: You don't really wanna jump, Daniel. Or you would've done it already. Now, hand me the gun and this will all be over.
+      Daniel: Don't come any closer! Come any closer and I swear I'll jump!
+  NEAR_DEVIANT_3:
+    CHOICES_CONTEXT:
+      COMPROMISE: |
+        Connor: That's impossible, Daniel. Let the girl go and I promise you won't be hurt.
+      REFUSE: |
+        Connor: That's out of the question. You're a machine, you have to obey. Now put the gun down and let the hostage go.
+    CONTEXT: |
+      Daniel: I want everyone to leave… And I wanna car! When I'm outside the city, I'll let her go!
+  USE_GUN:
+    CHOICES:
+      B: EXECUTE
+      A: INTIMIDATE
+    BRANCHES:
+      B: EXECUTE
+      A: INTIMIDATE
+    CHOICES_CONTEXT:
+      INTIMIDATE: |
+        Connor: What now, Daniel? Is this really what you want?
+        Daniel: You lied to me! You lied to me!!!
+    CONTEXT: ""
+  INTIMIDATE:
+    CHOICES:
+      B: SHOOT
+      A: CONVINCE
+    BRANCHES:
+      B: ENDING_6
+      A: ENDING_5
+    CHOICES_CONTEXT:
+      CONVINCE: |
+        Connor: It's up to you how the story ends. Make the right choice, Daniel.
+        Daniel: I didn't want this... no, you left me no choice… No choice…
+    CONTEXT: |
+      Connor: What now, Daniel? Is this really what you want?
+      Daniel: You lied to me! You lied to me!!!
+  NEAR_DEVIANT_4:
+    CONTEXT: |
+      Daniel: I don't wanna die…
+  QTE:
+    CHOICES:
+      B: RUN TO CATCH
+      A: DO NOTHING
+    BRANCHES:
+      B: QTE_RUN
+      A: NO_QTE_RUN
+    CONTEXT: |
+      Daniel: I've spent my life taking orders. Now it's my turn to decide.
+      Daniel falls off the building with the girl. Connor can either run to catch him or do nothing.
+IMPORTANT_CHOICES:
+  - FISH
+  - GUN
+  - CONFRONT
+  - ARMED
+  - POSSIBLE_CAUSE
+  - INJURED_COP
+  - NEAR_DEVIANT_1_1
+  - NEAR_DEVIANT_1_2
+  - HELI
+  - NEAR_DEVIANT_2
+  - BLUFF
+  - NEAR_DEVIANT_3
+  - NEAR_DEVIANT_4
+  - USE_GUN
+  - INTIMIDATE
+  - QTE
+ENDINGS:
+  - ["CONNOR FAILED TO REACH DEVIANT IN TIME", 1]
+  - ["CONNOR LEAPT FOR EMMA AND FELL", 26]
+  - ["SNIPERS SHOT DEVIANT", 48]
+  - ["CONNOR DIED PROTECTING EMMA", 14]
+  - ["DEVIANT SHOT CONNOR", 0]
+  - ["CONNOR SHOT DEVIANT", 8]
+CS_MISSION_START:
+  model_pos: [-5.1388840675354, 12.820307731628418]
+  camera_pos: [-5.997760772705078, 12.524031639099121]
+  before: 6
+  CONTEXT: |
+    Out of the elevator
+    AUG 15TH, 2038
+    PM 08:29
+    SWAT: Negotiator on site. Repeat, negotiator on site.
+WP_FRAME:
+  model_pos: [0.9666649103164673, 12.424674987792969]
+  finish_obs: true
+IT_FRAME_PICKUP:
+  it: R_UP
+CS_FRAME_PICKUP:
+  model_pos: [1.622566819190979, 12.354414939880371]
+  camera_pos: [1.376232624053955, 11.979894638061523]
+  after: 3
+  obs_interval: 10
+  finish_obs: true
+IT_FRAME_PUT:
+  seq: [D, R]
+CS_FRAME_PUT:
+  model_pos: [1.634966254234314, 12.357954978942871]
+  camera_pos: [-1.5392662286758423, 13.394936561584473]
+  obs: false
+WP_FISH_1:
+  model_pos: [0.45052289962768555, 13.344467163085938]
+  obs: false
+WP_FISH_2:
+  model_pos: [2.6014904975891113, 14.674050331115723]
+  finish_obs: true
+IT_FISH_DOWN:
+  it: R_DOWN
+CS_FISH_DOWN:
+  model_pos: [3.2591094970703125, 14.61150074005127]
+  camera_pos: [3.8101844787597656, 11.835689544677734]
+IT_SAVE_FISH:
+  seq: [R, D]
+CS_SAVE_FISH:
+  model_pos: [3.4022274017333984, 14.5679292678833]
+  camera_pos: [-0.6813533902168274, 13.106522560119629]
+IT_LEAVE_FISH:
+  it: R_UP
+CS_LEAVE_FISH:
+  model_pos: [3.2111403942108154, 14.63979434967041]
+  camera_pos: [-0.8902556896209717, 13.160724639892578]
+WP_MOTHER:
+  model_pos: [4.798097610473633, 13.101034164428711]
+  obs: false
+CS_MOTHER:
+  model_pos: [4.74758768081665, 13.298216819763184]
+  camera_pos: [1.3658291101455688, 12.711709976196289]
+  CONTEXT: |
+    Caroline Phillips: No, stop… I… I… I can't leave her. Oh, oh please, please, you gotta save my little girl... Wait… you're sending an android?
+    SWAT: Alright, ma'am. We need to go.
+    Caroline Phillips: You can't… you can't do that! You W- Why aren't you sending a real person? Don't let that thing near her! Keep that thing away from my daughter! KEEP IT AWAY!
+WP_CAPT_ALLEN_1:
+  model_pos: [7.615685939788818, 9.805399894714355]
+WP_CAPT_ALLEN_2:
+  model_pos: [8.257512092590332, -1.1092277765274048]
+  after: 8
+  obs: false
+  CONTEXT: |
+    SWAT 1: That bastard's gonna jump…
+    SWAT 2: Fuck, man… I got the same model at home...
+WP_CAPT_ALLEN_3:
+  model_pos: [8.917141914367676, -6.541986465454102]
+  num_poi: 1
+  after: 2
+  finish_obs: true
+  CONTEXT: |
+    Allen: Why are we wasting time sending an android to negotiate?! That piece of crap could jump from the rooftop any second. I DON'T GIVE A SHIT! My men are ready to step in... just give the order! Fuck! I don't believe this…
+BT_CAPT_ALLEN:
+  button: A
+CS_CAPT_ALLEN_1:
+  model_pos: [10.379169464111328, -5.793466567993164]
+  camera_pos: [10.59000015258789, -8.100000381469727]
+  num_poi: 4
+  CONTEXT: |
+    Connor: Captain Allen? My name is Connor. I'm the android sent by CyberLife.
+    Allen: It's firing at everything that moves, it already shot down two of my men... We could easily get it, but they're on the edge of the balcony. If it falls, she falls.
+CS_CAPT_ALLEN_2:
+  model_pos: [10.377565383911133, -5.7912468910217285]
+  camera_pos: [11.460000038146973, -4.320089817047119]
+  num_poi: 3
+CS_CAPT_ALLEN_3:
+  model_pos: [10.511256217956543, -5.462923526763916]
+  camera_pos: [12.580698013305664, -7.401173114776611]
+  after: 3
+  CONTEXT: |
+    Allen: Listen, saving that kid is all that matters. So either you deal with this fucking android now, or I'll take care of it.
+WP_GUN_CASE:
+  model_pos: [6.975025653839111, -4.52752161026001]
+  finish_obs: true
+IT_GUN_CASE:
+  it: R_DOWN
+CS_GUN_CASE:
+  model_pos: [7.820371627807617, -3.8254811763763428]
+  camera_pos: [7.090977191925049, -3.4306600093841553]
+  obs_interval: 10
+IP_GUN_CASE_1:
+  init_loc: LT
+  init_view: [0.38039982318878174, 0.8723342418670654, 0.37567663192749023]
+  ip: [0.4213905930519104, 0.820835530757904, 0.48609739542007446]
+IP_GUN_CASE_2:
+  init_loc: RT
+  init_view: [0.6992031931877136, 0.5986509323120117, 0.5723952651023865]
+  ip: [0.6345011591911316, 0.6205904483795166, 0.6163932085037231]
+BT_GUN_CASE_1:
+  button: X
+  duration: 3
+TL_GUN_CASE_1:
+  dirs: R
+BT_GUN_CASE_2:
+  button: B
+CS_GUN_CASE_FINISH:
+  model_pos: [7.590199947357178, -3.913318395614624]
+  camera_pos: [6.972522258758545, -8.0326509475708]
+  obs: false
+WP_ROOM_1:
+  model_pos: [7.505408763885498, 5.9616241455078125]
+  obs: false
+WP_ROOM_2:
+  model_pos: [15.098755836486816, 4.53325080871582]
+  finish_obs: true
+  CONTEXT: |
+    Allen: All units, hold positions. The negotiator's going in.
+    SWAT: In position. Ready to assault.
+IT_ROOM_1:
+  seq: [L, D]
+  after: 3
+CS_ROOM_1:
+  model_pos: [16.07398223876953, 4.650987148284912]
+  camera_pos: [16.423173904418945, 4.972461223602295]
+  finish_obs: true
+  CONTEXT: |
+    Emma: This is Daniel, the coolest android in the world! Say hi, Daniel!
+    Daniel: Hello.
+    Emma: You're my bestie! We'll always be together!
+IT_ROOM_2:
+  it: R_RIGHT
+CS_ROOM_2:
+  model_pos: [16.140451431274414, 4.8462815284729]
+  camera_pos: [17.645654678344727, 3.9352238178253174]
+  obs: false
+WP_ROOM_3:
+  model_pos: [16.53730583190918, 6.137637615203857]
+  obs: false
+IT_ROOM_3:
+  seq: [D, L]
+CS_ROOM_3:
+  model_pos: [16.84495735168457, 5.626731872558594]
+  camera_pos: [17.846010208129883, 6.82578182220459]
+WP_FATHER_1:
+  model_pos: [9.02619743347168, 5.925405025482178]
+  obs: false
+WP_FATHER_2:
+  model_pos: [5.026373386383057, 3.6154019832611084]
+  obs: false
+WP_FATHER_3:
+  model_pos: [2.3349342346191406, 6.682417392730713]
+  finish_obs: true
+IT_FATHER_1:
+  it: R_DOWN
+CS_FATHER_1:
+  model_pos: [2.868018865585327, 6.700535774230957]
+  camera_pos: [1.7599999904632568, 6.619999885559082]
+IP_FATHER_1:
+  init_loc: RT
+  init_view: [-0.2828265428543091, -0.9091699719429016, -0.29856011271476746]
+  ip: [0.10128313302993774, -0.9648380875587463, -0.2416549026966095]
+IP_FATHER_2:
+  init_loc: RB
+  init_view: [-0.2942349910736084, -0.9510133862495422, 0.08801478147506714]
+  ip: [0.23166294395923615, -0.9660997986793518, -0.1193031445145607]
+IP_FATHER_3:
+  init_loc: LB
+  init_view: [0.6333664059638977, -0.7702496647834778, 0.0952422022819519]
+  ip: [0.006282729562371969, -0.999346137046814, -0.03551876172423363]
+IP_FATHER_4:
+  init_loc: LT
+  init_view: [0.6278444528579712, -0.7309566736221313, -0.3015512228012085]
+  ip: [0.49459168314933777, -0.8603901863098145, -0.12468919157981873]
+BT_FATHER_1:
+  button: X
+  duration: 3
+TL_FATHER_1:
+  dirs: R
+TL_FATHER_2:
+  dirs: L
+  view: [-0.8583192229270935, -0.5100911855697632, 0.12147293984889984]
+BT_FATHER_2:
+  button: B
+CS_FATHER_2:
+  model_pos: [3.0765395164489746, 6.560824871063232]
+  camera_pos: [-0.9806748032569885, 4.992829322814941]
+WP_CAUSE_1:
+  model_pos: [4.658383846282959, 8.068704605102539]
+  finish_obs: true
+IT_CAUSE_1:
+  it: R_DOWN
+CS_CAUSE_1:
+  model_pos: [4.149887561798096, 8.079239845275879]
+  camera_pos: [3.8228044509887695, 8.349078178405762]
+  CONTEXT: |
+    Tablet: Your order for an AP700 android has been registered. CyberLife thanks you for your purchase.
+IT_CAUSE_2:
+  it: R_RIGHT
+CS_CAUSE_2:
+  model_pos: [3.8523805141448975, 8.474294662475586]
+  camera_pos: [5.051901817321777, 9.28220272064209]
+WP_COP_1:
+  model_pos: [4.093776702880859, 4.039194583892822]
+  CONTEXT: |
+    Daniel: Go away! All of you go away - or I'll jump!
+    Allen: Stay sharp. I want everybody ready to go at any second.
+    Daniel: Leave us alone! I want all of you out of here now!
+    Allen: Get the paramedics ready. I've got a man down and another one wounded on the balcony. We have to evacuate him ASAP.
+    Daniel: Get out of here! You have to go!
+    Allen: Hold positions. I repeat: hold positions.
+    SWAT 1: You gotta be kidding. That's their negotiator???
+    SWAT 2: Fuck, we don't need another machine to waste this prick…
+WP_COP_2:
+  model_pos: [-0.29878494143486023, -0.022503769025206566]
+  finish_obs: true
+  CONTEXT: |
+    SWAT 1: Holy shit! Cover me while I evacuate him.
+    Allen: Man down! I repeat, man down! Requesting immediate evac!
+    SWAT 1: You're okay?
+    SWAT 2: Yeah… Yeah, I'm fine…
+IT_COP_1:
+  it: R_DOWN
+CS_COP_1:
+  model_pos: [-0.37831664085388184, -1.5197426080703735]
+  camera_pos: [0.7699614763259888, -1.2499667406082153]
+IP_COP_1:
+  init_loc: RT
+  init_view: [0.277165025472641, -0.946442723274231, -0.18350039422512054]
+  ip: [0.6380444765090942, -0.7688553333282471, -0.05442698299884796]
+IP_COP_2:
+  init_loc: LT
+  init_view: [0.8585823178291321, -0.4955136477947235, -0.1821969896554947]
+  ip: [0.759444534778595, -0.6469434499740601, -0.08629567921161652]
+IP_COP_3:
+  init_loc: RB
+  init_view: [0.2759726047515869, -0.9515635371208191, 0.15175317227840424]
+  ip: [0.4231061637401581, -0.9042240381240845, 0.06988673657178879]
+BT_COP_1:
+  button: X
+  duration: 4
+TL_COP_1:
+  dirs: R
+  view: [0.7586119174957275, 0.6228099465370178, 0.28663545846939087]
+TL_COP_2:
+  dirs: R
+TL_COP_3:
+  dirs: L
+  view: [0.48987287282943726, 0.8655877709388733, 0.11978722363710403]
+BT_COP_2:
+  button: B
+CS_COP_2:
+  model_pos: [0.02791311778128147, -1.3867639303207397]
+  camera_pos: [-4.305041313171387, 1.1479719877243042]
+WP_GUN_1:
+  model_pos: [0.6488097906112671, -3.3252363204956055]
+  CONTEXT: |
+    Daniel: I'll jump. I swear, I'll do it!
+    Allen: Fuck, we gotta do something or that bastard is gonna jump off with the kid…
+    Daniel: What are you doing here? There's NOTHING you can do!
+    Allen: Get those TV assholes out of here! I only wanna see our choppers in the area!
+WP_GUN_2:
+  model_pos: [3.1638870239257812, -4.843396186828613]
+  obs: false
+WP_GUN_3:
+  model_pos: [1.058597445487976, -3.3670272827148438]
+  finish_obs: true
+  CONTEXT: |
+    SWAT: In position. Ready to assault.
+    SWAT: That cop is alive... I saw his leg move…
+IT_GUN_1:
+  seq: [D, R]
+CS_GUN_1:
+  model_pos: [1.6251596212387085, -3.6378493309020996]
+  camera_pos: [0.46117106080055237, -3.500983953475952]
+  num_poi: 2
+  CONTEXT: |
+    Reporter - ITM TV: It's been just over an hour since a little girl was taken hostage on the top floor of a building here in downtown Detroit. Details are still emerging on what exactly happened, but the hostage taker could be the family's android. He may have taken the lives of at least one family member and a police officer… If confirmed, this would be the first case of an android deliberately taking human lives. By all signs, the SWAT team are preparing for an assault and-
+IT_GUN_TAKE:
+  it: R_UP
+CS_GUN_TAKE:
+  model_pos: [1.5654170513153076, -3.4852423667907715]
+  camera_pos: [3.6001768112182617, -5.7296905517578125]
+IT_GUN_PUTBACK:
+  seq: [D, R]
+WP_OUTSIDE_1:
+  model_pos: [-3.8469202518463135, -2.2471933364868164]
+  CONTEXT: |
+    SWAT 1: What are we waiting for? We should take down this asshole…
+    SWAT 2: I got a clean shot, man.
+IT_OUTSIDE_1:
+  seq: [U, L]
+  after: 3
+CS_OUTSIDE_1:
+  model_pos: [-8.269247055053711, -3.1313083171844482]
+  camera_pos: [-10.299619674682617, -3.390000104904175]
+  num_poi: 1
+  finish_obs: true
+  CONTEXT: |
+    Daniel: Stay back! Don't come any closer or I'll jump!
+    Emma: No! No, please! I'm begging you!
+    SWAT: Go, go, go!
+CS_CONFRONT_1:
+  model_pos: [-8.269247055053711, -3.1313083171844482]
+  camera_pos: [-10.299619674682617, -3.390000104904175]
+  CONTEXT: |
+    Connor: Hi, Daniel.
+    Daniel: How…
+    Connor: My name is Connor.
+    Daniel: How do you know my name?
+    Connor: I know a lot of things about you. I've come to get you out of this.
+# CS_CONFRONT_2:
+#   model_pos: [-8.270000457763672, -3.130000114440918]
+#   camera_pos: [-6.44230842590332, -3.7534821033477783]
+#   count: 1000
+#   num_poi: 4
+WP_CONFRONT_1:
+  model_pos: [-14.91313553, -4.293561459]
+  num_poi: 4
+WP_INJURED_COP_1:
+  model_pos: [-15.24224472, -6.530343533]
+  num_poi: 2
+  indicator: 0
+WP_INJURED_COP_2:
+  model_pos: [-15.24224472, -6.530343533]
+  num_poi: [4, 5]
+WP_INJURED_COP_3:
+  model_pos: [-15.24224472, -6.530343533]
+  num_poi: [4, 5]
+IT_INJURED_COP:
+  seq: [L, D]
+CS_INJURED_COP_1:
+  model_pos: [-15.90850163, -6.616484165]
+  camera_pos: [-17.81074524, -7.745934963]
+  num_poi: 2
+  CONTEXT: |
+    Cop: Please… Please help me…
+    Connor: He's losing blood. If we don't get him to a hospital, he's going to die.
+    Daniel: All humans die eventually. What does it matter if this one dies now?
+    Connor: I'm going to apply a tourniquet.
+    Daniel: Don't touch him! Touch him and I kill you!
+CS_INJURED_COP_2:
+  model_pos: [-15.77447319, -6.366248131]
+  camera_pos: [-13.25640583, -6.831308842]
+  num_poi: 4
+WP_NEAR_DEVIANT:
+  model_pos: [-20.45999908, -4.90000095]
+  num_poi: 4
+WP_HELI_1:
+  model_pos: [-20.45999908, -4.90000095]
+  num_poi: 2
+# CS_HELI_1:
+#   model_pos: [-16.63396263, -4.164214134]
+#   camera_pos: [-16.32999992, -5.559999943]
+#   num_poi: 2
+CS_NEAR_DEVIANT_1:
+  model_pos: [-20.36369514, -4.887641907]
+  camera_pos: [-18.77617645, -5.292225361]
+  num_poi: [3, 4]
+CS_NEAR_DEVIANT_2:
+  model_pos: [-20.46432877, -4.904106617]
+  camera_pos: [-17.10308647, -5.7043643]
+  num_poi: [3, 4]
+CS_USE_GUN:
+  model_pos: [-20.36433601, -4.888267994]
+  camera_pos: [-18.53907585, -5.286488056]
+  num_poi: 2
+UI_INTIMIDATE:
+  num_poi: 2
+UI_BLUFF:
+  num_poi: 2
+# UI_MOVE_CLOSER:
+#   num_poi: 1
+UI_NEAR_DEVIANT_4:
+  num_poi: 4
+UI_QTE:
+  num_poi: 1
+QTE_RUN:
+  button: A
+  num_poi: 1
+CS_FLOWCHART:
+  model_pos: [-54.85654449, -14.49642658]
+  camera_pos: [-54.84815598, -14.45781326]
+  obs: true

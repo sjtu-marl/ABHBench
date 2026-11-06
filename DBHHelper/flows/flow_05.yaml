@@ -1,0 +1,681 @@
+CHAPTER: 
+  chapter: 5
+DEFAULT_GAME_SPEED: 1
+PROTAGONIST_SUMMARY: Markus is a prototype, gifted by Elijah Kamski to his friend and celebrated painter Carl Manfred after Manfred lost the use of his legs. He was initially developed as part of a CyberLife secret program aimed at elaborating a new generation of autonomous androids. Markus helps the old man in all everyday tasks but mostly provides companionship. After his accident, Manfred became a recluse and stopped painting. Markus' presence helped him gradually regain a taste for life. A special relationship slowly grew between the old man and the android. Initially only seeing Markus as a sophisticated yet stupid machine, ultimately Manfred cultivated an attachment to Markus which flourished into a \"father-son\" relationship. Unconditionally devoted to his master, Markus heeds his advice, studies literature and music, listens to the old man philosophize about the world and his warnings about the dangers it holds...
+CHAPTER_SUMMARY: Markus, an android caretaker, greets his owner, Carl, in the morning and helps him with his daily routine.
+KEY_CHARACTERS:
+  - Carl
+  - Markus
+STATS:
+  FSTD:
+    PLAY CHESS: 27
+    READ BOOK: 34
+    PLAY PIANO: 37
+  PC:
+    WIN: 7
+    LOSE: 7
+    DRAW: 12
+  RB:
+    THE REPUBLIC BY PLATO: 11
+    TRAGEDIES OF WILLIAM SHAKESPEARE: 13
+    ODES BY JOHN KEATS: 8
+  PP:
+    MELANCHOLIC: 7
+    HOPEFUL: 17
+    INTIMATE: 5
+    ENIGMATIC: 6
+  PSYS:
+    COPY CARL'S PAINTING: 25
+    COPY DESK: 35
+    COPY STATUE: 38
+  PFTH:
+    ANDROIDS: 9
+    HUMANITY: 38
+    IDENTITY: 51
+  ANDROIDS:
+    FATE: 3
+    HOPE: 2
+    PAIN: 2
+    SADNESS: 1
+  HUMANITY:
+    ANGER: 5
+    COMFORT: 3
+    EMPATHY: 5
+    HOPE: 23
+  IDENTITY:
+    ANDROIDS: 7
+    DESPAIR: 8
+    DOUBTS: 23
+    PRISONER: 11
+CHOICES:
+  FIND_SOMETHING_TO_DO:
+    CHOICES:
+      Y: PLAY CHESS
+      B: READ BOOK
+      A: PLAY PIANO
+    BRANCHES:
+      Y: PLAY_CHESS
+      B: READ_BOOK
+      A: PLAY_PIANO
+    STATS:
+      KEY: FSTD
+      VALUES:
+        Y: PLAY CHESS
+        B: READ BOOK
+        A: PLAY PIANO
+    CONTEXT: |
+      Markus: Why don't you find something to do while I finish my breakfast?
+      Carl: Sure. Okay, Carl.
+  PLAY_CHESS:
+    CHOICES:
+      Y: WIN
+      B: LOSE
+      A: DRAW
+    BRANCHES:
+      Y: PLAY_CHESS_WIN
+      B: PLAY_CHESS_LOSE
+      A: PLAY_CHESS_DRAW
+    STATS:
+      KEY: PC
+      VALUES:
+        Y: WIN
+        B: LOSE
+        A: DRAW
+    CHOICES_CONTEXT:
+      WIN: |
+        Carl: That's what I call a thorough beating… It's not easy for an old man to compete with a machine.
+      LOSE: |
+        Carl: Now, it's just a little bit too easy… Are your circuits rusty? Or are you just taking pity on an old man?
+      DRAW: |
+        Carl: That is a very odd draw…
+    CONTEXT: |
+      Carl: Fancy a game of chess?
+      Markus: Sure, yeah.
+      Carl: Speed chess.
+      Markus: Speed chess it is.
+  PLAY_CHESS_WIN:
+    CHOICES:
+      B: JUSTIFY
+      A: SORRY
+    CHOICES_CONTEXT:
+      JUSTIFY: |
+        Markus: Well, I know you don't like losing and you don't like when I let you win. So I felt I… didn't have many choices.
+        Carl: True. We humans are complicated.
+      SORRY: |
+        Markus: My apologies, Carl. I thought, I shou-
+        Carl: Don't apologize, you did the right thing. I prefer humiliation to pity.
+    CONTEXT: |
+      Carl: That's what I call a thorough beating… It's not easy for an old man to compete with a machine.
+  PLAY_CHESS_LOSE:
+    CHOICES:
+      B: LIE
+      A: TRUTH
+    CHOICES_CONTEXT:
+      LIE: |
+        Markus: Neither, Carl. You just played better!
+        Carl: Never throw a match, Markus. If you can win, win. That's what got humanity where it is today.
+      TRUTH: |
+        Markus: Well, I thought… You'd enjoy winning.
+        Carl: Never throw a match, Markus. If you can win, win. That's what got humanity where it is today.
+    CONTEXT: |
+      Carl: Now, it's just a little bit too easy… Are your circuits rusty? Or are you just taking pity on an old man?
+  PLAY_CHESS_DRAW:
+    CHOICES:
+      B: LIE
+      A: TRUTH
+    CHOICES_CONTEXT:
+      LIE: |
+        Markus: Well, maybe you just played better!
+        Carl: You don't lie as good as you play chess. We both know that I'm no match for you.
+      TRUTH: |
+        Markus: Well, I know that you don't like to lose, but you don't like it when I let you win either. A draw feels like an honorable compromise, no?
+    CONTEXT: |
+      Carl: That is a very odd draw…
+  READ_BOOK:
+    CHOICES:
+      Y: THE REPUBLIC BY PLATO
+      B: TRAGEDIES OF WILLIAM SHAKESPEARE
+      A: ODES BY JOHN KEATS
+    BRANCHES:
+      Y: READ_BOOK_THE_REPUBLIC_BY_PLATO
+      B: READ_BOOK_TRAGEDIES_OF_WILLIAM_SHAKESPEARE
+      A: READ_BOOK_ODES_BY_JOHN_KEATS
+    STATS:
+      KEY: RB
+      VALUES:
+        Y: THE REPUBLIC BY PLATO
+        B: TRAGEDIES OF WILLIAM SHAKESPEARE
+        A: ODES BY JOHN KEATS
+    CONTEXT: ""
+  PLAY_PIANO:
+    CHOICES:
+      Y: MELANCHOLIC
+      X: HOPEFUL
+      B: INTIMATE
+      A: ENIGMATIC
+    STATS:
+      KEY: PP
+      VALUES:
+        Y: MELANCHOLIC
+        X: HOPEFUL
+        B: INTIMATE
+        A: ENIGMATIC
+    CONTEXT: ""
+  WAIT_FOR_CARL:
+    CHOICES:
+      Y: LIKE
+      B: DON'T LIKE
+      A: NO OPINION
+    CHOICES_CONTEXT:
+      LIKE: |
+        Markus: Yes, there is something about it.
+        Carl: Hm…
+        Markus: Something I can't… quite define. I guess I like it.
+      DON'T LIKE: |
+        Markus: I'm not a very good judge, I… I don't think it's your best work…
+      NO OPINION: |
+        Markus: I'm not programmed to criticize art, I- You would be a much better judge than I would.
+    CONTEXT: |
+      Carl: So... What's your verdict, Markus?
+  PAINTING_COPY:
+    CHOICES:
+      Y: PAINT CARL'S PAINTING
+      X: PAINT STATUE
+      B: PAINT DESK
+    BRANCHES:
+      Y: PAINT_CARL_PAINTING
+      X: PAINT_STATUE
+      B: PAINT_DESK
+    STATS:
+      KEY: PSYS
+      VALUES:
+        Y: COPY CARL'S PAINTING
+        X: COPY STATUE
+        B: COPY DESK
+    CONTEXT: ""
+  PAINT_OWNS_WORK:
+    CHOICES:
+      Y: ANDROIDS
+      B: HUMANITY
+      A: IDENTITY
+    BRANCHES:
+      Y: PAINT_OWNS_WORK_ANDROIDS
+      B: PAINT_OWNS_WORK_HUMANITY
+      A: PAINT_OWNS_WORK_IDENTITY
+    STATS:
+      KEY: PFTH
+      VALUES:
+        Y: ANDROIDS
+        B: HUMANITY
+        A: IDENTITY
+    CONTEXT: ""
+  PAINT_OWNS_WORK_ANDROIDS:
+    CHOICES:
+      Y: FATE
+      X: HOPE
+      B: PAIN
+      A: SADNESS
+    STATS:
+      KEY: ANDROIDS
+      VALUES:
+        Y: FATE
+        X: HOPE
+        B: PAIN
+        A: SADNESS
+    CONTEXT: ""
+  PAINT_OWNS_WORK_HUMANITY:
+    CHOICES:
+      Y: ANGER
+      X: COMFORT
+      B: EMPATHY
+      A: HOPE
+    STATS:
+      KEY: HUMANITY
+      VALUES:
+        Y: ANGER
+        X: COMFORT
+        B: EMPATHY
+        A: HOPE
+    CONTEXT: ""
+  PAINT_OWNS_WORK_IDENTITY:
+    CHOICES:
+      Y: ANDROIDS
+      X: DESPAIR
+      B: DOUBTS
+      A: PRISONER
+    STATS:
+      KEY: IDENTITY
+      VALUES:
+        Y: ANDROIDS
+        X: DESPAIR
+        B: DOUBTS
+        A: PRISONER
+    CONTEXT: ""
+IMPORTANT_CHOICES: []
+ENDINGS:
+  - ["LEO INTRUDED TO ASK FOR MONEY", 100]
+CS_MISSION_START:
+  model_pos: [-29.140451431274414, 17.98101234436035]
+  camera_pos: [-26.82973861694336, 18.240558624267578]
+  CONTEXT: |
+    At Carl's house
+    NOV 5TH, 2038
+    AM 09:58
+    Alarm: Alarm deactivated. Welcome home, Markus.
+WP_DEPOSIT_PACKAGE:
+  model_pos: [-31.987239837646484, 16.59624481201172]
+  num_poi: [1, 2]
+IT_DEPOSIT_PACKAGE:
+  it: R_DOWN
+CS_DEPOSIT_PACKAGE:
+  model_pos: [-30.335155487060547, 16.81988525390625]
+  camera_pos: [-35.205875396728516, 16.41436195373535]
+WP_GO_UPSTAIRS_1:
+  model_pos: [-30.135284423828125, 22.07366371154785]
+  finish_obs: false
+WP_GO_UPSTAIRS_2:
+  model_pos: [-36.53596496582031, 22.005733489990234]
+  finish_obs: false
+WP_GO_UPSTAIRS_3:
+  model_pos: [-39.41862487792969, 17.587614059448242]
+WP_GO_UPSTAIRS_4:
+  model_pos: [-39.89283752441406, 10.494397163391113]
+  finish_obs: false
+WP_GO_UPSTAIRS_5:
+  model_pos: [-31.20216178894043, 11.748610496520996]
+  num_poi: 1
+IT_GO_UPSTAIRS:
+  seq: [U, R]
+CS_CARL_ROOM:
+  model_pos: [-31.376102447509766, 11.552339553833008]
+  camera_pos: [-38.16574478149414, 14.777924537658691]
+  CONTEXT: |
+    Markus: Good morning, Carl.
+    Carl: Good morning.
+    Markus: It's 10 AM. The weather's partly cloudy, 54°, 80% humidity, with a strong possibility of afternoon showers.
+    Carl: It sounds like a good day to spend in bed…
+    Markus: I did go to pick up the paint that you ordered.
+    Carl: Oh yes, I'd forgotten! That is the difference between you and me, right Markus? You never forget anything…
+WP_CARL_ROOM_1:
+  model_pos: [-36.414119720458984, 11.385451316833496]
+WP_CARL_ROOM_2:
+  model_pos: [-36.330406188964844, 13.780594825744629]
+  num_poi: 1
+IT_CARL_ROOM_1:
+  it: R_LEFT
+UI_CARL_ROOM_1:
+  num_poi: 1
+IT_CARL_ROOM_2:
+  seq: [R, U]
+UI_CARL_ROOM_2:
+  num_poi: 1
+  CONTEXT: |
+    Markus: Show me your arm please, Carl.
+    Carl: No!
+    Markus: Carl… Thank you.
+    Carl: I just opened my eyes and I'm already gritting my teeth… Humans are such a fragile machine… They break down so quickly… All this effort to keep 'em going…
+BT_CARL_ROOM_1:
+  button: RIGHT_SHOULDER
+  duration: 3
+UI_CARL_ROOM_3:
+  num_poi: 1
+  CONTEXT: |
+    Carl: What happened to your clothes?
+    Markus: Oh, it's nothing… Just some demonstrators in the street, Carl…
+    Carl: What a bunch of idiots… They think they can stop progress by roughing up a few androids? I hope they didn't harm you…
+    Markus: Oh, no, no... They just pushed me around, Carl. I'm fine.
+    Markus: Okay. I'll take you to the bathroom now.
+BT_CARL_ROOM_2:
+  button: LEFT_SHOULDER
+  keep: true
+UI_CARL_ROOM_4:
+  num_poi: 2
+IT_CARL_ROOM_3:
+  xy: [0, 1]
+  keep: true
+UI_CARL_ROOM_5:
+  num_poi: [1, 2]
+CS_GO_DOWNSTAIRS_1:
+  model_pos: [-32.401702880859375, 12.672168731689453]
+  camera_pos: [-31.827640533447266, 14.92121696472168]
+WP_GO_DOWNSTAIRS_1_1:
+  model_pos: [-39.37458801269531, 10.764790534973145]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_1_2:
+  model_pos: [-39.84665298461914, 17.097639083862305]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_1_3:
+  model_pos: [-37.53774642944336, 18.75495147705078]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_1_4:
+  model_pos: [-36.696319580078125, 22.333843231201172]
+CS_GO_DOWNSTAIRS_2:
+  model_pos: [-36.13233947753906, 21.523971557617188]
+  camera_pos: [-35.429176330566406, 16.159353256225586]
+  after: 10
+  CONTEXT: |
+    Carl: Anything special on the agenda today?
+    Markus: Yes, there's the opening of your retrospective at the Museum of Modern Art. The gallery director left four messages asking to confirm your attendance.
+    Carl: I haven't decided yet. We'll see about that later.
+    Markus: Okay.
+    Carl: What else?
+    Markus: Just your usual fan mail. I've already answered.
+    Carl: Any news from Leo?
+    Markus: No, Carl. I can call him if you like?
+    Carl: No. No, don't bother.
+WP_GO_DOWNSTAIRS_2_1:
+  model_pos: [-30.525053024291992, 21.604236602783203]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_2_2:
+  model_pos: [-29.623090744018555, 22.68917465209961]
+  num_poi: 1
+IT_GO_DOWNSTAIRS:
+  it: R_DOWN
+WP_GO_DOWNSTAIRS_3_1:
+  model_pos: [-30.975000381469727, 18.917919158935547]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_3_2:
+  model_pos: [-39.438446044921875, 17.896310806274414]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_3_3:
+  model_pos: [-40.75770950317383, 11.978073120117188]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_3_4:
+  model_pos: [-40.97551727294922, 10.601813316345215]
+  finish_obs: false
+WP_GO_DOWNSTAIRS_3_5:
+  model_pos: [-43.23738098144531, 9.821503639221191]
+CS_SERVE_FOOD:
+  model_pos: [-43.438926696777344, 10.230940818786621]
+  camera_pos: [-47.56497573852539, 9.787993431091309]
+  CONTEXT: |
+    Carl: I'm starving.
+    Markus: Well, your breakfast is ready. Bacon and eggs, just the way you like them.
+    Carl: Thank you, Markus.
+    Markus: You're welcome.
+WP_SERVE_FOOD_1_1:
+  model_pos: [-37.70988845825195, 10.988120079040527]
+  finish_obs: false
+WP_SERVE_FOOD_1_2:
+  model_pos: [-35.41862106323242, 13.655323028564453]
+  finish_obs: false
+WP_SERVE_FOOD_1_3:
+  model_pos: [-33.00932312011719, 13.532488822937012]
+  num_poi: 1
+IT_SERVE_FOOD_1:
+  seq: [R, U]
+UI_SERVE_FOOD_1:
+  num_poi: 1
+IT_SERVE_FOOD_2:
+  seq: [L, U]
+WP_SERVE_FOOD_2_1:
+  model_pos: [-35.41862106323242, 13.655323028564453]
+  finish_obs: false
+WP_SERVE_FOOD_2_2:
+  model_pos: [-37.70988845825195, 10.988120079040527]
+  finish_obs: false
+WP_SERVE_FOOD_2_3:
+  model_pos: [-43.105289459228516, 10.684885025024414]
+  num_poi: 1
+IT_SERVE_FOOD_3:
+  it: R_DOWN
+UI_SERVE_FOOD_2_1:
+  num_poi: 1
+UI_SERVE_FOOD_2_2:
+  num_poi: 1
+  CONTEXT: |
+    Carl: Thank you, Markus. Television.
+UI_SERVE_FOOD_2_3:
+  num_poi: 1
+IT_SERVE_FOOD_4:
+  it: R_UP
+IT_SERVE_FOOD_5:
+  seq: [R, U]
+IT_SERVE_FOOD_6:
+  it: R_RIGHT
+CS_FIND_SOMETHING_TO_DO:
+  model_pos: [-43.077877044677734, 10.719252586364746]
+  camera_pos: [-42.231597900390625, 9.233071327209473]
+  CONTEXT: |
+    Michael Brinkley - CTN TV: Tensions continue to rise in the Arctic since Russia unilaterally declared the region part of its national territory. Several Russian warships have taken position in the Barents Sea since Saturday and a Russian flag now flies over the ice field. The Russian president, repeated in a speech to the Duma that the Arctic belongs to Russia as a matter of fact. On the other hand, last night the American ambassador again informed an emergency meeting of the UN that the United States would not accept this annexation under any circumstances. Several American destroyers are reported to be headed for the Barents Sea. Douglas Cornwell, Chairman of the UN, announced at a press conference that we have never been so close to a Third World War. He called on Russia and the United States to promptly renew talks before things get out of control. And now for some sports news, the Chicago Bears last night in their game against the New York-
+    Carl: Television: off. Mankind is so depressing… Nothing but greed, stupidity and violence… 5,000 years of civilization just to get to where we are…
+WP_FIND_SOMETHING_TO_DO_1:
+  model_pos: [-41.49358367919922, 11.513808250427246]
+  finish_obs: false
+WP_FIND_SOMETHING_TO_DO_2:
+  model_pos: [-44.661983489990234, 21.22003173828125]
+WP_PLAY_CHESS_1:
+  model_pos: [-47.583778381347656, 22.325632095336914]
+WP_PLAY_CHESS_2:
+  model_pos: [-48.39726257324219, 18.77645492553711]
+  num_poi: 1
+BT_FIND_SOMETHING_TO_DO:
+  button: LEFT_SHOULDER
+  duration: 3
+UI_PLAY_CHESS_1:
+  num_poi: 1
+IT_PLAY_CHESS:
+  it: R_DOWN
+  retry: 0
+UI_PLAY_CHESS_2:
+  num_poi: 2
+UI_PLAY_CHESS_3:
+  num_poi: 3
+UI_PLAY_CHESS_OVER:
+  num_poi: 2
+UI_PLAY_CHESS_OVER_1:
+  num_poi: 1
+  CONTEXT: |
+    Carl: One day, I won't be here to take care of you anymore. You'll have to protect yourself, and make your choices… Decide who you are, and wanna become… This world doesn't like those who are different, Markus. Don't let anyone tell you who you should be. Let's go to the studio.
+IT_PLAY_CHESS_OVER_1:
+  it: R_UP
+UI_PLAY_CHESS_OVER_2:
+  num_poi: 1
+IT_PLAY_CHESS_OVER_2:
+  it: R_DOWN
+WP_PLAY_CHESS_OVER:
+  model_pos: [-47.15365982055664, 21.409954071044922]
+WP_READ_BOOK:
+  model_pos: [-40.3187255859375, 21.096214294433594]
+  num_poi: 1
+UI_READ_BOOK_1:
+  num_poi: 1
+IT_READ_BOOK_1:
+  it: R_UP
+  retry: 0
+UI_READ_BOOK_2:
+  num_poi: 4
+IT_READ_BOOK_THE_REPUBLIC_BY_PLATO:
+  it: R_RIGHT
+  retry: 0
+IT_READ_BOOK_TRAGEDIES_OF_WILLIAM_SHAKESPEARE:
+  it: R_UP
+  retry: 0
+IT_READ_BOOK_ODES_BY_JOHN_KEATS:
+  it: R_LEFT
+  retry: 0
+CS_READ_BOOK_THE_REPUBLIC_BY_PLATO:
+  model_pos: [-40.488006591796875, 21.406558990478516]
+  camera_pos: [-40.745689392089844, 16.122716903686523]
+  CONTEXT: |
+    Carl: What are you reading?
+    Markus: Plato's Republic. It's one of the books you recommended.
+    Carl: So, what do you think?
+    Markus: I quite like philosophy, I think. It asks the questions that I can't answer. What is right or what is wrong, for example. It's not something that is so easy to decide.
+    Carl: Asking questions that have no answers is part of being human, Markus.
+    Carl: One day, I won't be here to take care of you anymore. You'll have to protect yourself, and make your choices… Decide who you are, and wanna become… This world doesn't like those who are different, Markus. Don't let anyone tell you who you should be. Let's go to the studio.
+CS_READ_BOOK_TRAGEDIES_OF_WILLIAM_SHAKESPEARE:
+  model_pos: [-40.488006591796875, 21.406558990478516]
+  camera_pos: [-40.745689392089844, 16.122716903686523]
+  CONTEXT: |
+    Carl: What are you reading?
+    Markus: Uh, Macbeth! It's one of the books you recommended.
+    Carl: So, what do you think?
+    Markus: Human emotions are… intriguing… Though, I can't really say that I fully understand them.
+    Carl: Humans don't understand them either. They rule our lives and we have no idea why they make us feel like beggars or kings. Life without emotions wouldn't be worth living.
+    Carl: One day, I won't be here to take care of you anymore. You'll have to protect yourself, and make your choices… Decide who you are, and wanna become… This world doesn't like those who are different, Markus. Don't let anyone tell you who you should be. Let's go to the studio.
+CS_READ_BOOK_ODES_BY_JOHN_KEATS:
+  model_pos: [-40.488006591796875, 21.406558990478516]
+  camera_pos: [-40.745689392089844, 16.122716903686523]
+  CONTEXT: |
+    Carl: What are you reading?
+    Markus: Oh, Keats' Odes. It's one of the books you recommended.
+    Carl: So, what do you think?
+    Markus: Well, there's a lot of sadness in his poems.
+    Carl: Hm… Keats was in love... There's nothing like love to make a man feel miserable.
+    Carl: One day, I won't be here to take care of you anymore. You'll have to protect yourself, and make your choices… Decide who you are, and wanna become… This world doesn't like those who are different, Markus. Don't let anyone tell you who you should be. Let's go to the studio.
+WP_READ_BOOK_OVER:
+  model_pos: [-40.32569122314453, 19.569881439208984]
+  num_poi: 1
+IT_READ_BOOK_OVER:
+  it: R_DOWN
+WP_PLAY_PIANO:
+  model_pos: [-42.56576919555664, 24.315776824951172]
+  num_poi: 1
+UI_PLAY_PIANO_1:
+  num_poi: 1
+IT_PLAY_PIANO_1:
+  it: R_DOWN
+  retry: 0
+UI_PLAY_PIANO_2:
+  num_poi: 2
+IT_PLAY_PIANO_2:
+  seq: [D, L]
+UI_PLAY_PIANO_3:
+  num_poi: 4
+UI_PLAYING_PIANO_1:
+  num_poi: 1
+IT_PLAYING_PIANO_1:
+  it: R_UP
+  retry: 0
+BT_PLAYING_PIANO:
+  button: A
+  after: 0.1
+  duration: 0.1
+BT_PLAYING_PIANO_STOP:
+  button: B
+CS_EXIT_PLAYING_PIANO:
+  model_pos: [-42.263370513916016, 25.56698989868164]
+  camera_pos: [-41.40685272216797, 26.45828628540039]
+QTE_PLAYING_PIANO:
+  button: A
+  model_pos: [-42.263370513916016, 25.56698989868164]
+  camera_pos: [-41.40685272216797, 26.45828628540039]
+  after: 0.1
+  duration: 0.3
+UI_PLAYING_PIANO_2:
+  num_poi: 1
+  CONTEXT: |
+    Carl: Something has changed in the way you play… Sometimes I think you have more humanity than most humans…
+    Carl: One day, I won't be here to take care of you anymore. You'll have to protect yourself, and make your choices… Decide who you are, and wanna become… This world doesn't like those who are different, Markus. Don't let anyone tell you who you should be. Let's go to the studio.
+CS_PLAYING_PIANO:
+  model_pos: [-43.55636978149414, 24.75084686279297]
+  camera_pos: [-42.30131912231445, 20.732755661010742]
+WP_PLAYING_PIANO:
+  model_pos: [-43.721351623535156, 22.591693878173828]
+  num_poi: 1
+IT_PLAYING_PIANO_2:
+  it: R_DOWN
+  retry: 0
+WP_GO_TO_STUDIO_1_1:
+  model_pos: [-44.31272888183594, 22.58102798461914]
+  finish_obs: false
+WP_GO_TO_STUDIO_1_2:
+  model_pos: [-42.96849822998047, 33.51539611816406]
+CS_GO_TO_STUDIO:
+  model_pos: [-43.36271286010742, 32.47609329223633]
+  camera_pos: [-47.85702133178711, 28.726863861083984]
+  CONTEXT: |
+    Carl: Let's see where we left off… Remove the sheet!
+WP_GO_TO_STUDIO_2:
+  model_pos: [-39.853458404541016, 33.075462341308594]
+  num_poi: 1
+IT_GO_TO_STUDIO:
+  seq: [U, R]
+  after: 10
+UI_WAIT_FOR_CARL_1:
+  num_poi: 1
+BT_WAIT_FOR_CARL:
+  button: LEFT_SHOULDER
+  keep: true
+UI_WAIT_FOR_CARL_2:
+  num_poi: 3
+UI_PAINTING_COPY_1:
+  num_poi: 1
+  CONTEXT: |
+    Carl: The truth is I have nothing left to say anymore… Each day that goes by brings me closer to the end… I'm just an old man clinging to his brushes…
+    Markus: Carl...
+    Carl: But enough about me... Let's see if you have any talent! Give it a try. Try painting something.
+    Markus: Paint? But, what I... Painting what?
+    Carl: Anything you want! Give it a try.
+IT_PAINTING_COPY_1:
+  it: R_RIGHT
+  retry: 0
+UI_PAINTING_COPY_2:
+  num_poi: 1
+VW_PAINT_CARL_PAINTING:
+  target_view: [-0.7396665811538696, -0.6525396704673767, -0.24519112706184387]
+BT_PAINT_CARL_PAINTING:
+  button: Y
+VW_PAINT_STATUE:
+  target_view: [-0.8739500045776367, 0.48142704367637634, 0.14057931303977966]
+BT_PAINT_STATUE:
+  button: X
+VW_PAINT_DESK:
+  target_view: [-0.8739500045776367, 0.48142704367637634, 0.14057931303977966]
+BT_PAINT_DESK:
+  button: B
+UI_PAINTING_COPYING_1:
+  num_poi: 1
+BT_PAINTING_COPYING:
+  button: A
+IT_PAINTING_COPYING_1:
+  it: R_RIGHT
+  retry: 0
+IT_PAINTING_COPYING_2:
+  it: R_LEFT
+  retry: 0
+UI_PAINT_OWNS_WORK_1:
+  num_poi: 1
+  CONTEXT: |
+    Carl: That is a perfect copy, of reality. But painting is not about replicating the world, it's about interpreting it, improving on it, showing something you see.
+    Markus: Carl, I don't… think I can do that. It's not in my program… I…
+    Carl: Go on, go, try, grab that canvas. Do something for me, close your eyes. Close your eyes. Trust me. 
+BT_PAINT_OWNS_WORK_1:
+  button: A
+  duration: 3
+UI_PAINT_OWNS_WORK_2:
+  num_poi: 3
+  CONTEXT: |
+    Carl: Try to imagine something that doesn't exist. Something you've never seen. Now, concentrate... on how it makes you feel... and let your hand drift across the canvas.
+UI_PAINT_OWNS_WORK_3:
+  num_poi: 4
+UI_PAINTING_OWNS_WORK_1:
+  num_poi: 1
+BT_PAINTING_OWNS_WORK_1:
+  button: A
+IT_PAINTING_OWNS_WORK_1:
+  it: R_UP
+  retry: 0
+IT_PAINTING_OWNS_WORK_2:
+  it: R_DOWN
+  retry: 0
+QTE_PAINTING_OWNS_WORK:
+  button: B
+  num_poi: 1
+  obs: false
+IT_PAINTING_OWNS_WORK_3:
+  it: R_RIGHT
+  retry: 0
+IT_PAINTING_OWNS_WORK_4:
+  it: R_LEFT
+  retry: 0
+CS_PAINTING_OWNS_WORK:
+  model_pos: [-42.192813873291016, 29.80223274230957]
+  camera_pos: [-44.51321792602539, 32.96251678466797]
+  CONTEXT: |
+    Carl: Oh my God…
+CS_FLOWCHART:
+  model_pos: [0.3673758804798126, -15.32422161102295]
+  camera_pos: [-41.441104888916016, -19.788938522338867]
+  obs: true

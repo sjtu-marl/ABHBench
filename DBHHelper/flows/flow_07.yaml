@@ -1,0 +1,570 @@
+CHAPTER:
+  chapter: 7
+DEFAULT_GAME_SPEED: 1
+PROTAGONIST_SUMMARY: Kara is an AX400 model marketed in 2032 by CyberLife. The AX400 is designed to take care of the housework and look after young children. They can speak 300 different languages, cook more than 9000 dishes, help children with their homework and play with them. This model is highly popular because of its ability to get along with young children. After technical difficulties on the assembly line, which should have led to her disassembly, Kara was sent to a store where she was quickly sold for the first time. She was then resold and changed hands several times before being purchased by a certain Todd Williams. The name “Kara” is thought to have been given to her by Alice, but it is quite possible that it was Kara who first whispered this name to Alice… Having been damaged, following what Todd described as a \"stupid accident\", Kara was sent for repairs several times, where her memory was reset on each occasion...
+CHAPTER_SUMMARY:  Kara, serving dinner, witnesses Todd's volatile behavior, which quickly spirals into a dangerous situation for Alice.
+KEY_CHARACTERS:
+  - Kara
+  - Alice
+  - Todd
+STATS:
+  TGM:
+    BREAK PROGRAMMING: 97
+    KARA FAILS TO BECOME DEVIANT: 2
+  KBD:
+    REASON WITH TODD: 25
+    PROTECT ALICE: 72
+  GU:
+    TAKE GUN: 49
+    DO NOT TAKE GUN: 34
+  TWG:
+    KARA KILLS TODD: 45
+    ALICE KILLS TODD: 4
+  GTABT:
+    RUN AWAY: 13
+    LOCK ROOM: 10
+    REASON WITH TODD: 0
+  LD:
+    GRAB LAMP: 3
+    TALK TO ALICE: 0
+    OPEN WINDOW: 6
+  OW:
+    FACE TODD: 2
+    GO OUT: 5
+CHOICES:
+  WAIT_FOR_INSTRUCTION:
+    CHOICES:
+      B: MOVE
+      A: DO NOT MOVE
+    BRANCHES:
+      B: MOVE
+      A: DO_NOT_MOVE_1
+    STATS:
+      KEY: TGM
+      VALUES:
+        B: BREAK PROGRAMMING
+    CONTEXT: |
+      Todd: It's all her fault... I know it's her fault… I gotta teach her… I gotta teach her a good fucking lesson… That's what she deserves… First, I need a little hit… You stay there! Don't you dare fucking move, or I'll bust you worse than last time.
+  DO_NOT_MOVE_1:
+    CHOICES:
+      B: MOVE
+      A: DO NOT MOVE
+    BRANCHES:
+      B: MOVE
+      A: DO_NOT_MOVE_2
+    STATS:
+      KEY: TGM
+      VALUES:
+        B: BREAK PROGRAMMING
+    CONTEXT: |
+      Todd: Whore took off, without a word… I could've been happy… I coulda had a family… But NO… Did she ever give a shit about how I felt? I did everything I could to make her happy, but it just wasn't enough... I just wasn't good enough for her… Oh, that little fucking brat... It's all her fault… Yeah... I gotta teach her some respect! Yeah, I know what I gotta do… Alice! Daddy's very mad! You deserve to be taught a good lesson… A good fuckin' lesson…
+  DO_NOT_MOVE_2:
+    CHOICES:
+      B: MOVE
+      A: DO NOT MOVE
+    BRANCHES:
+      B: MOVE
+      A: ENDING_1
+    STATS:
+      KEY: TGM
+      VALUES:
+        B: BREAK PROGRAMMING
+        A: KARA FAILS TO BECOME DEVIANT
+    CONTEXT: |
+      Todd: Alice! You and I have a little score to settle. Come on, come here you little brat!
+      Alice: No, Daddy, no! Don't hurt me! Please, don't hurt me!
+      Todd: Come outta there! Don't make me come and get you! It's all your fault! It's all your fault! She left because of you! Stop wriggling! I'll teach you to respect your father! You'll soon see who's boss here! No point in tryin' to hide… I'm gonna give you a thrashin' you won't forget in a hurry.
+  MOVE:
+    CHOICES:
+      B: PROTECT
+      A: REASONING
+    BRANCHES:
+      B: GO_UPSTAIRS
+      A: REASONING
+    STATS:
+      KEY: KBD
+      VALUES:
+        B: PROTECT ALICE
+        A: REASON WITH TODD
+    CONTEXT: |
+      Todd: Whore took off, without a word… I could've been happy… I coulda had a family… But NO… Did she ever give a shit about how I felt? I did everything I could to make her happy, but it just wasn't enough... I just wasn't good enough for her… Oh, that little fucking brat... It's all her fault… Yeah... I gotta teach her some respect! Yeah, I know what I gotta do… Alice! Daddy's very mad! You deserve to be taught a good lesson… A good fuckin' lesson…
+  REASONING:
+    CHOICES:
+      Y: CALM
+      B: DETERMINED
+      A: UNDERSTANDING
+    CHOICES_CONTEXT:
+      CALM: |
+        Kara: Todd, it's not right for a father to hurt his daughter.
+      DETERMINED: |
+        Kara: You should leave her alone, Todd, she-
+        Todd: You stay out of this, or you'll be next.
+      UNDERSTANDING: |
+        Kara: Todd, please, I know you're angry, but-
+        Todd: You stay out of this, or you'll be next.
+    CONTEXT: |
+      Todd: Whore took off, without a word… I could've been happy… I coulda had a family… But NO… Did she ever give a shit about how I felt? I did everything I could to make her happy, but it just wasn't enough... I just wasn't good enough for her… Oh, that little fucking brat... It's all her fault… Yeah... I gotta teach her some respect! Yeah, I know what I gotta do… Alice! Daddy's very mad! You deserve to be taught a good lesson… A good fuckin' lesson…
+  TODD_ROOM:
+    CHOICES:
+      B: TAKE TODD'S GUN
+      A: DO NOT TAKE TODD'S GUN
+    BRANCHES:
+      B: TAKE_TODD_GUN
+      A: GO_UPSTAIRS_ALICE_ROOM
+    STATS:
+      KEY: GU
+      VALUES:
+        B: TAKE GUN
+        A: DO NOT TAKE GUN
+    CONTEXT: |
+      Todd has a gun in his room.
+  ALICE_ROOM_BEFORE_TODD:
+    CHOICES:
+      Y: RUN WITH ALICE
+      B: LOCK ROOM
+      A: SPEAK TO TODD
+    BRANCHES:
+      Y: RUN_WITH_ALICE
+      B: LOCK_ROOM
+      A: SPEAK_TO_TODD
+    STATS:
+      KEY: GTABT
+      VALUES:
+        Y: RUN AWAY
+        B: LOCK ROOM
+        A: REASON WITH TODD
+    CHOICES_CONTEXT:
+      RUN WITH ALICE: |
+        Kara: You're coming with me.
+        Todd: Daddy's very mad, Alice. Very mad!
+      LOCK ROOM: |
+        Todd: Alice! ALICE! Daddy's comin'! You need to be taught a lesson.
+        Kara: Have to find something...
+        Todd: ALICE! OPEN THIS FUCKIN' DOOR! You're gonna get a helluva thrashin', Alice! Open this door right now!
+      SPEAK TO TODD: |
+        Kara: I'll talk to him…
+        Alice: KARA!
+        Kara: Todd, please calm down, she's just a little girl. She's...
+        Todd: Hmph! She's mine, ya hear? I do what I want with her! So you stay outta this or I'll rip you to shreds!
+    CONTEXT: |
+      Alice: He's coming! He's gonna hurt me! Run! Get away or he's gonna break you like last time.
+      Todd: Alice! You deserve to be taught a good lesson…
+  LOCK_ROOM:
+    CHOICES:
+      Y: TALK TO ALICE
+      B: GRAB LAMP
+      A: OPEN WINDOW
+    BRANCHES:
+      Y: TALK_TO_ALICE
+      B: GRAB_LAMP
+      A: OPEN_WINDOW
+    STATS:
+      KEY: LD
+      VALUES:
+        Y: TALK TO ALICE
+        B: GRAB LAMP
+        A: OPEN WINDOW
+    CHOICES_CONTEXT:
+      TALK TO ALICE: |
+        Kara: I'm here, Alice. I'll protect you, everything is gonna be okay.
+        Alice: He's gonna kill me, Kara! He's gonna kill me!
+      OPEN WINDOW: |
+        Alice: No, Kara! We'll fall…
+    CONTEXT: |
+      Todd: Alice! ALICE! Daddy's comin'! You need to be taught a lesson.
+      Kara: Have to find something...
+      Todd: ALICE! OPEN THIS FUCKIN' DOOR! You're gonna get a helluva thrashin', Alice! Open this door right now!
+  TAKE_TOO_MUCH_TIME:
+    CHOICES:
+      B: ACCEPT
+      A: REFUSE
+    CHOICES_CONTEXT:
+      ACCEPT: |
+        Alice: NO!
+        Todd: I said get outta here!
+        Kara: No.
+      REFUSE: |
+        Kara: No. I won't let you hurt her.
+        Todd: You won't let me? What the fuck are you talkin' about? You're just a goddamn piece of plastic. You seem to have a problem and I'm going to fix it for good.
+    CONTEXT: |
+      Todd: The fuck are you doin' here? Get outta my way!
+  OPEN_WINDOW:
+    CHOICES:
+      B: GO OUT
+      A: SHUT WINDOW
+    BRANCHES:
+      B: GO_OUT_WINDOW
+      A: KARA_TODD_FIGHT
+    CHOICES_CONTEXT:
+      GO OUT: |
+        Kara: It's the only way. Hurry, come on!
+        Alice: KARA!
+    CONTEXT: |
+      Alice: No, Kara! We'll fall…
+  GO_OUT_WINDOW:
+    CHOICES:
+      B: JOIN ALICE
+      A: FACE TODD
+    CHOICES_CONTEXT:
+      JOIN ALICE: |
+        Todd: COME BACK HERE RIGHT NOW!
+    BRANCHES:
+      B: JOIN_ALICE
+      A: KARA_TODD_FIGHT
+    STATS:
+      KEY: OW
+      VALUES:
+        B: GO OUT
+        A: FACE TODD
+    CONTEXT: |
+      Kara: It's the only way. Hurry, come on!
+      Alice: KARA!
+  FIGHT_OVER_GUN:
+    CHOICES:
+      B: BASH
+      A: NOT BASH
+    BRANCHES:
+      B: BASH
+      A: NOT_BASH
+    STATS:
+      KEY: TWG
+      VALUES:
+        B: KARA KILLS TODD
+        A: ALICE KILLS TODD
+    CONTEXT: |
+      Todd is beating Kara. Todd is going to pick up the gun from the ground.
+IMPORTANT_CHOICES:
+  - WAIT_FOR_INSTRUCTION
+  - DO_NOT_MOVE_1
+  - DO_NOT_MOVE_2
+  - MOVE
+  - TODD_ROOM
+  - ALICE_ROOM_BEFORE_TODD
+  - LOCK_ROOM
+  - TAKE_TOO_MUCH_TIME
+  - OPEN_WINDOW
+  - GO_OUT_WINDOW
+  - FIGHT_OVER_GUN
+ENDINGS:
+  - ["TODD KILL ALICE", 2]
+  - ["KARA SHOT TODD", 45]
+  - ["ALICE SHOT TODD", 4]
+  - ["TODD BROKE KARA IN THE CORRIDOR", 0]
+  - ["KARA & ALICE FOUGHT THEIR WAY OUT", 38]
+  - ["TODD BROKE KARA OUTSIDE", 0]
+  - ["TODD BROKE KARA DOWNSTAIRS", 0]
+  - ["KARA & ALICE EVADED TODD", 7]
+CS_MISSION_START:
+  model_pos: [-8.316011428833008, 6.923861503601074]
+  camera_pos: [-9.20541000366211, 9.166878700256348]
+  CONTEXT: |
+    In Todd's House
+    NOV 5TH, 2038
+    PM 09:14
+    Kara: Todd?
+    Todd: Huh?!
+    Kara: Dinner is ready.
+    Todd: Yeah, yeah, I'm coming…
+WP_SERVE_FOOD:
+  model_pos: [-7.568725109100342, 2.884249210357666]
+  num_poi: 1
+IT_SERVE_FOOD_1:
+  it: R_UP
+WP_SERVE_FOOD_1:
+  model_pos: [-2.511322021484375, 4.629006385803223]
+WP_SERVE_FOOD_2:
+  model_pos: [-0.6949791312217712, 7.139716148376465]
+  num_poi: 1
+  CONTEXT: |
+    Kara: There wasn't much in the kitchen, I did what I could.
+IT_SERVE_FOOD_2:
+  it: R_DOWN
+WP_SERVE_FOOD_3:
+  model_pos: [0.4129107594490051, 6.3301591873168945]
+  num_poi: 1
+IT_SERVE_FOOD_3:
+  it: R_UP
+WP_SERVE_FOOD_4:
+  model_pos: [-0.4189043939113617, 7.383707523345947]
+  num_poi: 2
+  CONTEXT: |
+    Todd: Life's funny… I lost my job cause of androids… then when I need somebody to take care of this goddamn house, what do I do? I go out and hire a fucking android… What a joke! Course, androids are so fucking wonderful… They never fail, they're never tired, never sad… They're so fucking perfect, they ruined my fucking life…
+IT_SERVE_FOOD_4:
+  it: R_DOWN
+  retry: 0
+UI_POUR_WATER_1:
+  num_poi: 2
+IT_POUR_WATER_1:
+  seq: [R, D]
+  after: 5
+UI_POUR_WATER_2:
+  num_poi: 1
+IT_POUR_WATER_2:
+  seq: [L, D]
+  after: 5
+IT_SERVE_FOOD_5:
+  it: R_LEFT
+CS_SERVE_FOOD:
+  model_pos: [-0.8054513931274414, 7.264563083648682]
+  camera_pos: [-2.937098979949951, 9.006924629211426]
+UI_WAIT_FOR_INSTRUCTION:
+  num_poi: 1
+BT_WAIT_FOR_INSTRUCTION:
+  button: LEFT_SHOULDER
+  keep: true
+CS_WAIT_FOR_INSTRUCTION_1:
+  model_pos: [-0.4858298599720001, 6.802547931671143]
+  camera_pos: [-1.3290681838989258, 9.088912963867188]
+  CONTEXT: |
+    Todd: What are you looking at?... What's your fuckin' problem? Not the life you dreamed of, eh? Maybe you think this is easy? Maybe you think it's my fault we live in this fuckin' shithole, my fault your fuckin' mother took off? You should stop takin' drugs, Todd. Sometimes you really scare me, Todd. Fuckin' bitch took off without a word. Fuckin' whore walked out on me for a fuckin' accountant! It's all your fault!
+    Alice: Daddy, no…
+    Todd: It's all your fucking fault! Get back here! Come back here! Come back here right now!
+VW_WAIT_FOR_INSTRUCTION:
+  target_view: [0.9931331276893616, 0.11554068326950073, 0.06356613337993622]
+CS_WAIT_FOR_INSTRUCTION_2:
+  model_pos: [-0.8080000281333923, 6.879000186920166]
+  camera_pos: [-1.435415506362915, 8.201828956604004]
+VW_DO_NOT_MOVE_1:
+  target_view: [0.9945104122161865, 0.10283273458480835, 0.07588756084442139]
+VW_DO_NOT_MOVE_2:
+  target_view: [0.26779666543006897, 0.9601506590843201, 0.08137354254722595]
+WP_MOVE_1:
+  model_pos: [-2.511322021484375, 4.629006385803223]
+  num_poi: 1
+BT_MOVE_1:
+  button: LEFT_SHOULDER
+  keep: true
+UI_MOVE_1:
+  num_poi: 2
+BT_MOVE_2:
+  button: RIGHT_SHOULDER
+  keep: true
+UI_MOVE_2:
+  num_poi: 3
+QTE_MOVE:
+  button: A
+  num_poi: 3
+  obs_interval: 6
+CS_MOVE:
+  model_pos: [-0.9703856110572815, 7.037875652313232]
+  camera_pos: [-1.4187554121017456, 9.442808151245117]
+WP_REASONING:
+  model_pos: [-4.664286136627197, 7.030550003051758]
+  num_poi: 3
+UI_REASONING:
+  num_poi: 1
+BT_REASONING:
+  button: LEFT_SHOULDER
+  keep: true
+IT_REASONING:
+  seq: [U]
+  pause: 2
+CS_REASONING:
+  model_pos: [-5.388604164123535, 8.58745288848877]
+  camera_pos: [-7.721710681915283, 9.776159286499023]
+WP_GO_UPSTAIRS_1:
+  model_pos: [1.0058289766311646, 2.7144744396209717]
+  obs: false
+WP_GO_UPSTAIRS_2:
+  model_pos: [-4.909183979034424, 3.0316290855407715]
+  num_poi: 1
+WP_TAKE_TODD_GUN_1:
+  model_pos: [-6.783680438995361, 7.17650032043457]
+  num_poi: 1
+IT_TAKE_TODD_GUN_1:
+  it: R_UP
+  after: 2
+IT_TAKE_TODD_GUN_2:
+  it: R_DOWN
+  after: 2
+WP_TAKE_TODD_GUN_2:
+  model_pos: [-6.411685466766357, 3.569004774093628]
+  obs: false
+WP_TAKE_TODD_GUN_3:
+  model_pos: [-4.35421895980835, 2.908430576324463]
+  obs: false
+WP_GO_UPSTAIRS_3:
+  model_pos: [-4.579555988311768, 6.849735736846924]
+  obs: false
+WP_GO_UPSTAIRS_4:
+  model_pos: [-4.489621162414551, 9.561674308776855]
+  num_poi: 1
+IT_GO_UPSTAIRS:
+  seq: [U, L]
+  after: 3
+UI_KARA_TODD_FIGHT_1:
+  num_poi: 1
+  after: 0.1
+  sh_speed: 2
+IT_KARA_TODD_FIGHT_1:
+  it: R_RIGHT
+  pause: 0.1
+  after: 0.8
+  retry: 0
+IT_KARA_TODD_FIGHT_2:
+  it: R_LEFT
+  pause: 0.1
+  after: 0.8
+  retry: 0
+UI_KARA_TODD_FIGHT_2:
+  num_poi: 2
+  after: 0.1
+  sh_speed: 2
+IT_KARA_TODD_FIGHT_3:
+  it: [LEFT_SHOULDER, RIGHT_SHOULDER]
+  pause: 0.1
+  after: 0.8
+  retry: 0
+QTE_KARA_TODD_FIGHT:
+  button: A
+  num_poi: 1
+QTES_KARA_TODD_FIGHT:
+  buttons: [LEFT_SHOULDER, RIGHT_SHOULDER]
+  num_poi: 2
+IT_KARA_TODD_FIGHT_4:
+  it: B
+  after: 1
+  retry: 0
+IT_KARA_TODD_FIGHT_5:
+  it: X
+  after: 1
+  retry: 0
+IT_KARA_TODD_FIGHT_6:
+  duration: 0.2
+IT_KARA_TODD_FIGHT_7:
+  it: R_RIGHT
+  pause: 0.1
+  after: 3
+  retry: 0
+QTE_BASH:
+  button: A
+  num_poi: 1
+UI_RUN_AWAY:
+  num_poi: 2
+IT_RUN_AWAY:
+  it: B
+WP_GO_DOWNSTAIRS:
+  model_pos: [-4.594758033752441, 2.3452115058898926]
+UI_GO_DOWNSTAIRS_STUN:
+  num_poi: 2
+IT_GO_DOWNSTAIRS_STUN:
+  it: R_UP
+  pause: 0.3
+  retry: 0
+QTE_GO_DOWNSTAIRS_STUN:
+  button: A
+  num_poi: 1
+IT_GO_DOWNSTAIRS_STUN_1:
+  seq: [U, L]
+IT_GO_DOWNSTAIRS_STUN_2:
+  seq: [L, D, R, U]
+CS_GO_DOWNSTAIRS_2:
+  model_pos: [-4.594758033752441, 2.3452115058898926]
+  camera_pos: [-3.804060697555542, 1.8442140817642212]
+  num_poi: 1
+IT_GO_DOWNSTAIRS_1:
+  it: R_LEFT
+  pause: 0.3
+  after: 2
+  retry: 0
+UI_GO_DOWNSTAIRS:
+  num_poi: 1
+  after: 0.1
+IT_GO_DOWNSTAIRS_2:
+  seq: [U, L, D, R]
+  after: 2
+IT_GO_DOWNSTAIRS_3:
+  it: R_DOWN
+  pause: 0.3
+  retry: 0
+CS_OUTSIDE_STREET:
+  model_pos: [7.180441856384277, 4.315661430358887]
+  camera_pos: [7.372506618499756, 2.473910093307495]
+WP_OUTSIDE_STREET:
+  model_pos: [7.8659234046936035, 15.940338134765625]
+  threshold: 1
+UI_OUTSIDE_STREET:
+  num_poi: 1
+  sh_speed: 2
+IT_OUTSIDE_STREET:
+  it: R_RIGHT
+CS_GO_UPSTAIRS_ALICE_ROOM:
+  model_pos: [-2.601574182510376, 9.301076889038086]
+  camera_pos: [-3.242928981781006, 10.293150901794434]
+WP_ALICE_ROOM_BEFORE_TODD:
+  model_pos: [-0.4541950821876526, 6.876492977142334]
+UI_ALICE_ROOM_BEFORE_TODD:
+  num_poi: 3
+UI_RUN_WITH_ALICE_1:
+  num_poi: 1
+WP_RUN_WITH_ALICE:
+  model_pos: [-4.68783712387085, 5.102109432220459]
+  num_poi: 2
+BT_RUN_WITH_ALICE:
+  button: X
+  keep: true
+UI_RUN_WITH_ALICE_2:
+  num_poi: 2
+WP_LOCK_ROOM:
+  model_pos: [-2.820661783218384, 9.419709205627441]
+  num_poi: 1
+IT_LOCK_ROOM:
+  seq: [U, L]
+CS_LOCK_ROOM:
+  model_pos: [-0.13294745981693268, 8.682077407836914]
+  camera_pos: [-2.988346576690674, 10.62238883972168]
+WP_GRAB_LAMP:
+  model_pos: [-0.46074992418289185, 6.681094169616699]
+  num_poi: 1
+  after: 2
+  obs: false
+IT_GRAB_LAMP:
+  it: R_LEFT
+UI_TAKE_TOO_MUCH_TIME:
+  num_poi: 2
+IT_TALK_TO_ALICE:
+  it: A
+WP_OPEN_WINDOW:
+  model_pos: [1.232138991355896, 7.961745738983154]
+  num_poi: 2
+IT_OPEN_WINDOW_1:
+  lr: L
+IT_OPEN_WINDOW_2:
+  it: R_UP
+  pause: 1
+  retry: 0
+UI_GO_OUT_WINDOW:
+  num_poi: 2
+UI_JOIN_ALICE:
+  num_poi: 1
+  after: 0
+QTE_JOIN_ALICE:
+  button: A
+  num_poi: 1
+IT_JOIN_ALICE_1:
+  it: Y
+  after: 2
+IT_JOIN_ALICE_2:
+  it: R_DOWN
+CS_JOIN_ALICE:
+  model_pos: [2.0507287979125977, 13.160398483276367]
+  camera_pos: [0.9176268577575684, 11.957722663879395]
+WP_JOIN_ALICE:
+  model_pos: [8.047391891479492, 17.18678855895996]
+QTE_SPEAK_TO_TODD:
+  button: A
+  num_poi: 1
+CS_SPEAK_TO_TODD:
+  model_pos: [-4.467753887176514, 4.214629173278809]
+  camera_pos: [-4.502663612365723, 2.9545974731445312]
+CS_NO_GUN_NOT_BASH:
+  model_pos: [-2.425830125808716, 6.839511394500732]
+  camera_pos: [-3.060925006866455, 7.668265342712402]
+VW_PUSH:
+  target_view: [-0.9844115376472473, 0.17413616180419922, -0.14056026935577393]
+IT_PUSH:
+  it: X
+CS_FLOWCHART:
+  model_pos: [0.0, 0.0]
+  camera_pos: [-11.595634460449219, 21.66055679321289]
+  obs: true
