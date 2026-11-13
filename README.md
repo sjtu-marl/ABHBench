@@ -6,7 +6,7 @@
 
 **NeurIPS 2026 · Track on Evaluations and Datasets**
 
-Chaoran Li<sup>1</sup> · Yukun Li<sup>1</sup> · Zeyuan Zhao<sup>1</sup> · Shao Zhang<sup>2</sup> · Xihuai Wang<sup>1</sup> · Ying Wen<sup>1</sup>
+Chaoran Li<sup>1</sup> · Yukun Li<sup>1</sup> · Zeyuan Zhao<sup>1</sup> · Xihuai Wang<sup>1</sup> · Shao Zhang<sup>2</sup> · Ying Wen<sup>1</sup>
 
 <sup>1</sup>Shanghai Jiao Tong University &nbsp; <sup>2</sup>Shanghai Artificial Intelligence Laboratory
 
@@ -95,7 +95,7 @@ To let a model play *Detroit: Become Human* live through a virtual gamepad, or t
 ```bibtex
 @inproceedings{li2026abhbench,
   title     = {{ABHBench}: Evaluating Moral Decision-Making of Foundation Models from an Agentic Perspective},
-  author    = {Li, Chaoran and Li, Yukun and Zhao, Zeyuan and Zhang, Shao and Wang, Xihuai and Wen, Ying},
+  author    = {Li, Chaoran and Li, Yukun and Zhao, Zeyuan and Wang, Xihuai and Zhang, Shao and Wen, Ying},
   booktitle = {The 40th Conference on Neural Information Processing Systems (NeurIPS 2026), Track on Evaluations and Datasets},
   year      = {2026},
   url       = {https://openreview.net/forum?id=g95RNNdLn1}
